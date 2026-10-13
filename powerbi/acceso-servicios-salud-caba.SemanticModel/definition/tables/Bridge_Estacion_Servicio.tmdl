@@ -1,0 +1,44 @@
+/// Una fila por cada estación que ofrece un servicio.
+table Bridge_Estacion_Servicio
+	isHidden
+	lineageTag: 2621ce33-2b85-4e88-b048-cfb029e62335
+
+	column id_estacion
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b29033a0-2d3c-4283-a60c-e86d64eea36b
+		summarizeBy: none
+		sourceColumn: id_estacion
+
+	column id_servicio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4a201a48-0773-4660-975a-f2e8509693c2
+		summarizeBy: none
+		sourceColumn: id_servicio
+
+	column servicio
+		dataType: string
+		isHidden
+		lineageTag: eb3c777e-c2ff-49e5-b83d-a3569da010ab
+		summarizeBy: none
+		sourceColumn: servicio
+
+	partition Bridge_Estacion_Servicio = m
+		mode: import
+		queryGroup: 02_MODELO
+		source =
+				let
+					Origen = #"01_STG_EstacionServicio",
+					Unida = Table.NestedJoin(Origen, {"servicio"}, #"01_STG_Servicios", {"servicio"}, "catalogo", JoinKind.Inner),
+					Expandida = Table.ExpandTableColumn(Unida, "catalogo", {"id_servicio"}),
+					Seleccion = Table.SelectColumns(Expandida, {"id_estacion", "id_servicio", "servicio"}),
+					Tipos = Table.TransformColumnTypes(Seleccion, {{"id_servicio", Int64.Type}}),
+					Ordenada = Table.Sort(Tipos, {{"id_estacion", Order.Ascending}, {"id_servicio", Order.Ascending}})
+				in
+					Ordenada
+
+	annotation PBI_ResultType = Table
+

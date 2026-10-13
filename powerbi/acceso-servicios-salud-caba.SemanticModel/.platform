@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Acceso a Servicios de Salud"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d00a7f3f-1d85-4312-86cd-733caf4150c6"
+  }
+}

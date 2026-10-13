@@ -1,0 +1,39 @@
+model Model
+	culture: es-AR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-AR
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Parametros
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 00_SRC
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 01_STG
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 02_MODELO
+
+	annotation PBI_QueryGroupOrder = 3
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode","MCP-PBIModeling"]
+
+annotation PBI_QueryOrder = ["RutaProyecto","LimiteBytesServicio","00_SRC_Estaciones_CSV","00_SRC_Estaciones_GeoJSON","01_STG_Estaciones","01_STG_EstacionServicio","01_STG_Servicios","Dim_Estacion","Dim_Servicio","Bridge_Estacion_Servicio","Dim_Comuna","00_SRC_Poblacion_INDEC","00_SRC_Edad_INDEC","00_SRC_Comunas_GeoJSON","01_STG_Poblacion","01_STG_Edad","00_SRC_Acceso_Exploratorio","01_STG_Acceso"]
+
+ref table Dim_Estacion
+ref table Dim_Servicio
+ref table Bridge_Estacion_Servicio
+ref table _Medidas
+ref table Dim_Comuna
+
+ref cultureInfo es-AR
+

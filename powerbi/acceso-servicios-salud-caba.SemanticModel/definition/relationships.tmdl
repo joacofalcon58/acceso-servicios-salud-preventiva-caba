@@ -1,0 +1,12 @@
+relationship 84740a0f-cf88-428a-86d7-6f75e67cb01d
+	fromColumn: Bridge_Estacion_Servicio.id_estacion
+	toColumn: Dim_Estacion.id_estacion
+
+relationship d63f6c3e-a8c6-478f-9d04-a069f733c263
+	fromColumn: Bridge_Estacion_Servicio.id_servicio
+	toColumn: Dim_Servicio.id_servicio
+
+relationship b9bc1d61-af37-46de-994d-ab7716fc4676
+	fromColumn: Dim_Estacion.numero_comuna
+	toColumn: Dim_Comuna.id_comuna
+

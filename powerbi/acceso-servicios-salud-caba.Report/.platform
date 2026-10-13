@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Acceso a Servicios de Salud"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dffc8007-0a93-477a-9a05-a386784f7397"
+  }
+}

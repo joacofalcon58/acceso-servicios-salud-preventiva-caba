@@ -1,0 +1,39 @@
+/// Una fila por servicio distinto ofrecido en la red de Estaciones Saludables.
+table Dim_Servicio
+	lineageTag: aab42752-cd9a-4a33-afba-a9e4721635b8
+
+	column id_servicio
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: bd87dacf-8bd3-439f-9481-db3577fd15f3
+		summarizeBy: none
+		sourceColumn: id_servicio
+
+	column servicio
+		dataType: string
+		lineageTag: d815b2d3-918f-4521-8ac1-3bcdf0f6f091
+		summarizeBy: none
+		sourceColumn: servicio
+
+	/// Sin asignar hasta definir y documentar un criterio de clasificación.
+	column categoria_servicio
+		dataType: string
+		lineageTag: c789fb0e-ffe3-4373-b6d9-29375e2222f6
+		summarizeBy: none
+		sourceColumn: categoria_servicio
+
+	partition Dim_Servicio = m
+		mode: import
+		queryGroup: 02_MODELO
+		source =
+				let
+					Origen = #"01_STG_Servicios",
+					Categoria = Table.AddColumn(Origen, "categoria_servicio", each null, type nullable text),
+					Seleccion = Table.SelectColumns(Categoria, {"id_servicio", "servicio", "categoria_servicio"})
+				in
+					Seleccion
+
+	annotation PBI_ResultType = Table
+

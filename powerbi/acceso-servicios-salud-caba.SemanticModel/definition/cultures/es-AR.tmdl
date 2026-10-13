@@ -1,0 +1,6284 @@
+cultureInfo es-AR
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_estacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim estacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dim_Estacion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.id_estacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "id_estacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id estacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_estacion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.nombre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "nombre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nombre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Estación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.estructura": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "estructura"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estructura": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.direccion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "direccion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "direccion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dirección": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.barrio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "barrio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "barrio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.comuna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "comuna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "comuna": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.numero_comuna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "numero_comuna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "numero comuna": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "numero_comuna": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.latitud": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "latitud"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "latitud": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.longitud": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "longitud"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "longitud": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.cantidad_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "cantidad_servicios"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad servicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cantidad_servicios": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Cantidad de servicios": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_estacion.flag_calidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Estacion",
+			          "ConceptualProperty": "flag_calidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "flag calidad": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "flag_calidad": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim servicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dim_Servicio": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_servicio.id_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Servicio",
+			          "ConceptualProperty": "id_servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id servicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_servicio": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_servicio.servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Servicio",
+			          "ConceptualProperty": "servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "servicio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_servicio.categoria_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Servicio",
+			          "ConceptualProperty": "categoria_servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "categoria servicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "categoria_servicio": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Bridge_Estacion_Servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "bridge estacion servicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Bridge_Estacion_Servicio": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio.id_estacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Bridge_Estacion_Servicio",
+			          "ConceptualProperty": "id_estacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id estacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_estacion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential estacion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio.id_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Bridge_Estacion_Servicio",
+			          "ConceptualProperty": "id_servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id servicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_servicio": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential servicio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio.servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Bridge_Estacion_Servicio",
+			          "ConceptualProperty": "servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "servicio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_medida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.columna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Columna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "columna": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.QA_estaciones_sin_servicios_informados": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "QA Estaciones sin servicios informados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "QA estaciones sin servicios informados": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.QA_estaciones_con_posible_truncamiento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "QA Estaciones con posible truncamiento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "QA estaciones con posible truncamiento": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.QA_relaciones_huérfanas_estación": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "QA Relaciones huérfanas estación"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "QA relaciones huérfanas estación": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.QA_relaciones_huérfanas_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "QA Relaciones huérfanas servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "QA relaciones huérfanas servicio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.QA_estaciones_sin_coordenadas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "QA Estaciones sin coordenadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "QA estaciones sin coordenadas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cantidad_estaciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cantidad Estaciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad estaciones": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Estaciones": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cantidad de estaciones": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cantidad_estaciones_fijas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cantidad Estaciones Fijas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad estaciones fijas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Fijas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cantidad_estaciones_móviles": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cantidad Estaciones Móviles"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad estaciones móviles": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Móviles": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cantidad_comunas_con_estaciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cantidad Comunas con Estaciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad comunas con estaciones": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Comunas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cantidad_barrios_con_estaciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cantidad Barrios con Estaciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad barrios con estaciones": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.total_comunas_CABA": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Total Comunas CABA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total comunas CABA": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate comuna caba": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "overall comuna caba": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.comunas_con_presencia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Comunas con Presencia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "comunas con presencia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cantidad_servicios_diferentes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cantidad Servicios Diferentes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad servicios diferentes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Servicios distintos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Servicios diferentes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cantidad_relaciones_estaciónservicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cantidad Relaciones Estación-Servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad relaciones estación-servicio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cantidad relaciones estación servicio": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "Relaciones estación-servicio": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.promedio_servicios_por_estación": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Promedio Servicios por Estación"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "promedio servicios por estación": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Servicios por estación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Promedio de servicios por estación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.estaciones_con_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Estaciones con Servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estaciones con servicio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.estaciones_con_información_de_servicios": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Estaciones con Información de Servicios"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estaciones con información de servicios": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_estaciones_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura Estaciones %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura estaciones %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura estacione percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "cobertura estacione pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.total_servicios_posibles": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Total Servicios Posibles"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total servicios posibles": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate servicio posible": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "overall servicio posible": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.diversidad_servicios": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Diversidad Servicios"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "diversidad servicios": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Diversidad": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Diversidad de servicios": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.comunas_con_servicio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Comunas con Servicio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "comunas con servicio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_comunas_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura Comunas %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura comunas %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura comuna percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "cobertura comuna pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "Cobertura de comunas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.servicio_más_disponible": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Servicio más disponible"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "servicio más disponible": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.servicio_menos_disponible": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Servicio menos disponible"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "servicio menos disponible": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_territorial_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura Territorial %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura territorial %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura territorial percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "cobertura territorial pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.comunas_solo_con_estaciones_móviles": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Comunas solo con Estaciones Móviles"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "comunas solo con estaciones móviles": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.poblacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Poblacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "poblacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Población": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Población (Censo 2022)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.superficie_km2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Superficie km2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "superficie km2": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.densidad_poblacional": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Densidad Poblacional"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "densidad poblacional": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.poblacion_65_y_mas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Poblacion 65 y mas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "poblacion 65 y mas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "poblacion 65 y mom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y mammy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y momma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y mam": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y mater": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "poblacion 65 y mother": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "poblacion 65 y mum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.poblacion_65_y_mas1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "% Poblacion 65 y mas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% poblacion 65 y mas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage poblacion 65 y ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "pct poblacion 65 y ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "% poblacion 65 y mom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "% poblacion 65 y mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "% poblacion 65 y mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "% poblacion 65 y mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "% poblacion 65 y mammy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "% poblacion 65 y momma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "% poblacion 65 y mam": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "% poblacion 65 y mater": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.estaciones_cada_100_000_habitantes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Estaciones cada 100.000 habitantes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estaciones cada 100.000 habitantes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Estaciones cada 100.000": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.estaciones_fijas_cada_100_000_habitantes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Estaciones Fijas cada 100.000 habitantes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estaciones fijas cada 100.000 habitantes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.estaciones_móviles_cada_100_000_habitantes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Estaciones Móviles cada 100.000 habitantes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estaciones móviles cada 100.000 habitantes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.servicios_cada_100_000_habitantes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Servicios cada 100.000 habitantes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "servicios cada 100.000 habitantes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Servicios cada 100.000": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.habitantes_por_estación": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Habitantes por Estación"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "habitantes por estación": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.estaciones_por_km2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Estaciones por km2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estaciones por km2": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_500_m_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura 500 m %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 500 m %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura 500 m percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "cobertura 500 m pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_1000_m_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura 1000 m %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 1000 m %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura 1000 m percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "cobertura 1000 m pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "Cobertura a 1.000 m": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_2000_m_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura 2000 m %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 2000 m %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura 2000 m percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "cobertura 2000 m pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.distancia_media_a_estación": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Distancia Media a Estación"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "distancia media a estación": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "distancia television a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "distancia radio a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "distancia broadcasting a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "distancia vehicle a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "distancia mode a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "distancia method a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "distancia avenue a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "distancia agent a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "distancia organ a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "distancia mean a estación": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_1000_m_presión_arterial_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura 1000 m Presión Arterial %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 1000 m presión arterial %": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.cobertura_2000_m_glucemia_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Cobertura 2000 m Glucemia %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 2000 m glucemia %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura 2000 m glucemia percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "cobertura 2000 m glucemia pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.estaciones_cada_100_000_habitantes_red_completa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Estaciones cada 100.000 habitantes (red completa)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estaciones cada 100.000 habitantes (red completa)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "estaciones cada 100.000 habitantes": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.diversidad_servicios_red_completa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Diversidad Servicios (red completa)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "diversidad servicios (red completa)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "diversidad servicios": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.posicion_relativa_cobertura_poblacional": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Posicion Relativa Cobertura Poblacional"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posicion relativa cobertura poblacional": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.posicion_relativa_proximidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Posicion Relativa Proximidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posicion relativa proximidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.posicion_relativa_diversidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Posicion Relativa Diversidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posicion relativa diversidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.acceso_relativo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Acceso Relativo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "acceso relativo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.posicion_acceso_relativo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Posicion Acceso Relativo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posicion acceso relativo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Posición": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.grupo_de_acceso_relativo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Grupo de Acceso Relativo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "grupo de acceso relativo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Grupo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.disponibilidad_en_comuna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Disponibilidad en Comuna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "disponibilidad en comuna": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Disponible": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.color_disponibilidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Color Disponibilidad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "color disponibilidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim comuna": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Dim_Comuna": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.id_comuna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "id_comuna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id comuna": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_comuna": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification comuna": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity comuna": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier comuna": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential comuna": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.comuna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "comuna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "comuna": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.poblacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "poblacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "poblacion": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.superficie_km_2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "superficie_km2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "superficie km 2": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "superficie_km2": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.densidad_poblacional": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "densidad_poblacional"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "densidad poblacional": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "densidad_poblacional": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.poblacion_adulta_mayor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "poblacion_adulta_mayor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "poblacion adulta mayor": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "poblacion_adulta_mayor": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.poblacion_censada_edad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "poblacion_censada_edad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "poblacion censada edad": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "poblacion_censada_edad": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.superficie_poligono_km_2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "superficie_poligono_km2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "superficie poligono km 2": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "superficie_poligono_km2": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.barrio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "barrios"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "barrio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.anio_referencia_poblacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "anio_referencia_poblacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "anio referencia poblacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "anio_referencia_poblacion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.cobertura_50_0m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "cobertura_500m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 50 0m": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura_500m": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.cobertura_100_0m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "cobertura_1000m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 100 0m": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura_1000m": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.cobertura_200_0m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "cobertura_2000m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 200 0m": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura_2000m": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.distancia_media_m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "distancia_media_m"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "distancia media m": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "distancia_media_m": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.cobertura_100_0m_presion_arterial": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "cobertura_1000m_presion_arterial"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 100 0m presion arterial": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura_1000m_presion_arterial": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.cobertura_200_0m_glucemia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "cobertura_2000m_glucemia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cobertura 200 0m glucemia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cobertura_2000m_glucemia": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.comuna_corta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "comuna_corta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "comuna corta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "comuna_corta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Comuna": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.centroide_latitud": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "centroide_latitud"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Latitud": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_comuna.centroide_longitud": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Comuna",
+			          "ConceptualProperty": "centroide_longitud"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Longitud": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "dim_estacion_has_nombre": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.nombre": {
+			          "Target": {
+			            "Entity": "dim_estacion.nombre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.nombre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_nombres"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.tipo": {
+			          "Target": {
+			            "Entity": "dim_estacion.tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_tipos"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_estructura": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.estructura": {
+			          "Target": {
+			            "Entity": "dim_estacion.estructura"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.estructura"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_estructuras"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_direccion": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.direccion": {
+			          "Target": {
+			            "Entity": "dim_estacion.direccion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.direccion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_direccions"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_barrio": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.barrio": {
+			          "Target": {
+			            "Entity": "dim_estacion.barrio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.barrio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_barrios"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_latitud": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.latitud": {
+			          "Target": {
+			            "Entity": "dim_estacion.latitud"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.latitud"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_latituds"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_longitud": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.longitud": {
+			          "Target": {
+			            "Entity": "dim_estacion.longitud"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.longitud"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_longituds"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_cantidad_servicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.cantidad_servicio": {
+			          "Target": {
+			            "Entity": "dim_estacion.cantidad_servicio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.cantidad_servicio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cantidad_servicios"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_flag_calidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_estacion.flag_calidad": {
+			          "Target": {
+			            "Entity": "dim_estacion.flag_calidad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion.flag_calidad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_flag_calidads"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_servicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "dim_servicio.servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio.servicio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "dim_servicio.servicio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_servicios"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_categoria_servicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "dim_servicio.categoria_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio.categoria_servicio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "dim_servicio.categoria_servicio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_categoria_servicios"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_QA_estaciones_sin_servicios_informados": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.QA_estaciones_sin_servicios_informados": {
+			          "Target": {
+			            "Entity": "entity__medida.QA_estaciones_sin_servicios_informados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.QA_estaciones_sin_servicios_informados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_QA_estaciones_sin_servicios_informados"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_QA_estaciones_con_posible_truncamiento": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.QA_estaciones_con_posible_truncamiento": {
+			          "Target": {
+			            "Entity": "entity__medida.QA_estaciones_con_posible_truncamiento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.QA_estaciones_con_posible_truncamiento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_QA_estaciones_con_posible_truncamiento"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_QA_relaciones_huérfanas_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.QA_relaciones_huérfanas_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.QA_relaciones_huérfanas_estación"
+			          }
+			        }
+			      }
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_QA_relaciones_huérfanas_servicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.QA_relaciones_huérfanas_servicio": {
+			          "Target": {
+			            "Entity": "entity__medida.QA_relaciones_huérfanas_servicio"
+			          }
+			        }
+			      }
+			    },
+			    "dim_estacion_has_entity__medida_QA_estaciones_sin_coordenadas": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.QA_estaciones_sin_coordenadas": {
+			          "Target": {
+			            "Entity": "entity__medida.QA_estaciones_sin_coordenadas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.QA_estaciones_sin_coordenadas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_QA_estaciones_sin_coordenadas"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_cantidad_estaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones"
+			          }
+			        }
+			      }
+			    },
+			    "dim_estacion_has_entity__medida_cantidad_estaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_estaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cantidad_estaciones"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_cantidad_estaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_estaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_cantidad_estaciones"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_cantidad_estaciones_fijas": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones_fijas": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones_fijas"
+			          }
+			        }
+			      }
+			    },
+			    "dim_estacion_has_entity__medida_cantidad_estaciones_fijas": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones_fijas": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones_fijas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_estaciones_fijas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cantidad_estaciones_fijas"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_cantidad_estaciones_fijas": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones_fijas": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones_fijas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_estaciones_fijas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_cantidad_estaciones_fijas"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_cantidad_estaciones_móviles": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones_móviles": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones_móviles"
+			          }
+			        }
+			      }
+			    },
+			    "dim_estacion_has_entity__medida_cantidad_estaciones_móviles": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones_móviles": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones_móviles"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_estaciones_móviles"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cantidad_estaciones_móviles"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_cantidad_estaciones_móviles": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_estaciones_móviles": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_estaciones_móviles"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_estaciones_móviles"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_cantidad_estaciones_móviles"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_cantidad_comunas_con_estaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.cantidad_comunas_con_estaciones": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_comunas_con_estaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_comunas_con_estaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cantidad_comunas_con_estaciones"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_cantidad_barrios_con_estaciones": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.cantidad_barrios_con_estaciones": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_barrios_con_estaciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cantidad_barrios_con_estaciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cantidad_barrios_con_estaciones"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_total_comunas_CABA": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.total_comunas_CABA": {
+			          "Target": {
+			            "Entity": "entity__medida.total_comunas_CABA"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.total_comunas_CABA"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_total_comunas_CABA"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_comunas_con_presencia": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.comunas_con_presencia": {
+			          "Target": {
+			            "Entity": "entity__medida.comunas_con_presencia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.comunas_con_presencia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_comunas_con_presencia"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_comunas_con_presencia": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.comunas_con_presencia": {
+			          "Target": {
+			            "Entity": "entity__medida.comunas_con_presencia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.comunas_con_presencia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_comunas_con_presencia"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_cantidad_servicios_diferentes": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_servicios_diferentes": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_servicios_diferentes"
+			          }
+			        }
+			      }
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_cantidad_relaciones_estaciónservicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.cantidad_relaciones_estaciónservicio": {
+			          "Target": {
+			            "Entity": "entity__medida.cantidad_relaciones_estaciónservicio"
+			          }
+			        }
+			      }
+			    },
+			    "dim_estacion_has_entity__medida_promedio_servicios_por_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.promedio_servicios_por_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.promedio_servicios_por_estación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.promedio_servicios_por_estación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_promedio_servicios_por_estación"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_promedio_servicios_por_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.promedio_servicios_por_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.promedio_servicios_por_estación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.promedio_servicios_por_estación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_promedio_servicios_por_estación"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_estaciones_con_servicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_con_servicio": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_con_servicio"
+			          }
+			        }
+			      }
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_estaciones_con_información_de_servicios": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_con_información_de_servicios": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_con_información_de_servicios"
+			          }
+			        }
+			      }
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_cobertura_estaciones_": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.cobertura_estaciones_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_estaciones_"
+			          }
+			        }
+			      }
+			    },
+			    "dim_servicio_has_entity__medida_total_servicios_posibles": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.total_servicios_posibles": {
+			          "Target": {
+			            "Entity": "entity__medida.total_servicios_posibles"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.total_servicios_posibles"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_total_servicios_posibles"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_diversidad_servicios": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.diversidad_servicios": {
+			          "Target": {
+			            "Entity": "entity__medida.diversidad_servicios"
+			          }
+			        }
+			      }
+			    },
+			    "dim_servicio_has_entity__medida_diversidad_servicios": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.diversidad_servicios": {
+			          "Target": {
+			            "Entity": "entity__medida.diversidad_servicios"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.diversidad_servicios"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_diversidad_servicios"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_comunas_con_servicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.comunas_con_servicio": {
+			          "Target": {
+			            "Entity": "entity__medida.comunas_con_servicio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.comunas_con_servicio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_comunas_con_servicio"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_cobertura_comunas_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.cobertura_comunas_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_comunas_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_comunas_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_comunas_"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_cobertura_comunas_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.cobertura_comunas_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_comunas_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_comunas_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cobertura_comunas_"
+			        }
+			      ]
+			    },
+			    "entity__medida_has_servicio_más_disponible": {
+			      "Binding": {
+			        "ConceptualEntity": "_Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__medida": {
+			          "Target": {
+			            "Entity": "entity__medida"
+			          }
+			        },
+			        "entity__medida.servicio_más_disponible": {
+			          "Target": {
+			            "Entity": "entity__medida.servicio_más_disponible"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__medida"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.servicio_más_disponible"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_medidas_have_servicio_más_disponible"
+			        }
+			      ]
+			    },
+			    "entity__medida_has_servicio_menos_disponible": {
+			      "Binding": {
+			        "ConceptualEntity": "_Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__medida": {
+			          "Target": {
+			            "Entity": "entity__medida"
+			          }
+			        },
+			        "entity__medida.servicio_menos_disponible": {
+			          "Target": {
+			            "Entity": "entity__medida.servicio_menos_disponible"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__medida"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.servicio_menos_disponible"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_medidas_have_servicio_menos_disponible"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_cobertura_territorial_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.cobertura_territorial_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_territorial_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_territorial_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_territorial_"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_cobertura_territorial_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.cobertura_territorial_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_territorial_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_territorial_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_cobertura_territorial_"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_comunas_solo_con_estaciones_móviles": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.comunas_solo_con_estaciones_móviles": {
+			          "Target": {
+			            "Entity": "entity__medida.comunas_solo_con_estaciones_móviles"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.comunas_solo_con_estaciones_móviles"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_comunas_solo_con_estaciones_móviles"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_poblacion": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.poblacion": {
+			          "Target": {
+			            "Entity": "entity__medida.poblacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.poblacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_poblacion"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_superficie_km2": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.superficie_km2": {
+			          "Target": {
+			            "Entity": "entity__medida.superficie_km2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.superficie_km2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_superficie_km2"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_densidad_poblacional": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.densidad_poblacional": {
+			          "Target": {
+			            "Entity": "entity__medida.densidad_poblacional"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.densidad_poblacional"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_densidad_poblacional"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_poblacion_65_y_mas": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.poblacion_65_y_mas": {
+			          "Target": {
+			            "Entity": "entity__medida.poblacion_65_y_mas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.poblacion_65_y_mas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_poblacion_65_y_mas"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_poblacion_65_y_mas1": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.poblacion_65_y_mas1": {
+			          "Target": {
+			            "Entity": "entity__medida.poblacion_65_y_mas1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.poblacion_65_y_mas1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have__poblacion_65_y_mas"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_estaciones_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_estaciones_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_estaciones_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_estaciones_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_estaciones_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_estaciones_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_estaciones_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_estaciones_fijas_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_fijas_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_fijas_cada_100_000_habitantes"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_estaciones_fijas_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.estaciones_fijas_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_fijas_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_fijas_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_estaciones_fijas_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_estaciones_fijas_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.estaciones_fijas_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_fijas_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_fijas_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_estaciones_fijas_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_estaciones_fijas_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_fijas_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_fijas_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_fijas_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_estaciones_fijas_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_estaciones_móviles_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_móviles_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_móviles_cada_100_000_habitantes"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_estaciones_móviles_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.estaciones_móviles_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_móviles_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_móviles_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_estaciones_móviles_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_estaciones_móviles_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.estaciones_móviles_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_móviles_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_móviles_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_estaciones_móviles_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_estaciones_móviles_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_móviles_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_móviles_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_móviles_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_estaciones_móviles_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_servicios_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.servicios_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.servicios_cada_100_000_habitantes"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_servicios_cada_100_000_habitantes": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.servicios_cada_100_000_habitantes": {
+			          "Target": {
+			            "Entity": "entity__medida.servicios_cada_100_000_habitantes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.servicios_cada_100_000_habitantes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_servicios_cada_100_000_habitantes"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_habitantes_por_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.habitantes_por_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.habitantes_por_estación"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_habitantes_por_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.habitantes_por_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.habitantes_por_estación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.habitantes_por_estación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_habitantes_por_estación"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_habitantes_por_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.habitantes_por_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.habitantes_por_estación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.habitantes_por_estación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_habitantes_por_estación"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_habitantes_por_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.habitantes_por_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.habitantes_por_estación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.habitantes_por_estación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_habitantes_por_estación"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_estaciones_por_km2": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_por_km2": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_por_km2"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_estaciones_por_km2": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.estaciones_por_km2": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_por_km2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_por_km2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_estaciones_por_km2"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_estaciones_por_km2": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.estaciones_por_km2": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_por_km2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_por_km2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_estaciones_por_km2"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_estaciones_por_km2": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_por_km2": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_por_km2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_por_km2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_estaciones_por_km2"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_cobertura_500_m_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.cobertura_500_m_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_500_m_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_500_m_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_500_m_"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_cobertura_1000_m_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.cobertura_1000_m_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_1000_m_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_1000_m_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_1000_m_"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_cobertura_2000_m_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.cobertura_2000_m_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_2000_m_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_2000_m_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_2000_m_"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_distancia_media_a_estación": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.distancia_media_a_estación": {
+			          "Target": {
+			            "Entity": "entity__medida.distancia_media_a_estación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.distancia_media_a_estación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_distancia_media_a_estación"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_cobertura_1000_m_presión_arterial_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.cobertura_1000_m_presión_arterial_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_1000_m_presión_arterial_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_1000_m_presión_arterial_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_1000_m_presión_arterial_"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_cobertura_2000_m_glucemia_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.cobertura_2000_m_glucemia_": {
+			          "Target": {
+			            "Entity": "entity__medida.cobertura_2000_m_glucemia_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.cobertura_2000_m_glucemia_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_2000_m_glucemia_"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_estaciones_cada_100_000_habitantes_red_completa": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes_red_completa": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes_red_completa"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_estaciones_cada_100_000_habitantes_red_completa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes_red_completa": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes_red_completa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_cada_100_000_habitantes_red_completa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_estaciones_cada_100_000_habitantes_red_completa"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_estaciones_cada_100_000_habitantes_red_completa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes_red_completa": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes_red_completa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_cada_100_000_habitantes_red_completa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_estaciones_cada_100_000_habitantes_red_completa"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_estaciones_cada_100_000_habitantes_red_completa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.estaciones_cada_100_000_habitantes_red_completa": {
+			          "Target": {
+			            "Entity": "entity__medida.estaciones_cada_100_000_habitantes_red_completa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.estaciones_cada_100_000_habitantes_red_completa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_estaciones_cada_100_000_habitantes_red_completa"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_diversidad_servicios_red_completa": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.diversidad_servicios_red_completa": {
+			          "Target": {
+			            "Entity": "entity__medida.diversidad_servicios_red_completa"
+			          }
+			        }
+			      }
+			    },
+			    "dim_servicio_has_entity__medida_diversidad_servicios_red_completa": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.diversidad_servicios_red_completa": {
+			          "Target": {
+			            "Entity": "entity__medida.diversidad_servicios_red_completa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.diversidad_servicios_red_completa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_diversidad_servicios_red_completa"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_posicion_relativa_cobertura_poblacional": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_cobertura_poblacional": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_cobertura_poblacional"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_posicion_relativa_cobertura_poblacional": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_cobertura_poblacional": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_cobertura_poblacional"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.posicion_relativa_cobertura_poblacional"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_posicion_relativa_cobertura_poblacional"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_entity__medida_posicion_relativa_cobertura_poblacional": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_cobertura_poblacional": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_cobertura_poblacional"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.posicion_relativa_cobertura_poblacional"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_posicion_relativa_cobertura_poblacional"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_posicion_relativa_cobertura_poblacional": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_cobertura_poblacional": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_cobertura_poblacional"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.posicion_relativa_cobertura_poblacional"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_posicion_relativa_cobertura_poblacional"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_entity__medida_posicion_relativa_proximidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_proximidad": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_proximidad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.posicion_relativa_proximidad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_posicion_relativa_proximidad"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_posicion_relativa_diversidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_diversidad": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_diversidad"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_entity__medida_posicion_relativa_diversidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_diversidad": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_diversidad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.posicion_relativa_diversidad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_posicion_relativa_diversidad"
+			        }
+			      ]
+			    },
+			    "dim_servicio_has_entity__medida_posicion_relativa_diversidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        },
+			        "entity__medida.posicion_relativa_diversidad": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_relativa_diversidad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_servicio"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.posicion_relativa_diversidad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_servicios_have_posicion_relativa_diversidad"
+			        }
+			      ]
+			    },
+			    "entity__medida_has_acceso_relativo": {
+			      "Binding": {
+			        "ConceptualEntity": "_Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__medida": {
+			          "Target": {
+			            "Entity": "entity__medida"
+			          }
+			        },
+			        "entity__medida.acceso_relativo": {
+			          "Target": {
+			            "Entity": "entity__medida.acceso_relativo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__medida"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.acceso_relativo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_medidas_have_acceso_relativo"
+			        }
+			      ]
+			    },
+			    "entity__medida_has_posicion_acceso_relativo": {
+			      "Binding": {
+			        "ConceptualEntity": "_Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__medida": {
+			          "Target": {
+			            "Entity": "entity__medida"
+			          }
+			        },
+			        "entity__medida.posicion_acceso_relativo": {
+			          "Target": {
+			            "Entity": "entity__medida.posicion_acceso_relativo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__medida"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.posicion_acceso_relativo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_medidas_have_posicion_acceso_relativo"
+			        }
+			      ]
+			    },
+			    "entity__medida_has_grupo_de_acceso_relativo": {
+			      "Binding": {
+			        "ConceptualEntity": "_Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__medida": {
+			          "Target": {
+			            "Entity": "entity__medida"
+			          }
+			        },
+			        "entity__medida.grupo_de_acceso_relativo": {
+			          "Target": {
+			            "Entity": "entity__medida.grupo_de_acceso_relativo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__medida"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.grupo_de_acceso_relativo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_medidas_have_grupo_de_acceso_relativo"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_disponibilidad_en_comuna": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.disponibilidad_en_comuna": {
+			          "Target": {
+			            "Entity": "entity__medida.disponibilidad_en_comuna"
+			          }
+			        }
+			      }
+			    },
+			    "bridge_estacion_servicio_has_entity__medida_color_disponibilidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "entity__medida.color_disponibilidad": {
+			          "Target": {
+			            "Entity": "entity__medida.color_disponibilidad"
+			          }
+			        }
+			      }
+			    },
+			    "dim_comuna_has_comuna": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna.comuna"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.comuna"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_comunas"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_poblacion": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.poblacion": {
+			          "Target": {
+			            "Entity": "dim_comuna.poblacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.poblacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_poblacions"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_superficie_km_2": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.superficie_km_2": {
+			          "Target": {
+			            "Entity": "dim_comuna.superficie_km_2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.superficie_km_2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_superficie_km_2"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_densidad_poblacional": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.densidad_poblacional": {
+			          "Target": {
+			            "Entity": "dim_comuna.densidad_poblacional"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.densidad_poblacional"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_densidad_poblacionals"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_poblacion_adulta_mayor": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.poblacion_adulta_mayor": {
+			          "Target": {
+			            "Entity": "dim_comuna.poblacion_adulta_mayor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.poblacion_adulta_mayor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_poblacion_adulta_mayors"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_poblacion_censada_edad": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.poblacion_censada_edad": {
+			          "Target": {
+			            "Entity": "dim_comuna.poblacion_censada_edad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.poblacion_censada_edad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_poblacion_censada_edads"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_superficie_poligono_km_2": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.superficie_poligono_km_2": {
+			          "Target": {
+			            "Entity": "dim_comuna.superficie_poligono_km_2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.superficie_poligono_km_2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_superficie_poligono_km_2"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_barrio": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.barrio": {
+			          "Target": {
+			            "Entity": "dim_comuna.barrio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.barrio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_barrios"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_anio_referencia_poblacion": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.anio_referencia_poblacion": {
+			          "Target": {
+			            "Entity": "dim_comuna.anio_referencia_poblacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.anio_referencia_poblacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_anio_referencia_poblacions"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_cobertura_50_0m": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.cobertura_50_0m": {
+			          "Target": {
+			            "Entity": "dim_comuna.cobertura_50_0m"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.cobertura_50_0m"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_50_0ms"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_cobertura_100_0m": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.cobertura_100_0m": {
+			          "Target": {
+			            "Entity": "dim_comuna.cobertura_100_0m"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.cobertura_100_0m"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_100_0ms"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_cobertura_200_0m": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.cobertura_200_0m": {
+			          "Target": {
+			            "Entity": "dim_comuna.cobertura_200_0m"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.cobertura_200_0m"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_200_0ms"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_distancia_media_m": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.distancia_media_m": {
+			          "Target": {
+			            "Entity": "dim_comuna.distancia_media_m"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.distancia_media_m"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_distancia_media_m"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_cobertura_100_0m_presion_arterial": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.cobertura_100_0m_presion_arterial": {
+			          "Target": {
+			            "Entity": "dim_comuna.cobertura_100_0m_presion_arterial"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.cobertura_100_0m_presion_arterial"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_100_0m_presion_arterials"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_cobertura_200_0m_glucemia": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.cobertura_200_0m_glucemia": {
+			          "Target": {
+			            "Entity": "dim_comuna.cobertura_200_0m_glucemia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.cobertura_200_0m_glucemia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_cobertura_200_0m_glucemias"
+			        }
+			      ]
+			    },
+			    "dim_comuna_has_comuna_corta": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Comuna"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        },
+			        "dim_comuna.comuna_corta": {
+			          "Target": {
+			            "Entity": "dim_comuna.comuna_corta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna.comuna_corta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_comuna_cortas"
+			        }
+			      ]
+			    },
+			    "dim_estacion_has_dim_comuna": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Estacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        },
+			        "dim_comuna": {
+			          "Target": {
+			            "Entity": "dim_comuna"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_estacion"
+			            },
+			            "Object": {
+			              "Role": "dim_comuna"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_estacions_have_dim_comunas"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_comuna"
+			            },
+			            "Object": {
+			              "Role": "dim_estacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_comunas_have_dim_estacions"
+			        }
+			      ]
+			    },
+			    "bridge_estacion_servicio_has_dim_estacion": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "dim_estacion": {
+			          "Target": {
+			            "Entity": "dim_estacion"
+			          }
+			        }
+			      }
+			    },
+			    "bridge_estacion_servicio_has_dim_servicio": {
+			      "Binding": {
+			        "ConceptualEntity": "Bridge_Estacion_Servicio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "bridge_estacion_servicio": {
+			          "Target": {
+			            "Entity": "bridge_estacion_servicio"
+			          }
+			        },
+			        "dim_servicio": {
+			          "Target": {
+			            "Entity": "dim_servicio"
+			          }
+			        }
+			      }
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

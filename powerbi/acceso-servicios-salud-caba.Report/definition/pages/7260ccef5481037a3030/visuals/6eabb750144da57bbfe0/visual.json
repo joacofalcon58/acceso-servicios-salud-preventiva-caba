@@ -1,0 +1,417 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "6eabb750144da57bbfe0",
+  "position": {
+    "x": 360,
+    "y": 268,
+    "z": 6000,
+    "height": 768,
+    "width": 900,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "esriVisual",
+    "query": {
+      "queryState": {
+        "Color": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estacion"
+                    }
+                  },
+                  "Property": "tipo"
+                }
+              },
+              "queryRef": "Dim_Estacion.tipo",
+              "nativeQueryRef": "tipo",
+              "displayName": "Tipo"
+            }
+          ]
+        },
+        "Latitude": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estacion"
+                    }
+                  },
+                  "Property": "latitud"
+                }
+              },
+              "queryRef": "Dim_Estacion.latitud",
+              "nativeQueryRef": "latitud",
+              "displayName": "Latitud"
+            }
+          ]
+        },
+        "Longitude": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estacion"
+                    }
+                  },
+                  "Property": "longitud"
+                }
+              },
+              "queryRef": "Dim_Estacion.longitud",
+              "nativeQueryRef": "longitud",
+              "displayName": "Longitud"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Cantidad Estaciones"
+                }
+              },
+              "queryRef": "_Medidas.Cantidad Estaciones",
+              "nativeQueryRef": "Cantidad Estaciones",
+              "displayName": "Cantidad de estaciones"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estacion"
+                    }
+                  },
+                  "Property": "nombre"
+                }
+              },
+              "queryRef": "Dim_Estacion.nombre",
+              "nativeQueryRef": "nombre",
+              "displayName": "Estación"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estacion"
+                    }
+                  },
+                  "Property": "estructura"
+                }
+              },
+              "queryRef": "Dim_Estacion.estructura",
+              "nativeQueryRef": "estructura",
+              "displayName": "Estructura"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estacion"
+                    }
+                  },
+                  "Property": "direccion"
+                }
+              },
+              "queryRef": "Dim_Estacion.direccion",
+              "nativeQueryRef": "direccion",
+              "displayName": "Dirección"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Comuna"
+                    }
+                  },
+                  "Property": "comuna"
+                }
+              },
+              "queryRef": "Dim_Comuna.comuna",
+              "nativeQueryRef": "comuna",
+              "displayName": "Comuna"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Estacion"
+                    }
+                  },
+                  "Property": "cantidad_servicios"
+                }
+              },
+              "queryRef": "Dim_Estacion.cantidad_servicios",
+              "nativeQueryRef": "cantidad_servicios",
+              "displayName": "Cantidad de servicios"
+            }
+          ]
+        }
+      },
+      "options": {
+        "allowOverlappingPointsSample": true
+      }
+    },
+    "objects": {
+      "mapControls": [
+        {
+          "properties": {}
+        }
+      ],
+      "mapTools": [
+        {
+          "properties": {
+            "basemaps": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "share": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "mapObject": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"portalUrl\":\"https://www.arcgis.com\",\"version\":\"2.4\",\"isAuthorNamedUser\":false,\"map\":{\"webmap\":{\"is3d\":false,\"itemData\":{\"operationalLayers\":[{\"id\":\"MyLayer\",\"visibility\":true,\"opacity\":1,\"minScale\":0,\"maxScale\":0,\"refreshInterval\":0,\"title\":\"Coordenadas\",\"objectIdField\":\"objectId\",\"type\":\"DataLayer\",\"layerType\":\"ArcGISFeatureLayer\",\"popupEnabled\":true,\"disablePopup\":false,\"visible\":true,\"geometryType\":\"point\",\"source\":[{\"attributes\":{},\"geometry\":{\"x\":0,\"y\":0,\"type\":\"point\",\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100}}}],\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100},\"esriMaps\":{\"isTimeEnabled\":\"false\",\"clusterInfo\":null,\"lastShareInfo\":null},\"timeInfo\":null,\"showLabels\":true,\"featureCollection\":{\"layers\":[{\"popupInfo\":{\"popupElements\":[{\"type\":\"fields\",\"fieldInfos\":[{\"fieldName\":\"Dim_Estacion_tipo\",\"isEditable\":true,\"label\":\"Tipo\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"expression/Dim_Estacion_latitud\",\"isEditable\":true,\"label\":\"Latitud\",\"visible\":true},{\"fieldName\":\"expression/Dim_Estacion_longitud\",\"isEditable\":true,\"label\":\"Longitud\",\"visible\":true},{\"fieldName\":\"expression/_Medidas_Cantidad_20Estaciones\",\"isEditable\":true,\"label\":\"Cantidad de estaciones\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_nombre\",\"isEditable\":true,\"label\":\"Estación\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_estructura\",\"isEditable\":true,\"label\":\"Estructura\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_direccion\",\"isEditable\":true,\"label\":\"Dirección\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Comuna_comuna\",\"isEditable\":true,\"label\":\"Comuna\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"expression/Dim_Estacion_cantidad_servicios\",\"isEditable\":true,\"label\":\"Cantidad de servicios\",\"visible\":true},{\"fieldName\":\"ROW_ID\",\"format\":{\"digitSeparator\":true,\"places\":0},\"isEditable\":true,\"label\":\"ROW_ID\",\"tooltip\":\"\",\"visible\":true}]}],\"expressionInfos\":[{\"name\":\"Dim_Estacion_latitud\",\"title\":\"Latitud\",\"expression\":\"// PowerBI number format: #,0.00\\n\\nif (IsEmpty($feature[\\\"Dim_Estacion_latitud\\\"]))\\n{\\n  return $feature[\\\"Dim_Estacion_latitud\\\"] \\n}\\nText($feature[\\\"Dim_Estacion_latitud\\\"], \\\"#,###.00\\\")\"},{\"name\":\"Dim_Estacion_longitud\",\"title\":\"Longitud\",\"expression\":\"// PowerBI number format: #,0.00\\n\\nif (IsEmpty($feature[\\\"Dim_Estacion_longitud\\\"]))\\n{\\n  return $feature[\\\"Dim_Estacion_longitud\\\"] \\n}\\nText($feature[\\\"Dim_Estacion_longitud\\\"], \\\"#,###.00\\\")\"},{\"name\":\"_Medidas_Cantidad_20Estaciones\",\"title\":\"Cantidad de estaciones\",\"expression\":\"// PowerBI number format: 0\\n\\nif (IsEmpty($feature[\\\"_Medidas_Cantidad_20Estaciones\\\"]))\\n{\\n  return $feature[\\\"_Medidas_Cantidad_20Estaciones\\\"] \\n}\\nIIF(Text($feature[\\\"_Medidas_Cantidad_20Estaciones\\\"], \\\"#\\\") == \\\"0\\\" || Text($feature[\\\"_Medidas_Cantidad_20Estaciones\\\"], \\\"#\\\") == \\\"-0\\\", \\\"\\\", Text($feature[\\\"_Medidas_Cantidad_20Estaciones\\\"], \\\"#\\\"))\"},{\"name\":\"Dim_Estacion_cantidad_servicios\",\"title\":\"Cantidad de servicios\",\"expression\":\"// PowerBI number format: 0\\n\\nif (IsEmpty($feature[\\\"Dim_Estacion_cantidad_servicios\\\"]))\\n{\\n  return $feature[\\\"Dim_Estacion_cantidad_servicios\\\"] \\n}\\nIIF(Text($feature[\\\"Dim_Estacion_cantidad_servicios\\\"], \\\"#\\\") == \\\"0\\\" || Text($feature[\\\"Dim_Estacion_cantidad_servicios\\\"], \\\"#\\\") == \\\"-0\\\", \\\"\\\", Text($feature[\\\"Dim_Estacion_cantidad_servicios\\\"], \\\"#\\\"))\"}],\"fieldInfos\":[{\"fieldName\":\"Dim_Estacion_tipo\",\"isEditable\":true,\"label\":\"Tipo\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_latitud\",\"format\":{\"digitSeparator\":true,\"places\":2},\"isEditable\":true,\"label\":\"Latitud\",\"tooltip\":\"\",\"visible\":false},{\"fieldName\":\"expression/Dim_Estacion_latitud\",\"isEditable\":true,\"label\":\"Latitud\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_longitud\",\"format\":{\"digitSeparator\":true,\"places\":2},\"isEditable\":true,\"label\":\"Longitud\",\"tooltip\":\"\",\"visible\":false},{\"fieldName\":\"expression/Dim_Estacion_longitud\",\"isEditable\":true,\"label\":\"Longitud\",\"visible\":true},{\"fieldName\":\"_Medidas_Cantidad_20Estaciones\",\"format\":{\"digitSeparator\":true,\"places\":0},\"isEditable\":true,\"label\":\"Cantidad de estaciones\",\"tooltip\":\"\",\"visible\":false},{\"fieldName\":\"expression/_Medidas_Cantidad_20Estaciones\",\"isEditable\":true,\"label\":\"Cantidad de estaciones\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_nombre\",\"isEditable\":true,\"label\":\"Estación\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_estructura\",\"isEditable\":true,\"label\":\"Estructura\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_direccion\",\"isEditable\":true,\"label\":\"Dirección\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Comuna_comuna\",\"isEditable\":true,\"label\":\"Comuna\",\"tooltip\":\"\",\"visible\":true},{\"fieldName\":\"Dim_Estacion_cantidad_servicios\",\"format\":{\"digitSeparator\":true,\"places\":0},\"isEditable\":true,\"label\":\"Cantidad de servicios\",\"tooltip\":\"\",\"visible\":false},{\"fieldName\":\"expression/Dim_Estacion_cantidad_servicios\",\"isEditable\":true,\"label\":\"Cantidad de servicios\",\"visible\":true},{\"fieldName\":\"ROW_ID\",\"format\":{\"digitSeparator\":true,\"places\":0},\"isEditable\":true,\"label\":\"ROW_ID\",\"tooltip\":\"\",\"visible\":true}],\"title\":\"\",\"actions\":[]},\"layerDefinition\":{\"objectIdField\":\"objectId\",\"fields\":[{\"alias\":\"objectId\",\"editable\":false,\"name\":\"objectId\",\"nullable\":false,\"type\":\"esriFieldTypeOID\"},{\"alias\":\"Tipo\",\"editable\":true,\"length\":-1,\"name\":\"Dim_Estacion_tipo\",\"nullable\":true,\"type\":\"esriFieldTypeString\"},{\"alias\":\"Latitud\",\"editable\":true,\"name\":\"Dim_Estacion_latitud\",\"nullable\":true,\"type\":\"esriFieldTypeDouble\"},{\"alias\":\"Longitud\",\"editable\":true,\"name\":\"Dim_Estacion_longitud\",\"nullable\":true,\"type\":\"esriFieldTypeDouble\"},{\"alias\":\"Cantidad de estaciones\",\"editable\":true,\"name\":\"_Medidas_Cantidad_20Estaciones\",\"nullable\":true,\"type\":\"esriFieldTypeInteger\"},{\"alias\":\"Estación\",\"editable\":true,\"length\":-1,\"name\":\"Dim_Estacion_nombre\",\"nullable\":true,\"type\":\"esriFieldTypeString\"},{\"alias\":\"Estructura\",\"editable\":true,\"length\":-1,\"name\":\"Dim_Estacion_estructura\",\"nullable\":true,\"type\":\"esriFieldTypeString\"},{\"alias\":\"Dirección\",\"editable\":true,\"length\":-1,\"name\":\"Dim_Estacion_direccion\",\"nullable\":true,\"type\":\"esriFieldTypeString\"},{\"alias\":\"Comuna\",\"editable\":true,\"length\":-1,\"name\":\"Dim_Comuna_comuna\",\"nullable\":true,\"type\":\"esriFieldTypeString\"},{\"alias\":\"Cantidad de servicios\",\"editable\":true,\"name\":\"Dim_Estacion_cantidad_servicios\",\"nullable\":true,\"type\":\"esriFieldTypeInteger\"},{\"alias\":\"ROW_ID\",\"editable\":true,\"name\":\"ROW_ID\",\"nullable\":true,\"type\":\"esriFieldTypeInteger\"}],\"geometryType\":\"point\",\"drawingInfo\":{\"renderer\":{\"authoringInfo\":{},\"type\":\"uniqueValue\",\"field1\":\"Dim_Estacion_tipo\",\"legendOptions\":{\"title\":\"Tipo de estación\"},\"defaultLabel\":\"Otro\",\"defaultSymbol\":{\"type\":\"esriSMS\",\"color\":[170,170,170,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":6,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[153,153,153,64],\"width\":0.75,\"style\":\"esriSLSSolid\"}},\"uniqueValueGroups\":[{\"classes\":[{\"description\":\"\",\"label\":\"Fija\",\"symbol\":{\"type\":\"esriSMS\",\"color\":[10,42,60,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":11,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,255],\"width\":1.5,\"style\":\"esriSLSSolid\"}},\"values\":[[\"Fija\"]]},{\"description\":\"\",\"label\":\"Móvil\",\"symbol\":{\"type\":\"esriSMS\",\"color\":[47,143,138,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":11,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,255],\"width\":1.5,\"style\":\"esriSLSSolid\"}},\"values\":[[\"Móvil\"]]}]}],\"uniqueValueInfos\":[{\"description\":\"\",\"label\":\"Fija\",\"symbol\":{\"type\":\"esriSMS\",\"color\":[10,42,60,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":11,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,255],\"width\":1.5,\"style\":\"esriSLSSolid\"}},\"value\":\"Fija\"},{\"description\":\"\",\"label\":\"Móvil\",\"symbol\":{\"type\":\"esriSMS\",\"color\":[47,143,138,255],\"angle\":0,\"xoffset\":0,\"yoffset\":0,\"size\":11,\"style\":\"esriSMSCircle\",\"outline\":{\"type\":\"esriSLS\",\"color\":[255,255,255,255],\"width\":1.5,\"style\":\"esriSLSSolid\"}},\"value\":\"Móvil\"}]},\"transparency\":0},\"featureReduction\":null,\"locationProvider\":{\"type\":\"coordinates\",\"lookupFields\":[{\"lookupField\":\"xFieldName\",\"outField\":\"Dim_Estacion_longitud\"},{\"lookupField\":\"yFieldName\",\"outField\":\"Dim_Estacion_latitud\"}],\"sourceSR\":4326,\"targetSR\":3857},\"minScale\":0,\"maxScale\":0,\"definitionExpression\":null,\"templates\":[{\"name\":\"New Feature\",\"description\":\"\",\"prototype\":{\"attributes\":{\"Dim_Estacion_tipo\":null,\"Dim_Estacion_latitud\":null,\"Dim_Estacion_longitud\":null,\"_Medidas_Cantidad_20Estaciones\":null,\"Dim_Estacion_nombre\":null,\"Dim_Estacion_estructura\":null,\"Dim_Estacion_direccion\":null,\"Dim_Comuna_comuna\":null,\"Dim_Estacion_cantidad_servicios\":null,\"ROW_ID\":null}}}],\"elevationInfo\":null,\"name\":\"Coordenadas\",\"type\":\"DataLayer\",\"queryParameters\":{\"tableId\":\"\"}},\"featureSet\":{\"features\":[{\"attributes\":{},\"geometry\":{\"x\":0,\"y\":0,\"type\":\"point\",\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100}}}]}}]}}],\"tables\":[],\"baseMap\":{\"baseMapLayers\":[{\"id\":\"VectorTile_1970\",\"opacity\":1,\"title\":\"Light Gray Base\",\"visibility\":true,\"layerType\":\"VectorTileLayer\",\"styleUrl\":\"https://cdn.arcgis.com/sharing/rest/content/items/291da5eab3a0412593b66d384379f89f/resources/styles/root.json\"},{\"id\":\"VectorTile_7117\",\"opacity\":1,\"title\":\"Light Gray Reference\",\"visibility\":true,\"layerType\":\"VectorTileLayer\",\"styleUrl\":\"https://cdn.arcgis.com/sharing/rest/content/items/1768e8369a214dfab4e2167d5c5f2454/resources/styles/root.json\",\"isReference\":true}],\"title\":\"Light Gray Canvas\"},\"version\":\"2.26\",\"authoringApp\":\"ArcGIS for Power BI\",\"authoringAppVersion\":\"2026.2.992\",\"bookmarks\":[],\"initialState\":{\"viewpoint\":{\"targetGeometry\":{\"spatialReference\":{\"latestWkid\":3857,\"wkid\":102100},\"xmin\":-6514908.142532606,\"ymin\":-4114179.9970218954,\"xmax\":-6498359.525908887,\"ymax\":-4101185.702213433}}}}},\"webmapExtensions\":{\"format\":2}},\"embedCheckPassed\":true}'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Mapa de la Ciudad de Buenos Aires con las 25 Estaciones Saludables. Azul: estaciones fijas. Naranja: estaciones móviles. Cada punto muestra nombre, tipo, estructura, dirección, barrio, comuna y cantidad de servicios.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Estaciones Saludables según tipo'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A2A3C'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DCEFF4'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "465f69b02023f355f559",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Estacion"
+                  }
+                },
+                "Property": "longitud"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "1718c59092da596cb273",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Estacion"
+                  }
+                },
+                "Property": "latitud"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ]
+  }
+}

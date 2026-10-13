@@ -1,0 +1,347 @@
+/// Carpeta raíz del repositorio en el equipo local. Es el único valor que hay que cambiar al clonar el proyecto.
+expression RutaProyecto = "C:\RUTA\AL\REPOSITORIO" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 1193d418-e810-41c0-8024-0dabc78448bf
+	queryGroup: Parametros
+
+	annotation PBI_ResultType = Text
+
+/// Límite en bytes de un campo de texto en formato Shapefile. Un campo servicio que alcanza este largo se marca como posible truncamiento.
+expression LimiteBytesServicio = 254 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 7b7ba05b-6ab4-4876-8c0b-10e0f3ede5a6
+	queryGroup: Parametros
+
+	annotation PBI_ResultType = Number
+
+/// Lectura cruda del CSV de Estaciones Saludables (UTF-8 con BOM). Sin transformaciones.
+expression 00_SRC_Estaciones_CSV =
+		let
+			Origen = Csv.Document(
+				File.Contents(RutaProyecto & "\data\raw\estaciones_saludables.csv"),
+				[Delimiter = ",", Columns = 9, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+			),
+			Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true])
+		in
+			Encabezados
+	lineageTag: e076142e-15aa-4f0b-aa3e-5475e389a621
+	queryGroup: 00_SRC
+
+	annotation PBI_ResultType = Table
+
+/// Lectura del GeoJSON. Solo se usa para obtener las coordenadas: coordinates{0} es longitud y coordinates{1} es latitud (CRS84).
+expression 00_SRC_Estaciones_GeoJSON =
+		let
+			Origen = Json.Document(File.Contents(RutaProyecto & "\data\raw\estaciones_saludables.geo.json"), 65001),
+			Features = Origen[features],
+			Registros = List.Transform(
+				Features,
+				each [
+					id_estacion = Int64.From(_[properties][id]),
+					longitud = Number.From(_[geometry][coordinates]{0}),
+					latitud = Number.From(_[geometry][coordinates]{1})
+				]
+			),
+			Tabla = Table.FromRecords(Registros, type table [id_estacion = Int64.Type, longitud = number, latitud = number])
+		in
+			Tabla
+	lineageTag: 51dfe4fc-c2bb-4a2d-8dd1-586ef1342fdd
+	queryGroup: 00_SRC
+
+	annotation PBI_ResultType = Table
+
+/// Estaciones limpias, una fila por estación: atributos del CSV, coordenadas del GeoJSON, número de comuna y flag de calidad del campo servicio.
+expression 01_STG_Estaciones =
+		let
+			Origen = #"00_SRC_Estaciones_CSV",
+			Columnas = Table.SelectColumns(
+				Origen,
+				{"id", "nombre", "tipo", "estructura", "servicio", "direccion", "barrio", "comuna"}
+			),
+			// Quita espacios sobrantes y caracteres de control. Un texto vacío pasa a null.
+			LimpiarTexto = (t as nullable text) as nullable text =>
+				let
+					Limpio = if t = null then null else Text.Trim(Text.Clean(t))
+				in
+					if Limpio = "" then null else Limpio,
+			Limpia = Table.TransformColumns(
+				Columnas,
+				List.Transform(
+					{"nombre", "tipo", "estructura", "servicio", "direccion", "barrio", "comuna"},
+					each {_, LimpiarTexto, type nullable text}
+				)
+			),
+			Tipos = Table.TransformColumnTypes(Limpia, {{"id", Int64.Type}}, "en-US"),
+			Renombrada = Table.RenameColumns(Tipos, {{"id", "id_estacion"}}),
+			NumeroComuna = Table.AddColumn(
+				Renombrada,
+				"numero_comuna",
+				each Int64.From(Text.AfterDelimiter([comuna], " ", {0, RelativePosition.FromEnd})),
+				Int64.Type
+			),
+			// SERVICIO_NULL: la fuente no informa servicios. No significa que la estación no los ofrezca.
+			// POSIBLE_TRUNCAMIENTO: el campo alcanza el largo máximo y la lista puede estar incompleta.
+			FlagCalidad = Table.AddColumn(
+				NumeroComuna,
+				"flag_calidad",
+				each
+					if [servicio] = null then
+						"SERVICIO_NULL"
+					else if Binary.Length(Text.ToBinary([servicio], TextEncoding.Utf8)) >= LimiteBytesServicio then
+						"POSIBLE_TRUNCAMIENTO"
+					else
+						"OK",
+				type text
+			),
+			Unida = Table.NestedJoin(
+				FlagCalidad,
+				{"id_estacion"},
+				#"00_SRC_Estaciones_GeoJSON",
+				{"id_estacion"},
+				"geo",
+				JoinKind.LeftOuter
+			),
+			Coordenadas = Table.ExpandTableColumn(Unida, "geo", {"latitud", "longitud"}),
+			TiposCoordenadas = Table.TransformColumnTypes(Coordenadas, {{"latitud", type number}, {"longitud", type number}}),
+			Ordenada = Table.Sort(TiposCoordenadas, {{"id_estacion", Order.Ascending}})
+		in
+			Ordenada
+	lineageTag: 69179ac0-6c59-4821-85c2-f1bb2944095f
+	queryGroup: 01_STG
+
+	annotation PBI_ResultType = Table
+
+/// Relación estación-servicio en formato largo: una fila por cada servicio que ofrece una estación. Excluye estaciones sin servicio informado y fragmentos truncados.
+expression 01_STG_EstacionServicio =
+		let
+			Origen = Table.SelectColumns(#"01_STG_Estaciones", {"id_estacion", "servicio", "flag_calidad"}),
+			ConServicio = Table.SelectRows(Origen, each [servicio] <> null),
+			Lista = Table.AddColumn(
+				ConServicio,
+				"lista",
+				each List.Select(List.Transform(Text.Split([servicio], " - "), Text.Trim), each _ <> "")
+			),
+			// Servicios confirmados: todos los elementos, salvo el último de cada estación con posible truncamiento.
+			Confirmados = List.Buffer(
+				List.Distinct(
+					List.Combine(
+						Table.AddColumn(
+							Lista,
+							"confirmados",
+							each if [flag_calidad] = "POSIBLE_TRUNCAMIENTO" then List.RemoveLastN([lista], 1) else [lista]
+						)[confirmados]
+					)
+				)
+			),
+			// En una estación truncada, el último elemento se conserva solo si coincide con un servicio confirmado.
+			// Si no coincide se considera un fragmento cortado y se descarta. No se completa el texto.
+			Validos = Table.AddColumn(
+				Lista,
+				"servicios",
+				each
+					if [flag_calidad] = "POSIBLE_TRUNCAMIENTO" and not List.Contains(Confirmados, List.Last([lista])) then
+						List.RemoveLastN([lista], 1)
+					else
+						[lista]
+			),
+			Seleccion = Table.SelectColumns(Validos, {"id_estacion", "servicios"}),
+			Expandida = Table.ExpandListColumn(Seleccion, "servicios"),
+			Renombrada = Table.RenameColumns(Expandida, {{"servicios", "servicio"}}),
+			Tipos = Table.TransformColumnTypes(Renombrada, {{"servicio", type text}}),
+			SinDuplicados = Table.Distinct(Tipos)
+		in
+			SinDuplicados
+	lineageTag: b6fb4f14-bdc4-4011-bea4-96a6ac41e49e
+	queryGroup: 01_STG
+
+	annotation PBI_ResultType = Table
+
+/// Catálogo de servicios distintos con su identificador. El id se asigna por orden alfabético.
+expression 01_STG_Servicios =
+		let
+			Origen = Table.Distinct(Table.SelectColumns(#"01_STG_EstacionServicio", {"servicio"})),
+			Ordenada = Table.Buffer(Table.Sort(Origen, {{"servicio", Order.Ascending}})),
+			Indice = Table.AddIndexColumn(Ordenada, "id_servicio", 1, 1, Int64.Type)
+		in
+			Indice
+	lineageTag: c998478a-b543-48fe-b255-b42c3bf78d90
+	queryGroup: 01_STG
+
+	annotation PBI_ResultType = Table
+
+/// Población, superficie y densidad por comuna, Censo 2022, tal como las publica el INDEC (Cuadro 2.1). Sin transformaciones.
+expression 00_SRC_Poblacion_INDEC =
+		let
+			Libro = Excel.Workbook(File.Contents(RutaProyecto & "\data\raw\c2022_caba_est_c2_1.xlsx"), null, true),
+			Hoja = Table.SelectRows(Libro, each Text.Replace([Name], Character.FromNumber(160), " ") = "Cuadro 2.1"){0}[Data]
+		in
+			Hoja
+	lineageTag: ff9acf0a-5a7f-4c0d-b63a-0f1200adc728
+	queryGroup: 00_SRC
+
+	annotation PBI_ResultType = Table
+
+/// Hojas de población por edad del INDEC (Cuadro 5.1): una hoja por comuna. La hoja del total de la ciudad queda afuera.
+expression 00_SRC_Edad_INDEC =
+		let
+			Libro = Excel.Workbook(File.Contents(RutaProyecto & "\data\raw\c2022_caba_est_c5_1.xlsx"), null, true),
+			Limpio = Table.AddColumn(Libro, "NombreLimpio", each Text.Replace([Name], Character.FromNumber(160), " ")),
+			Comunas = Table.SelectRows(
+				Limpio,
+				each [Kind] = "Sheet" and Text.StartsWith([NombreLimpio], "Cuadro 5.1") and [NombreLimpio] <> "Cuadro 5.1"
+			)
+		in
+			Comunas
+	lineageTag: e4bbb01d-fbbb-48a4-80a4-085f3ba438ad
+	queryGroup: 00_SRC
+
+	annotation PBI_ResultType = Table
+
+/// Polígonos de comunas del Gobierno de la Ciudad. Solo se usan sus atributos: barrios, perímetro y área. El área está en metros cuadrados.
+expression 00_SRC_Comunas_GeoJSON =
+		let
+			Origen = Json.Document(File.Contents(RutaProyecto & "\data\raw\comunas.geojson"), 65001),
+			Registros = List.Transform(
+				Origen[features],
+				each [
+					id_comuna = Int64.From(_[properties][comuna]),
+					barrios = _[properties][barrios],
+					perimetro_km = Number.From(_[properties][perimetro]) / 1000,
+					superficie_poligono_km2 = Number.From(_[properties][area]) / 1000000
+				]
+			),
+			Tabla = Table.FromRecords(
+				Registros,
+				type table [id_comuna = Int64.Type, barrios = text, perimetro_km = number, superficie_poligono_km2 = number]
+			)
+		in
+			Tabla
+	lineageTag: a998ca9a-c3a5-404e-bd93-7be0f6664d3e
+	queryGroup: 00_SRC
+
+	annotation PBI_ResultType = Table
+
+/// Población y superficie 2022 por comuna, una fila por comuna.
+expression 01_STG_Poblacion =
+		let
+			Origen = #"00_SRC_Poblacion_INDEC",
+			Comunas = Table.SelectRows(Origen, each Text.StartsWith(Text.From([Column2]) ?? "", "Comuna ")),
+			Numero = (v) => if v is number then v else Number.FromText(Text.From(v), "en-US"),
+			Filas = Table.TransformRows(
+				Comunas,
+				each [
+					id_comuna = Int64.From(Text.AfterDelimiter(Text.From([Column2]), " ")),
+					superficie_km2 = Numero([Column3]),
+					poblacion = Int64.From(Numero([Column4]))
+				]
+			),
+			Tabla = Table.FromRecords(Filas, type table [id_comuna = Int64.Type, superficie_km2 = number, poblacion = Int64.Type])
+		in
+			Tabla
+	lineageTag: 9f96c5c9-e77a-4c9b-9fa5-ac7db85d2b6d
+	queryGroup: 01_STG
+
+	annotation PBI_ResultType = Table
+
+/// Población de 65 años y más por comuna (suma de los grupos de 65 a 69 hasta 95 a 99 y el grupo de 100 y más) y población total de la hoja de edad. Esa base excluye a las personas en situación de calle.
+expression 01_STG_Edad =
+		let
+		    Origen = #"00_SRC_Edad_INDEC",
+		    Numero = (v) => if v is number then v else if v = null then 0 else (try Number.FromText(Text.From(v), "en-US") otherwise 0),
+		    Limpiar = (celda) => Text.Replace(Text.From(celda ?? ""), Character.FromNumber(160), " "),
+		    Filas = Table.TransformRows(
+		        Origen,
+		        each
+		            let
+		                Datos = [Data],
+		                Titulo = Limpiar(Datos{1}[Column1]),
+		                Comuna = Int64.From(Text.BeforeDelimiter(Text.AfterDelimiter(Titulo, "Comuna "), ".")),
+		                Mayores = Table.SelectRows(
+		                    Datos,
+		                    each
+		                        Text.StartsWith(Limpiar([Column1]), "100 y")
+		                        or (
+		                            Text.Length(Limpiar([Column1])) <= 6
+		                            and Text.Contains(Limpiar([Column1]), "-")
+		                            and (try Number.FromText(Text.BeforeDelimiter(Limpiar([Column1]), "-"), "en-US") otherwise 0) >= 65
+		                        )
+		                ),
+		                Total = Table.SelectRows(Datos, each Limpiar([Column1]) = "Total"){0}
+		            in
+		                [
+		                    id_comuna = Comuna,
+		                    poblacion_adulta_mayor = Int64.From(List.Sum(List.Transform(Table.Column(Mayores, "Column2"), Numero))),
+		                    poblacion_censada_edad = Int64.From(Numero(Total[Column2]))
+		                ]
+		    ),
+		    Tabla = Table.FromRecords(
+		        Filas,
+		        type table [id_comuna = Int64.Type, poblacion_adulta_mayor = Int64.Type, poblacion_censada_edad = Int64.Type]
+		    )
+		in
+		    Tabla
+	lineageTag: b22cbb81-07b3-4f68-ac1a-bd1c18e16423
+	queryGroup: 01_STG
+
+	annotation PBI_ResultType = Table
+
+/// Indicadores de acceso calculados por scripts/analisis_acceso.py: cobertura espacial por radio y distancia a la estación más cercana. Es un archivo generado: se vuelve a crear ejecutando el script.
+expression 00_SRC_Acceso_Exploratorio =
+		let
+			Origen = Csv.Document(
+				File.Contents(RutaProyecto & "\data\processed\acceso_comunas_exploratorio.csv"),
+				[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+			),
+			Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true])
+		in
+			Encabezados
+	lineageTag: 665583c5-f375-4943-9cb8-5cdffbac27ef
+	queryGroup: 00_SRC
+
+	annotation PBI_ResultType = Table
+
+/// Cobertura espacial por comuna, con tipos. Los decimales del archivo usan punto.
+expression 01_STG_Acceso =
+		let
+			Origen = #"00_SRC_Acceso_Exploratorio",
+			Seleccion = Table.SelectColumns(
+				Origen,
+				{
+					"comuna",
+					"cobertura_500m",
+					"cobertura_1000m",
+					"cobertura_2000m",
+					"distancia_media_m",
+					"cobertura_1000m_presion",
+					"cobertura_2000m_glucemia",
+					"centroide_latitud",
+					"centroide_longitud"
+				}
+			),
+			Tipos = Table.TransformColumnTypes(
+				Seleccion,
+				{
+					{"comuna", Int64.Type},
+					{"cobertura_500m", type number},
+					{"cobertura_1000m", type number},
+					{"cobertura_2000m", type number},
+					{"distancia_media_m", type number},
+					{"cobertura_1000m_presion", type number},
+					{"cobertura_2000m_glucemia", type number},
+					{"centroide_latitud", type number},
+					{"centroide_longitud", type number}
+				},
+				"en-US"
+			),
+			Renombrada = Table.RenameColumns(
+				Tipos,
+				{
+					{"comuna", "id_comuna"},
+					{"cobertura_1000m_presion", "cobertura_1000m_presion_arterial"}
+				}
+			)
+		in
+			Renombrada
+	lineageTag: f8961cee-6414-4c12-9903-ffcebd5f09b1
+	queryGroup: 01_STG
+
+	annotation PBI_ResultType = Table
+

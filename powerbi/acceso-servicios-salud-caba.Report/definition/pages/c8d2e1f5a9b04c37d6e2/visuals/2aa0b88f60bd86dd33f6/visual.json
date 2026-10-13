@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "2aa0b88f60bd86dd33f6",
+  "position": {
+    "x": 40,
+    "y": 400,
+    "z": 2000,
+    "height": 360,
+    "width": 300,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Cómo leer esta página",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13pt",
+                      "color": "#0a2a3c"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Acceso Relativo va de 0 a 100. Promedia la posición de cada comuna en estaciones cada 100.000 habitantes, cobertura a 1.000 metros y diversidad de servicios.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#4a4f55"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Compara comunas entre sí: no mide el acceso efectivo de las personas. Es un indicador exploratorio.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#4a4f55"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "El mapa y el Acceso Relativo usan toda la red. Los demás indicadores responden al filtro de tipo.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#4a4f55"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

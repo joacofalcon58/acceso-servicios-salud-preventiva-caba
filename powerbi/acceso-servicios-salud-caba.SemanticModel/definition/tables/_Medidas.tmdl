@@ -1,0 +1,458 @@
+/// Tabla contenedora de medidas. No contiene datos.
+table _Medidas
+	lineageTag: 37d6a33e-1330-460a-81fd-568150311ed7
+
+	/// Estaciones cuyo campo servicio viene vacío en la fuente. No equivale a "no ofrece servicios".
+	measure 'QA Estaciones sin servicios informados' =
+			CALCULATE(
+			    COUNTROWS(Dim_Estacion),
+			    Dim_Estacion[flag_calidad] = "SERVICIO_NULL"
+			)
+		formatString: 0
+		displayFolder: 06 - QA
+		lineageTag: 33f28409-9c6a-4aff-b6fc-03fb5c627a69
+
+	/// Estaciones cuyo campo servicio alcanza el largo máximo de la fuente y puede estar incompleto.
+	measure 'QA Estaciones con posible truncamiento' =
+			CALCULATE(
+			    COUNTROWS(Dim_Estacion),
+			    Dim_Estacion[flag_calidad] = "POSIBLE_TRUNCAMIENTO"
+			)
+		formatString: 0
+		displayFolder: 06 - QA
+		lineageTag: 879451b5-a141-4039-a26d-f517b9a49091
+
+	/// Filas de la tabla puente cuya estación no existe en Dim_Estacion. Debe ser 0.
+	measure 'QA Relaciones huérfanas estación' = COUNTROWS(FILTER(Bridge_Estacion_Servicio, ISBLANK(RELATED(Dim_Estacion[id_estacion])))) + 0
+		formatString: 0
+		displayFolder: 06 - QA
+		lineageTag: f0350063-d5e7-43af-8cab-efb4ec50fa35
+
+	/// Filas de la tabla puente cuyo servicio no existe en Dim_Servicio. Debe ser 0.
+	measure 'QA Relaciones huérfanas servicio' = COUNTROWS(FILTER(Bridge_Estacion_Servicio, ISBLANK(RELATED(Dim_Servicio[id_servicio])))) + 0
+		formatString: 0
+		displayFolder: 06 - QA
+		lineageTag: 99adea06-b727-4539-ac30-82e9269ab1f6
+
+	/// Estaciones sin latitud o sin longitud. Debe ser 0.
+	measure 'QA Estaciones sin coordenadas' = COUNTROWS(FILTER(Dim_Estacion, ISBLANK(Dim_Estacion[latitud]) || ISBLANK(Dim_Estacion[longitud]))) + 0
+		formatString: 0
+		displayFolder: 06 - QA
+		lineageTag: 956d41b9-c5a0-49d1-a33a-ff9e55a6e05c
+
+	/// Estaciones que cumplen los filtros activos. Si hay un servicio filtrado, cuenta solo las estaciones que lo ofrecen, a través de la tabla puente.
+	measure 'Cantidad Estaciones' =
+			IF(
+			    ISFILTERED(Dim_Servicio),
+			    DISTINCTCOUNT(Bridge_Estacion_Servicio[id_estacion]),
+			    COUNTROWS(Dim_Estacion)
+			)
+		formatString: 0
+		displayFolder: 01 - Estaciones
+		lineageTag: be9b0b41-7954-4a4b-8d5b-543a1186f113
+
+	/// Estaciones de tipo Fija que cumplen los filtros activos. Respeta una selección previa de tipo: si se filtró Móvil, queda vacía.
+	measure 'Cantidad Estaciones Fijas' = CALCULATE([Cantidad Estaciones], KEEPFILTERS(Dim_Estacion[tipo] = "Fija"))
+		formatString: 0
+		displayFolder: 01 - Estaciones
+		lineageTag: 65c5758b-d6b8-4067-bbb4-c98929c26529
+
+	/// Estaciones de tipo Móvil que cumplen los filtros activos. Respeta una selección previa de tipo: si se filtró Fija, queda vacía.
+	measure 'Cantidad Estaciones Móviles' = CALCULATE([Cantidad Estaciones], KEEPFILTERS(Dim_Estacion[tipo] = "Móvil"))
+		formatString: 0
+		displayFolder: 01 - Estaciones
+		lineageTag: f6e20a6d-55b9-4f30-82d1-c1065e1e2f2a
+
+	/// Comunas con al menos una estación en el contexto actual.
+	measure 'Cantidad Comunas con Estaciones' =
+			COUNTROWS(
+			    FILTER(
+			        VALUES(Dim_Estacion[numero_comuna]),
+			        [Cantidad Estaciones] > 0
+			    )
+			)
+		formatString: 0
+		displayFolder: 03 - Territorio
+		lineageTag: fa302aae-556f-4231-a755-30e83a45d973
+
+	/// Barrios con al menos una estación en el contexto actual.
+	measure 'Cantidad Barrios con Estaciones' =
+			COUNTROWS(
+			    FILTER(
+			        VALUES(Dim_Estacion[barrio]),
+			        [Cantidad Estaciones] > 0
+			    )
+			)
+		formatString: 0
+		displayFolder: 03 - Territorio
+		lineageTag: c43ed707-c6a4-4db7-8bb5-1c1c740b3bef
+
+	/// Comunas de la Ciudad Autónoma de Buenos Aires (15, según la Ley 1777), contadas en Dim_Comuna sin filtros.
+	measure 'Total Comunas CABA' = CALCULATE(COUNTROWS(Dim_Comuna), REMOVEFILTERS(Dim_Comuna))
+		formatString: 0
+		displayFolder: 03 - Territorio
+		lineageTag: 40874499-287e-4d97-9b20-5c9f3af3b166
+
+	/// Texto para tarjeta: comunas con estaciones sobre el total de comunas.
+	measure 'Comunas con Presencia' = [Cantidad Comunas con Estaciones] & " / " & [Total Comunas CABA]
+		displayFolder: 03 - Territorio
+		lineageTag: 03044837-bf0c-4814-9258-235b4104807a
+
+	/// Servicios distintos en el contexto actual. Con una estación seleccionada equivale a los servicios de esa estación. Con una comuna seleccionada, a los servicios diferentes de la comuna.
+	measure 'Cantidad Servicios Diferentes' = DISTINCTCOUNT(Bridge_Estacion_Servicio[id_servicio])
+		formatString: 0
+		displayFolder: 02 - Servicios
+		lineageTag: 268c6ceb-2d62-429d-83ba-dc54d831e35d
+
+	/// Filas de la tabla puente: una por cada estación que ofrece un servicio.
+	measure 'Cantidad Relaciones Estación-Servicio' = COUNTROWS(Bridge_Estacion_Servicio)
+		formatString: 0
+		displayFolder: 02 - Servicios
+		lineageTag: 543a4a1d-ce3c-41ed-a444-e30a176cc01c
+
+	/// Promedio de servicios por estación. Excluye las estaciones sin servicios informados (marcadas SERVICIO_NULL), aunque su cantidad figure como 0. Incluye estaciones con posible truncamiento, cuyo valor puede estar subestimado. Con un servicio filtrado, promedia solo las estaciones que lo ofrecen y usa su cartera completa.
+	measure 'Promedio Servicios por Estación' =
+			IF(
+			    ISFILTERED(Dim_Servicio),
+			    CALCULATE(
+			        AVERAGE(Dim_Estacion[cantidad_servicios]),
+			        TREATAS(VALUES(Bridge_Estacion_Servicio[id_estacion]), Dim_Estacion[id_estacion]),
+			        Dim_Estacion[flag_calidad] <> "SERVICIO_NULL"
+			    ),
+			    CALCULATE(
+			        AVERAGE(Dim_Estacion[cantidad_servicios]),
+			        Dim_Estacion[flag_calidad] <> "SERVICIO_NULL"
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: 02 - Servicios
+		lineageTag: c7f4d20f-2794-4ee5-ab0b-8b6ac3e03576
+
+	/// Estaciones que ofrecen el servicio del contexto. Sin servicio filtrado, estaciones que ofrecen al menos un servicio.
+	measure 'Estaciones con Servicio' = DISTINCTCOUNT(Bridge_Estacion_Servicio[id_estacion])
+		formatString: 0
+		displayFolder: 02 - Servicios
+		lineageTag: 7869fbc8-454b-432d-a534-ea7afe816c97
+
+	/// Estaciones del contexto con al menos un servicio informado. Ignora el filtro de servicio. Excluye a las estaciones sin dato (Plaza Houssay). Es el denominador de Cobertura Estaciones %.
+	measure 'Estaciones con Información de Servicios' =
+			CALCULATE(
+			    DISTINCTCOUNT(Bridge_Estacion_Servicio[id_estacion]),
+			    REMOVEFILTERS(Dim_Servicio)
+			)
+		formatString: 0
+		displayFolder: 02 - Servicios
+		lineageTag: 8fb5be0c-a79a-46ce-847d-fa821492e00f
+
+	/// Estaciones con el servicio sobre estaciones con servicios informados. En una celda de comuna es el porcentaje de las estaciones de esa comuna que lo ofrecen. No incluye a las estaciones sin dato.
+	measure 'Cobertura Estaciones %' = DIVIDE([Estaciones con Servicio], [Estaciones con Información de Servicios])
+		formatString: 0.0%
+		displayFolder: 02 - Servicios
+		lineageTag: 517425d5-97c2-4973-929f-63d8b78bec12
+
+	/// Servicios distintos del catálogo observado en la red. No es un catálogo oficial: un servicio que ninguna estación registra no figura.
+	measure 'Total Servicios Posibles' = CALCULATE(COUNTROWS(Dim_Servicio), REMOVEFILTERS(Dim_Servicio))
+		formatString: 0
+		displayFolder: 02 - Servicios
+		lineageTag: efd55f78-061d-4b2a-8682-0b965cfe411f
+
+	/// Servicios diferentes del contexto sobre el total de servicios del catálogo observado. Va de 0 a 100%. Con un servicio filtrado no es interpretable.
+	measure 'Diversidad Servicios' = DIVIDE([Cantidad Servicios Diferentes], [Total Servicios Posibles])
+		formatString: 0.0%
+		displayFolder: 02 - Servicios
+		lineageTag: a98f70b6-b475-4377-98b9-339c3118a2b5
+
+	/// Comunas con al menos una estación que ofrece el servicio del contexto. En una celda de comuna vale 1 o vacío.
+	measure 'Comunas con Servicio' =
+			COUNTROWS(
+			    FILTER(
+			        VALUES(Dim_Estacion[numero_comuna]),
+			        [Estaciones con Servicio] > 0
+			    )
+			)
+		formatString: 0
+		displayFolder: 02 - Servicios
+		lineageTag: 1cc63ca0-a35f-45a6-9e96-b087bfc9a408
+
+	/// Comunas con el servicio sobre el total de comunas de CABA. El denominador es siempre el total, aunque haya una comuna seleccionada.
+	measure 'Cobertura Comunas %' = DIVIDE([Comunas con Servicio], [Total Comunas CABA])
+		formatString: 0.0%
+		displayFolder: 02 - Servicios
+		lineageTag: 2e6f7341-b8fd-4962-a6b8-0fa5ac70d470
+
+	/// Servicio ofrecido por más estaciones en el contexto. En caso de empate muestra el primero por orden alfabético y cuántos más empatan.
+	measure 'Servicio más disponible' =
+			VAR t = ADDCOLUMNS(VALUES(Dim_Servicio[servicio]), "Cant", [Estaciones con Servicio])
+			VAR mx = MAXX(t, [Cant])
+			VAR cima = FILTER(t, [Cant] = mx)
+			VAR k = COUNTROWS(cima)
+			RETURN
+			    IF(
+			        ISBLANK(mx),
+			        BLANK(),
+			        MINX(cima, Dim_Servicio[servicio]) & IF(k > 1, " y " & (k - 1) & " más", "")
+			    )
+		displayFolder: 02 - Servicios
+		lineageTag: c26aba27-8c54-4c22-a013-833ad906d576
+
+	/// Servicio ofrecido por menos estaciones en el contexto, entre los que tienen al menos una. En caso de empate muestra el primero por orden alfabético y cuántos más empatan.
+	measure 'Servicio menos disponible' =
+			VAR t = ADDCOLUMNS(VALUES(Dim_Servicio[servicio]), "Cant", [Estaciones con Servicio])
+			VAR mn = MINX(t, [Cant])
+			VAR fondo = FILTER(t, [Cant] = mn)
+			VAR k = COUNTROWS(fondo)
+			RETURN
+			    IF(
+			        ISBLANK(mn),
+			        BLANK(),
+			        MINX(fondo, Dim_Servicio[servicio]) & IF(k > 1, " y " & (k - 1) & " más", "")
+			    )
+		displayFolder: 02 - Servicios
+		lineageTag: 29bd1d1b-83f8-45c1-90a4-862aeea7525a
+
+	/// Comunas con estaciones sobre el total de comunas de CABA. Sirve para comparar tipos de estación.
+	measure 'Cobertura Territorial %' = DIVIDE([Cantidad Comunas con Estaciones], [Total Comunas CABA])
+		formatString: 0.0%
+		displayFolder: 03 - Territorio
+		lineageTag: 485ca72e-5d9b-4fd9-9080-78de4d93e91d
+
+	/// Comunas con al menos una estación móvil y ninguna fija.
+	measure 'Comunas solo con Estaciones Móviles' =
+			COUNTROWS(
+			    FILTER(
+			        VALUES(Dim_Estacion[numero_comuna]),
+			        [Cantidad Estaciones Fijas] = 0 && [Cantidad Estaciones Móviles] > 0
+			    )
+			)
+		formatString: 0
+		displayFolder: 03 - Territorio
+		lineageTag: f598dcac-f23f-44a6-b5d7-76dd506cadac
+
+	/// Población total de la comuna o comunas del contexto, Censo 2022. No cambia con los filtros de estaciones ni de servicios.
+	measure Poblacion = SUM(Dim_Comuna[poblacion])
+		formatString: #,0
+		displayFolder: 04 - Población
+		lineageTag: 5e183b91-139a-43a6-8d16-4696f10d46f8
+
+	/// Superficie oficial del censo de la comuna o comunas del contexto.
+	measure 'Superficie km2' = SUM(Dim_Comuna[superficie_km2])
+		formatString: #,0.0
+		displayFolder: 04 - Población
+		lineageTag: ae18a1aa-cb47-43a8-a45b-4ceb14042e7f
+
+	/// Habitantes por kilómetro cuadrado, con la superficie oficial del censo.
+	measure 'Densidad Poblacional' = DIVIDE([Poblacion], [Superficie km2])
+		formatString: #,0
+		displayFolder: 04 - Población
+		lineageTag: 8c19790d-57cc-4622-96ad-b6e51db59d3d
+
+	/// Población de 65 años y más, Censo 2022.
+	measure 'Poblacion 65 y mas' = SUM(Dim_Comuna[poblacion_adulta_mayor])
+		formatString: #,0
+		displayFolder: 04 - Población
+		lineageTag: 088952b1-d287-489a-a014-aa5ed44b5ad1
+
+	/// Porcentaje de población de 65 años y más. La base excluye a las personas en situación de calle.
+	measure '% Poblacion 65 y mas' = DIVIDE([Poblacion 65 y mas], SUM(Dim_Comuna[poblacion_censada_edad]))
+		formatString: 0.0%
+		displayFolder: 04 - Población
+		lineageTag: 696e3ded-4775-4bbd-b4e6-d60e4d5ecf2e
+
+	/// Estaciones cada 100.000 habitantes. Con un servicio filtrado cuenta solo las estaciones que lo ofrecen. La población no cambia con los filtros de estaciones.
+	measure 'Estaciones cada 100.000 habitantes' = DIVIDE([Cantidad Estaciones], [Poblacion]) * 100000
+		formatString: #,0.00
+		displayFolder: 05 - Acceso
+		lineageTag: 5bf416ae-fcb6-4f18-9a65-b752f205cfd7
+
+	/// Estaciones fijas cada 100.000 habitantes.
+	measure 'Estaciones Fijas cada 100.000 habitantes' = DIVIDE([Cantidad Estaciones Fijas], [Poblacion]) * 100000
+		formatString: #,0.00
+		displayFolder: 05 - Acceso
+		lineageTag: a9da27d7-1476-4ce4-bf09-397f6dd24618
+
+	/// Estaciones móviles cada 100.000 habitantes.
+	measure 'Estaciones Móviles cada 100.000 habitantes' = DIVIDE([Cantidad Estaciones Móviles], [Poblacion]) * 100000
+		formatString: #,0.00
+		displayFolder: 05 - Acceso
+		lineageTag: fb649e4c-4898-422f-8903-b1b311169646
+
+	/// Relaciones estación-servicio cada 100.000 habitantes: cuenta cada servicio en cada estación que lo ofrece. Combina cantidad de estaciones y amplitud de su cartera.
+	measure 'Servicios cada 100.000 habitantes' = DIVIDE([Cantidad Relaciones Estación-Servicio], [Poblacion]) * 100000
+		formatString: #,0.0
+		displayFolder: 05 - Acceso
+		lineageTag: 07ce4f47-fa7d-442d-9cf7-19a42ffbc021
+
+	/// Habitantes de la comuna por cada estación ubicada en ella. Vacío si no hay estaciones.
+	measure 'Habitantes por Estación' = DIVIDE([Poblacion], [Cantidad Estaciones])
+		formatString: #,0
+		displayFolder: 05 - Acceso
+		lineageTag: 9f4a7dad-7fc0-4a7f-a975-9d9272238e69
+
+	/// Estaciones por kilómetro cuadrado, con la superficie oficial del censo.
+	measure 'Estaciones por km2' = DIVIDE([Cantidad Estaciones], [Superficie km2])
+		formatString: #,0.000
+		displayFolder: 05 - Acceso
+		lineageTag: dc996011-682f-4073-b7c2-9a1b4e5bf471
+
+	/// Porcentaje de la superficie a menos de 500 metros de una estación. Pondera por superficie las comunas del contexto. Usa toda la red: no responde a los filtros de estaciones ni de servicios.
+	measure 'Cobertura 500 m %' = DIVIDE(SUMX(Dim_Comuna, Dim_Comuna[cobertura_500m] * Dim_Comuna[superficie_km2]), [Superficie km2])
+		formatString: 0.0%
+		displayFolder: 05 - Acceso
+		lineageTag: 910b44c1-e67a-49cd-9fe1-c19132b385cb
+
+	/// Porcentaje de la superficie a menos de 1.000 metros de una estación. Pondera por superficie. Usa toda la red.
+	measure 'Cobertura 1000 m %' = DIVIDE(SUMX(Dim_Comuna, Dim_Comuna[cobertura_1000m] * Dim_Comuna[superficie_km2]), [Superficie km2])
+		formatString: 0.0%
+		displayFolder: 05 - Acceso
+		lineageTag: 74c5b4fa-929e-44cf-a1de-805c18b63bde
+
+	/// Porcentaje de la superficie a menos de 2.000 metros de una estación. Pondera por superficie. Usa toda la red.
+	measure 'Cobertura 2000 m %' = DIVIDE(SUMX(Dim_Comuna, Dim_Comuna[cobertura_2000m] * Dim_Comuna[superficie_km2]), [Superficie km2])
+		formatString: 0.0%
+		displayFolder: 05 - Acceso
+		lineageTag: 1137ea3d-2e53-4c2a-9e2c-fa020241cf53
+
+	/// Distancia media en línea recta a la estación más cercana, en metros. Pondera por superficie, no por población. Usa toda la red.
+	measure 'Distancia Media a Estación' = DIVIDE(SUMX(Dim_Comuna, Dim_Comuna[distancia_media_m] * Dim_Comuna[superficie_km2]), [Superficie km2])
+		formatString: #,0
+		displayFolder: 05 - Acceso
+		lineageTag: 92603ac0-47c0-4646-8b5b-59e04b022ff6
+
+	/// Porcentaje de la superficie a menos de 1.000 metros de una estación que ofrece Control de Presión Arterial.
+	measure 'Cobertura 1000 m Presión Arterial %' = DIVIDE(SUMX(Dim_Comuna, Dim_Comuna[cobertura_1000m_presion_arterial] * Dim_Comuna[superficie_km2]), [Superficie km2])
+		formatString: 0.0%
+		displayFolder: 05 - Acceso
+		lineageTag: 23a1eb2c-5c19-4f24-91fe-abe46acf9bff
+
+	/// Porcentaje de la superficie a menos de 2.000 metros de una estación que ofrece Control de Glucemia.
+	measure 'Cobertura 2000 m Glucemia %' = DIVIDE(SUMX(Dim_Comuna, Dim_Comuna[cobertura_2000m_glucemia] * Dim_Comuna[superficie_km2]), [Superficie km2])
+		formatString: 0.0%
+		displayFolder: 05 - Acceso
+		lineageTag: 16d33b18-63c7-43c5-8c32-8c0a9ef56264
+
+	/// Estaciones cada 100.000 habitantes con toda la red: quita los filtros de tipo, estructura, barrio, nombre y servicio, y conserva el de comuna. Es el valor que usa el indicador compuesto.
+	measure 'Estaciones cada 100.000 habitantes (red completa)' =
+			CALCULATE(
+			    [Estaciones cada 100.000 habitantes],
+			    REMOVEFILTERS(Dim_Estacion[tipo]),
+			    REMOVEFILTERS(Dim_Estacion[estructura]),
+			    REMOVEFILTERS(Dim_Estacion[barrio]),
+			    REMOVEFILTERS(Dim_Estacion[nombre]),
+			    REMOVEFILTERS(Dim_Estacion[direccion]),
+			    REMOVEFILTERS(Dim_Estacion[flag_calidad]),
+			    REMOVEFILTERS(Dim_Servicio)
+			)
+		formatString: #,0.00
+		displayFolder: 05 - Acceso
+		lineageTag: 5b7dc5c0-d7c9-4a4a-99fa-e0e8a8e94de8
+
+	/// Diversidad de servicios con toda la red: quita los filtros de tipo, estructura, barrio, nombre y servicio, y conserva el de comuna. Es el valor que usa el indicador compuesto.
+	measure 'Diversidad Servicios (red completa)' =
+			CALCULATE(
+			    [Diversidad Servicios],
+			    REMOVEFILTERS(Dim_Estacion[tipo]),
+			    REMOVEFILTERS(Dim_Estacion[estructura]),
+			    REMOVEFILTERS(Dim_Estacion[barrio]),
+			    REMOVEFILTERS(Dim_Estacion[nombre]),
+			    REMOVEFILTERS(Dim_Estacion[direccion]),
+			    REMOVEFILTERS(Dim_Estacion[flag_calidad]),
+			    REMOVEFILTERS(Dim_Servicio)
+			)
+		formatString: 0.0%
+		displayFolder: 05 - Acceso
+		lineageTag: a1d128ca-348b-46ae-a163-e57e96cd8ef9
+
+	/// Posición de la comuna entre las 15 en estaciones cada 100.000 habitantes, de 0 (la más baja) a 1 (la más alta). Los empates reciben el promedio de sus posiciones. Vacío si hay más de una comuna en el contexto.
+	measure 'Posicion Relativa Cobertura Poblacional' =
+			IF(
+			    HASONEVALUE(Dim_Comuna[id_comuna]),
+			    VAR v = [Estaciones cada 100.000 habitantes (red completa)]
+			    VAR t = ADDCOLUMNS(ALL(Dim_Comuna), "Valor", [Estaciones cada 100.000 habitantes (red completa)])
+			    VAR menores = COUNTROWS(FILTER(t, [Valor] < v))
+			    VAR iguales = COUNTROWS(FILTER(t, [Valor] = v))
+			    RETURN DIVIDE(menores + (iguales - 1) / 2, COUNTROWS(t) - 1)
+			)
+		formatString: 0.00
+		displayFolder: 05 - Acceso
+		lineageTag: 4e167902-d279-455c-bd9a-2c27e575838c
+
+	/// Posición de la comuna entre las 15 en cobertura espacial a 1.000 metros, de 0 a 1. Los empates reciben el promedio de sus posiciones.
+	measure 'Posicion Relativa Proximidad' =
+			IF(
+			    HASONEVALUE(Dim_Comuna[id_comuna]),
+			    VAR v = [Cobertura 1000 m %]
+			    VAR t = ADDCOLUMNS(ALL(Dim_Comuna), "Valor", [Cobertura 1000 m %])
+			    VAR menores = COUNTROWS(FILTER(t, [Valor] < v))
+			    VAR iguales = COUNTROWS(FILTER(t, [Valor] = v))
+			    RETURN DIVIDE(menores + (iguales - 1) / 2, COUNTROWS(t) - 1)
+			)
+		formatString: 0.00
+		displayFolder: 05 - Acceso
+		lineageTag: 7452825d-1475-4d40-b61b-4daa4ce789e1
+
+	/// Posición de la comuna entre las 15 en diversidad de servicios, de 0 a 1. Los empates reciben el promedio de sus posiciones.
+	measure 'Posicion Relativa Diversidad' =
+			IF(
+			    HASONEVALUE(Dim_Comuna[id_comuna]),
+			    VAR v = [Diversidad Servicios (red completa)]
+			    VAR t = ADDCOLUMNS(ALL(Dim_Comuna), "Valor", [Diversidad Servicios (red completa)])
+			    VAR menores = COUNTROWS(FILTER(t, [Valor] < v))
+			    VAR iguales = COUNTROWS(FILTER(t, [Valor] = v))
+			    RETURN DIVIDE(menores + (iguales - 1) / 2, COUNTROWS(t) - 1)
+			)
+		formatString: 0.00
+		displayFolder: 05 - Acceso
+		lineageTag: e11a5d9d-85ea-4c5c-b9e2-f193a13c3955
+
+	/// Indicador exploratorio de disponibilidad relativa, de 0 a 100: promedio, con pesos iguales, de la posición de la comuna en cobertura poblacional, proximidad y diversidad. Compara comunas entre sí, no mide una cobertura absoluta. Usa toda la red. Ver docs/metodologia.md.
+	measure 'Acceso Relativo' = 100 * AVERAGEX({[Posicion Relativa Cobertura Poblacional], [Posicion Relativa Proximidad], [Posicion Relativa Diversidad]}, [Value])
+		formatString: 0.0
+		displayFolder: 05 - Acceso
+		lineageTag: 42a04290-9e2f-49e8-803c-46318209f09d
+
+	/// Posición de la comuna según Acceso Relativo: 1 es la de mayor disponibilidad relativa. Los empates comparten posición. Compara con 6 decimales para que el redondeo de la máquina no rompa los empates.
+	measure 'Posicion Acceso Relativo' =
+			IF(
+			    HASONEVALUE(Dim_Comuna[id_comuna]),
+			    RANKX(ALL(Dim_Comuna), ROUND([Acceso Relativo], 6), , DESC, Skip)
+			)
+		formatString: 0
+		displayFolder: 05 - Acceso
+		lineageTag: ce05d449-2538-48a3-8e47-155c0c366f04
+
+	/// Etiqueta por tercios de las 15 comunas: las 5 primeras, las 5 últimas y las 5 del medio. No es un juicio de calidad: describe la posición relativa.
+	measure 'Grupo de Acceso Relativo' =
+			SWITCH(
+			    TRUE(),
+			    ISBLANK([Posicion Acceso Relativo]), BLANK(),
+			    [Posicion Acceso Relativo] <= 5, "Mayor disponibilidad relativa",
+			    [Posicion Acceso Relativo] >= 11, "Menor disponibilidad relativa",
+			    "Disponibilidad relativa intermedia"
+			)
+		displayFolder: 05 - Acceso
+		lineageTag: 9abc6749-aab1-471b-826c-4cbfd50d9bd0
+
+	/// 1 si alguna estación del contexto ofrece el servicio, 0 si ninguna. Se muestra como círculo lleno o vacío en la matriz.
+	measure 'Disponibilidad en Comuna' = IF([Estaciones con Servicio] > 0, 1, 0)
+		formatString: \●;\●;\○
+		displayFolder: 02 - Servicios
+		lineageTag: 21208363-460c-464b-999c-ba2bba93433b
+
+	/// Color del símbolo de la matriz: azul si hay servicio y gris si no hay.
+	measure 'Color Disponibilidad' = IF([Estaciones con Servicio] > 0, "#0A2A3C", "#5F6B6D")
+		displayFolder: 02 - Servicios
+		lineageTag: e9343b76-84f0-4139-8103-aa0f7edd581a
+
+	column Columna
+		isHidden
+		lineageTag: 4dd77ee9-ff9c-45ac-afb0-5fa25547abf3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Columna]
+
+	partition _Medidas = calculated
+		mode: import
+		source = ROW("Columna", "")
+
+	annotation PBI_ResultType = Table
+

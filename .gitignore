@@ -1,0 +1,19 @@
+# Power BI: archivos temporales y configuración local
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/unappliedChanges.json
+*.pbix
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Documentos de terceros que no se redistribuyen
+docs/referencias/*.pdf

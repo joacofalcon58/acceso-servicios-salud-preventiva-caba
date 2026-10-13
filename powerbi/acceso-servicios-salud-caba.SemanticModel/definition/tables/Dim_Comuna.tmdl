@@ -1,0 +1,209 @@
+/// Una fila por comuna de la Ciudad Autónoma de Buenos Aires. Población y superficie del Censo 2022.
+table Dim_Comuna
+	lineageTag: 69834eb6-8c30-4a9e-a9e3-0aa314a01637
+
+	column id_comuna
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: df8f0a4c-6ef4-4ca1-8b61-6f491c8cf87e
+		summarizeBy: none
+		sourceColumn: id_comuna
+
+	column comuna
+		dataType: string
+		lineageTag: 1c61f7eb-908d-4697-84b1-ccd1addc050b
+		summarizeBy: none
+		sourceColumn: comuna
+		sortByColumn: id_comuna
+
+	/// Población total del Censo 2022, incluye personas en situación de calle.
+	column poblacion
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9b7b6a8d-edaf-48db-ad2d-9119c830ef9f
+		summarizeBy: none
+		sourceColumn: poblacion
+
+	/// Superficie oficial del censo, en kilómetros cuadrados.
+	column superficie_km2
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 91b01ab3-b0d6-4db9-b733-19178d3f6868
+		summarizeBy: none
+		sourceColumn: superficie_km2
+
+	/// Población dividida por la superficie oficial, en habitantes por kilómetro cuadrado.
+	column densidad_poblacional
+		dataType: double
+		formatString: #,0
+		lineageTag: bd370521-4ee5-4351-9f74-ae59dd6f5065
+		summarizeBy: none
+		sourceColumn: densidad_poblacional
+
+	/// Población de 65 años y más del Censo 2022.
+	column poblacion_adulta_mayor
+		dataType: int64
+		formatString: #,0
+		lineageTag: d0616a91-4b70-4951-9fd2-1bc2f87cce30
+		summarizeBy: none
+		sourceColumn: poblacion_adulta_mayor
+
+	/// Base del porcentaje de adultos mayores: población de la tabla por edad, que excluye a las personas en situación de calle.
+	column poblacion_censada_edad
+		dataType: int64
+		formatString: #,0
+		lineageTag: b463fc01-db85-4ca8-9400-ba0f7959a167
+		summarizeBy: none
+		sourceColumn: poblacion_censada_edad
+
+	/// Superficie que calculan los polígonos del Gobierno de la Ciudad. Difiere de la oficial del censo.
+	column superficie_poligono_km2
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 49619b72-95d3-41f6-ba80-447253d23cc2
+		summarizeBy: none
+		sourceColumn: superficie_poligono_km2
+
+	/// Barrios de la comuna, tal como los publica el polígono, sin tildes.
+	column barrios
+		dataType: string
+		lineageTag: 70d650d2-1076-421d-9361-38a5eb7a5c41
+		summarizeBy: none
+		sourceColumn: barrios
+
+	column anio_referencia_poblacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a252acf-8fb8-413d-aa3d-e6414f46ee98
+		summarizeBy: none
+		sourceColumn: anio_referencia_poblacion
+
+	/// Porcentaje de la superficie de la comuna a menos de 500 metros de una estación de cualquier comuna. Calculado sobre toda la red, en línea recta. No responde a los filtros de estaciones.
+	column cobertura_500m
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 759db081-ba10-4b20-9879-aceca360c31e
+		summarizeBy: none
+		sourceColumn: cobertura_500m
+
+	/// Porcentaje de la superficie de la comuna a menos de 1.000 metros de una estación de cualquier comuna. Calculado sobre toda la red, en línea recta.
+	column cobertura_1000m
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f5698fac-3925-46aa-bc00-ff78f1d5fb9e
+		summarizeBy: none
+		sourceColumn: cobertura_1000m
+
+	/// Porcentaje de la superficie de la comuna a menos de 2.000 metros de una estación de cualquier comuna. Calculado sobre toda la red, en línea recta.
+	column cobertura_2000m
+		dataType: double
+		formatString: 0.0%
+		lineageTag: dc368e45-d777-4a12-959f-f1adf6de015e
+		summarizeBy: none
+		sourceColumn: cobertura_2000m
+
+	/// Distancia media en línea recta, en metros, desde un punto de la superficie de la comuna hasta la estación más cercana. Pondera por superficie, no por población.
+	column distancia_media_m
+		dataType: double
+		formatString: #,0
+		lineageTag: d4dd11e0-9f4f-41d8-8133-f0c66bc6de26
+		summarizeBy: none
+		sourceColumn: distancia_media_m
+
+	/// Porcentaje de la superficie a menos de 1.000 metros de una estación que ofrece Control de Presión Arterial.
+	column cobertura_1000m_presion_arterial
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8a39b402-54b3-43ae-a307-b4924a91cb45
+		summarizeBy: none
+		sourceColumn: cobertura_1000m_presion_arterial
+
+	/// Porcentaje de la superficie a menos de 2.000 metros de una estación que ofrece Control de Glucemia.
+	column cobertura_2000m_glucemia
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 77c34998-1614-48f9-a6e9-76c435613cec
+		summarizeBy: none
+		sourceColumn: cobertura_2000m_glucemia
+
+	/// Nombre abreviado de la comuna (C1 a C15), para encabezados angostos.
+	column comuna_corta
+		dataType: string
+		lineageTag: 26125bd7-00af-4ec1-911c-4dbaae10b271
+		summarizeBy: none
+		sourceColumn: comuna_corta
+		sortByColumn: id_comuna
+
+	/// Latitud de un punto central de la comuna. Es el centroide del polígono, o un punto interior si el centroide cae afuera.
+	column centroide_latitud
+		dataType: double
+		lineageTag: 18acfd85-3171-4345-a315-6cd052e33602
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: centroide_latitud
+
+	/// Longitud de un punto central de la comuna.
+	column centroide_longitud
+		dataType: double
+		lineageTag: c19b6039-436b-4653-8f4e-61f943e1a0cd
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: centroide_longitud
+
+	partition Dim_Comuna = m
+		mode: import
+		queryGroup: 02_MODELO
+		source =
+				let
+					Poblacion = #"01_STG_Poblacion",
+					ConEdad = Table.ExpandTableColumn(
+						Table.NestedJoin(Poblacion, {"id_comuna"}, #"01_STG_Edad", {"id_comuna"}, "edad", JoinKind.LeftOuter),
+						"edad",
+						{"poblacion_adulta_mayor", "poblacion_censada_edad"}
+					),
+					ConGeo = Table.ExpandTableColumn(
+						Table.NestedJoin(ConEdad, {"id_comuna"}, #"00_SRC_Comunas_GeoJSON", {"id_comuna"}, "geo", JoinKind.LeftOuter),
+						"geo",
+						{"barrios", "superficie_poligono_km2"}
+					),
+					ConAcceso = Table.ExpandTableColumn(
+						Table.NestedJoin(ConGeo, {"id_comuna"}, #"01_STG_Acceso", {"id_comuna"}, "acceso", JoinKind.LeftOuter),
+						"acceso",
+						{"cobertura_500m", "cobertura_1000m", "cobertura_2000m", "distancia_media_m", "cobertura_1000m_presion_arterial", "cobertura_2000m_glucemia", "centroide_latitud", "centroide_longitud"}
+					),
+					Nombre = Table.AddColumn(ConAcceso, "comuna", each "Comuna " & Text.From([id_comuna]), type text),
+					Corta = Table.AddColumn(Nombre, "comuna_corta", each "C" & Text.From([id_comuna]), type text),
+					Densidad = Table.AddColumn(Corta, "densidad_poblacional", each [poblacion] / [superficie_km2], type number),
+					Anio = Table.AddColumn(Densidad, "anio_referencia_poblacion", each 2022, Int64.Type),
+					Seleccion = Table.SelectColumns(
+						Anio,
+						{
+							"id_comuna",
+							"comuna",
+							"comuna_corta",
+							"poblacion",
+							"superficie_km2",
+							"densidad_poblacional",
+							"poblacion_adulta_mayor",
+							"poblacion_censada_edad",
+							"superficie_poligono_km2",
+							"barrios",
+							"anio_referencia_poblacion",
+							"cobertura_500m",
+							"cobertura_1000m",
+							"cobertura_2000m",
+							"distancia_media_m",
+							"cobertura_1000m_presion_arterial",
+							"cobertura_2000m_glucemia",
+							"centroide_latitud",
+							"centroide_longitud"
+						}
+					),
+					Ordenada = Table.Sort(Seleccion, {{"id_comuna", Order.Ascending}})
+				in
+					Ordenada
+
+	annotation PBI_ResultType = Table
+

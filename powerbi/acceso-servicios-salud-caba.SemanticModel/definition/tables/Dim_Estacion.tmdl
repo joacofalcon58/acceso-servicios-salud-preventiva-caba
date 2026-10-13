@@ -1,0 +1,164 @@
+/// Una fila por Estación Saludable.
+table Dim_Estacion
+	lineageTag: 415d2844-78e3-4c5b-9dd7-4a4af431c9ef
+
+	column id_estacion
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: 95d7bea1-b822-4b5c-99dd-6b5cf0d2bc82
+		summarizeBy: none
+		sourceColumn: id_estacion
+
+	column nombre
+		dataType: string
+		lineageTag: e6b37648-2c51-4001-892f-1c3c83358129
+		summarizeBy: none
+		sourceColumn: nombre
+
+	column tipo
+		dataType: string
+		lineageTag: 351a5d33-8756-46c3-a9dd-98b1fbb80107
+		summarizeBy: none
+		sourceColumn: tipo
+
+	column estructura
+		dataType: string
+		lineageTag: 0418076e-c17d-45f1-a21a-100c9fdfdfb1
+		summarizeBy: none
+		sourceColumn: estructura
+
+	column direccion
+		dataType: string
+		lineageTag: 3d7413d9-2b1c-435b-b20f-075097a1ef80
+		summarizeBy: none
+		sourceColumn: direccion
+
+	column barrio
+		dataType: string
+		lineageTag: b18eecf1-93f8-4579-bc61-f9ec6f798369
+		summarizeBy: none
+		sourceColumn: barrio
+
+	column comuna
+		dataType: string
+		isHidden
+		lineageTag: 2ef717b6-e768-4222-8967-77a20f22115f
+		summarizeBy: none
+		sourceColumn: comuna
+		sortByColumn: numero_comuna
+
+	column numero_comuna
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3535179b-04bc-4d62-879f-15f153bb00e8
+		summarizeBy: none
+		sourceColumn: numero_comuna
+
+	column latitud
+		dataType: double
+		lineageTag: db0924ea-22d8-487f-bb16-3a1c646f61ee
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: latitud
+
+	column longitud
+		dataType: double
+		lineageTag: df890614-50ca-4432-a033-b8a66fd06f03
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: longitud
+
+	/// Cantidad de servicios válidos registrados. Vacío cuando la fuente no informa servicios.
+	column cantidad_servicios
+		dataType: int64
+		formatString: 0
+		lineageTag: cee68879-c69f-4aa8-87f3-2c4da6de1ab0
+		summarizeBy: none
+		sourceColumn: cantidad_servicios
+
+	/// Calidad del campo servicio en la fuente: OK, SERVICIO_NULL o POSIBLE_TRUNCAMIENTO.
+	column flag_calidad
+		dataType: string
+		lineageTag: 65df92f5-010a-4c42-8426-42012d8c396b
+		summarizeBy: none
+		sourceColumn: flag_calidad
+
+	partition Dim_Estacion = m
+		mode: import
+		queryGroup: 02_MODELO
+		source =
+				let
+				    Origen = #"01_STG_Estaciones",
+				
+				    Conteo = Table.Group(
+				        #"01_STG_EstacionServicio",
+				        {"id_estacion"},
+				        {
+				            {
+				                "cantidad_servicios",
+				                Table.RowCount,
+				                Int64.Type
+				            }
+				        }
+				    ),
+				
+				    Unida = Table.NestedJoin(
+				        Origen,
+				        {"id_estacion"},
+				        Conteo,
+				        {"id_estacion"},
+				        "conteo",
+				        JoinKind.LeftOuter
+				    ),
+				
+				    Expandida = Table.ExpandTableColumn(
+				        Unida,
+				        "conteo",
+				        {"cantidad_servicios"},
+				        {"cantidad_servicios"}
+				    ),
+				
+				    Seleccion = Table.SelectColumns(
+				        Expandida,
+				        {
+				            "id_estacion",
+				            "nombre",
+				            "tipo",
+				            "estructura",
+				            "direccion",
+				            "barrio",
+				            "comuna",
+				            "numero_comuna",
+				            "latitud",
+				            "longitud",
+				            "cantidad_servicios",
+				            "flag_calidad"
+				        }
+				    ),
+				
+				    Tipos = Table.TransformColumnTypes(
+				        Seleccion,
+				        {
+				            {"id_estacion", Int64.Type},
+				            {"numero_comuna", Int64.Type},
+				            {"latitud", type number},
+				            {"longitud", type number},
+				            {"cantidad_servicios", Int64.Type}
+				        }
+				    ),
+				
+				    Ordenada = Table.Sort(
+				        Tipos,
+				        {
+				            {"id_estacion", Order.Ascending}
+				        }
+				    )
+				
+				in
+				    Ordenada
+
+	annotation PBI_ResultType = Table
+
