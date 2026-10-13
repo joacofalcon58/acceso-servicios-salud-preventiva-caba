@@ -68,9 +68,9 @@ Una fila por comuna (15). Lo escribe `scripts/analisis_acceso.py`. Los decimales
 | `cobertura_1000m_presion` | Igual que la cobertura, solo con estaciones que ofrecen Control de Presión Arterial | Proporción de 0 a 1 | Grilla de 50 metros |
 | `cobertura_2000m_glucemia` | Igual, solo con estaciones que ofrecen Control de Glucemia | Proporción de 0 a 1 | Grilla de 50 metros |
 
-### `sensibilidad_acceso_relativo.csv`
+### `sensibilidad_disponibilidad_relativa.csv`
 
-Una fila por variante del indicador. Lo escribe `scripts/sensibilidad_acceso_relativo.py`.
+Una fila por variante del indicador. Lo escribe `scripts/sensibilidad_disponibilidad_relativa.py`.
 
 | Campo | Descripción |
 |---|---|

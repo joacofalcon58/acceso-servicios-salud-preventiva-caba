@@ -173,12 +173,12 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Acceso Relativo"
+                  "Property": "Disponibilidad Relativa de la Oferta"
                 }
               },
-              "queryRef": "_Medidas.Acceso Relativo",
-              "nativeQueryRef": "Acceso Relativo",
-              "displayName": "Acceso Relativo"
+              "queryRef": "_Medidas.Disponibilidad Relativa de la Oferta",
+              "nativeQueryRef": "Disponibilidad Relativa de la Oferta",
+              "displayName": "Disponibilidad Relativa de la Oferta"
             },
             {
               "field": {
@@ -188,11 +188,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Grupo de Acceso Relativo"
+                  "Property": "Grupo de Disponibilidad Relativa"
                 }
               },
-              "queryRef": "_Medidas.Grupo de Acceso Relativo",
-              "nativeQueryRef": "Grupo de Acceso Relativo",
+              "queryRef": "_Medidas.Grupo de Disponibilidad Relativa",
+              "nativeQueryRef": "Grupo de Disponibilidad Relativa",
               "displayName": "Grupo"
             }
           ]
@@ -208,7 +208,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "Acceso Relativo"
+                "Property": "Disponibilidad Relativa de la Oferta"
               }
             },
             "direction": "Descending"
@@ -297,7 +297,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "Grupo de Acceso Relativo"
+                                  "Property": "Grupo de Disponibilidad Relativa"
                                 }
                               },
                               "Right": {
@@ -328,7 +328,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "Grupo de Acceso Relativo"
+                                  "Property": "Grupo de Disponibilidad Relativa"
                                 }
                               },
                               "Right": {
@@ -359,7 +359,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "Grupo de Acceso Relativo"
+                                  "Property": "Grupo de Disponibilidad Relativa"
                                 }
                               },
                               "Right": {
@@ -402,7 +402,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "Grupo de Acceso Relativo"
+                                  "Property": "Grupo de Disponibilidad Relativa"
                                 }
                               },
                               "Right": {
@@ -433,7 +433,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "Grupo de Acceso Relativo"
+                                  "Property": "Grupo de Disponibilidad Relativa"
                                 }
                               },
                               "Right": {
@@ -468,7 +468,7 @@
                 }
               }
             ],
-            "metadata": "_Medidas.Grupo de Acceso Relativo"
+            "metadata": "_Medidas.Grupo de Disponibilidad Relativa"
           }
         }
       ],
@@ -566,7 +566,7 @@
             }
           },
           "selector": {
-            "metadata": "_Medidas.Acceso Relativo"
+            "metadata": "_Medidas.Disponibilidad Relativa de la Oferta"
           }
         }
       ],
@@ -622,7 +622,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Indicadores por comuna, ordenados por Acceso Relativo'"
+                  "Value": "'Indicadores por comuna, ordenados por Disponibilidad Relativa de la Oferta'"
                 }
               }
             }
@@ -642,7 +642,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Indicadores por comuna, ordenados por Acceso Relativo'"
+                  "Value": "'Indicadores por comuna, ordenados por Disponibilidad Relativa de la Oferta'"
                 }
               }
             },

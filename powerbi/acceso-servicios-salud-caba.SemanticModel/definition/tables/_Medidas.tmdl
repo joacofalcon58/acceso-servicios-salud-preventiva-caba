@@ -413,28 +413,28 @@ table _Medidas
 		lineageTag: e11a5d9d-85ea-4c5c-b9e2-f193a13c3955
 
 	/// Indicador exploratorio de disponibilidad relativa, de 0 a 100: promedio, con pesos iguales, de la posición de la comuna en cobertura poblacional, proximidad y diversidad. Compara comunas entre sí, no mide una cobertura absoluta. Usa toda la red. Ver docs/metodologia.md.
-	measure 'Acceso Relativo' = 100 * AVERAGEX({[Posicion Relativa Cobertura Poblacional], [Posicion Relativa Proximidad], [Posicion Relativa Diversidad]}, [Value])
+	measure 'Disponibilidad Relativa de la Oferta' = 100 * AVERAGEX({[Posicion Relativa Cobertura Poblacional], [Posicion Relativa Proximidad], [Posicion Relativa Diversidad]}, [Value])
 		formatString: 0.0
 		displayFolder: 05 - Acceso
 		lineageTag: 42a04290-9e2f-49e8-803c-46318209f09d
 
-	/// Posición de la comuna según Acceso Relativo: 1 es la de mayor disponibilidad relativa. Los empates comparten posición. Compara con 6 decimales para que el redondeo de la máquina no rompa los empates.
-	measure 'Posicion Acceso Relativo' =
+	/// Posición de la comuna según la Disponibilidad Relativa de la Oferta: 1 es la de mayor disponibilidad relativa. Los empates comparten posición. Compara con 6 decimales para que el redondeo de la máquina no rompa los empates.
+	measure 'Posicion Disponibilidad Relativa' =
 			IF(
 			    HASONEVALUE(Dim_Comuna[id_comuna]),
-			    RANKX(ALL(Dim_Comuna), ROUND([Acceso Relativo], 6), , DESC, Skip)
+			    RANKX(ALL(Dim_Comuna), ROUND([Disponibilidad Relativa de la Oferta], 6), , DESC, Skip)
 			)
 		formatString: 0
 		displayFolder: 05 - Acceso
 		lineageTag: ce05d449-2538-48a3-8e47-155c0c366f04
 
 	/// Etiqueta por tercios de las 15 comunas: las 5 primeras, las 5 últimas y las 5 del medio. No es un juicio de calidad: describe la posición relativa.
-	measure 'Grupo de Acceso Relativo' =
+	measure 'Grupo de Disponibilidad Relativa' =
 			SWITCH(
 			    TRUE(),
-			    ISBLANK([Posicion Acceso Relativo]), BLANK(),
-			    [Posicion Acceso Relativo] <= 5, "Mayor disponibilidad relativa",
-			    [Posicion Acceso Relativo] >= 11, "Menor disponibilidad relativa",
+			    ISBLANK([Posicion Disponibilidad Relativa]), BLANK(),
+			    [Posicion Disponibilidad Relativa] <= 5, "Mayor disponibilidad relativa",
+			    [Posicion Disponibilidad Relativa] >= 11, "Menor disponibilidad relativa",
 			    "Disponibilidad relativa intermedia"
 			)
 		displayFolder: 05 - Acceso

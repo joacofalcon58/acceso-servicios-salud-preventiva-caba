@@ -87,7 +87,7 @@ Descarga de todos los archivos del INDEC: `https://censo.gob.ar/wp-content/uploa
 | Año de referencia | Población de 2022 y estaciones de 2026 |
 | Uso | El modelo lee las columnas de cobertura espacial. Si cambia alguna fuente, hay que volver a ejecutar el script |
 
-El script [sensibilidad_acceso_relativo.py](../scripts/sensibilidad_acceso_relativo.py) genera además `data/processed/sensibilidad_acceso_relativo.csv`, con el ordenamiento de las comunas en cada variante del indicador compuesto. El dashboard web lo usa para informar qué comunas se mantienen en el grupo de menor disponibilidad relativa.
+El script [sensibilidad_disponibilidad_relativa.py](../scripts/sensibilidad_disponibilidad_relativa.py) genera además `data/processed/sensibilidad_disponibilidad_relativa.csv`, con el ordenamiento de las comunas en cada variante del indicador compuesto. El dashboard web lo usa para informar qué comunas se mantienen en el grupo de menor disponibilidad relativa.
 
 ## Decisiones sobre las fuentes
 

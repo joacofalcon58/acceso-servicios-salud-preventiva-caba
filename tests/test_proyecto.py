@@ -29,7 +29,7 @@ from shapely.ops import transform, unary_union
 RAIZ = Path(__file__).resolve().parent.parent
 RAW = RAIZ / "data" / "raw"
 PROCESADO = RAIZ / "data" / "processed" / "acceso_comunas_exploratorio.csv"
-SENSIBILIDAD = RAIZ / "data" / "processed" / "sensibilidad_acceso_relativo.csv"
+SENSIBILIDAD = RAIZ / "data" / "processed" / "sensibilidad_disponibilidad_relativa.csv"
 MODELO = RAIZ / "powerbi" / "acceso-servicios-salud-caba.SemanticModel" / "definition"
 LIMITE_BYTES = 254  # largo máximo de un campo de texto en formato Shapefile
 
@@ -140,7 +140,7 @@ def componentes():
     return cantidad, por_habitante, cobertura, diversidad
 
 
-def acceso_relativo():
+def disponibilidad_relativa():
     _, por_habitante, cobertura, diversidad = componentes()
     partes = [posicion_relativa(v) for v in (por_habitante, cobertura, diversidad)]
     puntaje = [100 * sum(t) / 3 for t in zip(*partes)]
@@ -316,21 +316,21 @@ class CoberturaEspacial(unittest.TestCase):
         self.assertAlmostEqual(total, declarada, delta=0.1, msg="la proyección local no reproduce el área publicada")
 
 
-class AccesoRelativo(unittest.TestCase):
+class DisponibilidadRelativa(unittest.TestCase):
     def test_puntajes_y_posiciones_documentados(self):
-        puntaje, posicion = acceso_relativo()
+        puntaje, posicion = disponibilidad_relativa()
         esperado = {1: (3.6, 15), 2: (71.4, 3), 3: (73.8, 2), 4: (21.4, 13), 5: (69.0, 5), 6: (97.6, 1), 7: (64.3, 6), 8: (61.9, 7),
                     9: (33.3, 11), 10: (20.2, 14), 11: (31.0, 12), 12: (71.4, 3), 13: (42.9, 9), 14: (52.4, 8), 15: (35.7, 10)}
         self.assertEqual({c: (round(p, 1), q) for c, p, q in zip(COMUNAS, puntaje, posicion)}, esperado)
 
     def test_escala_y_grupos(self):
-        puntaje, posicion = acceso_relativo()
+        puntaje, posicion = disponibilidad_relativa()
         self.assertTrue(all(0 <= p <= 100 for p in puntaje))
         self.assertEqual(sum(q <= 5 for q in posicion), 5)
         self.assertEqual(sum(q >= 11 for q in posicion), 5)
 
     def test_grupos_extremos_con_poblacion_similar(self):
-        _, posicion = acceso_relativo()
+        _, posicion = disponibilidad_relativa()
         cantidad, _, _, _ = componentes()
         mayor = [c for c, q in zip(COMUNAS, posicion) if q <= 5]
         menor = [c for c, q in zip(COMUNAS, posicion) if q >= 11]
@@ -345,7 +345,7 @@ class AccesoRelativo(unittest.TestCase):
 
     def test_archivo_de_sensibilidad(self):
         filas = leer_csv(SENSIBILIDAD)
-        _, posicion = acceso_relativo()
+        _, posicion = disponibilidad_relativa()
         original = filas[0]
         self.assertTrue(original["escenario"].startswith("Original"))
         self.assertEqual([int(original[f"posicion_comuna_{c}"]) for c in COMUNAS], posicion)
@@ -371,7 +371,7 @@ class DashboardHtml(unittest.TestCase):
             self.assertEqual({self.datos["servicios"][i] for i in e["servicios"]}, fuente["servicios"])
 
     def test_indicadores_por_comuna(self):
-        puntaje, posicion = acceso_relativo()
+        puntaje, posicion = disponibilidad_relativa()
         _, por_habitante, cobertura, diversidad = componentes()
         por_id = {c["id"]: c for c in self.datos["comunas"]}
         for i, c in enumerate(COMUNAS):

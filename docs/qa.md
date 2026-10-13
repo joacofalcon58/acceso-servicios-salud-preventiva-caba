@@ -375,9 +375,9 @@ Las medidas de Power BI Desktop se compararon con el cálculo independiente del 
 |---|---|
 | Estaciones cada 100.000 habitantes, habitantes por estación, estaciones por km² y servicios cada 100.000, en las 15 comunas | Coinciden |
 | Cobertura a 500, 1.000 y 2.000 metros, distancia media y cobertura de servicios, en las 15 comunas | Coinciden con el archivo generado |
-| Puntaje de Acceso Relativo en las 15 comunas | Coincide con el cálculo del script, con los tres componentes y pesos iguales |
+| Puntaje de Disponibilidad Relativa de la Oferta en las 15 comunas | Coincide con el cálculo del script, con los tres componentes y pesos iguales |
 | Posición de las 15 comunas | Coincide con el script |
-| Acceso Relativo con un filtro de tipo móvil o de un servicio | No cambia: usa toda la red |
+| Disponibilidad Relativa de la Oferta con un filtro de tipo móvil o de un servicio | No cambia: usa toda la red |
 | Posición y grupo con el total de comunas | Vacíos |
 
 Totales de la ciudad: 0,80 estaciones cada 100.000 habitantes (0,54 fijas y 0,26 móviles), 124.868 habitantes por estación, cobertura de la superficie de 9,6 % a 500 metros, 35,7 % a 1.000 y 79,1 % a 2.000, y distancia media de 1.421 metros.
@@ -392,7 +392,7 @@ Totales de la ciudad: 0,80 estaciones cada 100.000 habitantes (0,54 fijas y 0,26
 
 - La cobertura espacial depende de un cálculo propio con una aproximación de distancias en línea recta. Se verificó que las medidas del modelo lean bien el archivo, pero no se contrastó contra otra herramienta geográfica.
 
-**Actualización del 13 de octubre de 2026.** La auditoría contrastó la cobertura con un método geométrico independiente y corrigió los factores de conversión de grados a metros. Los totales de la ciudad pasaron a 9,6 % a 500 metros, 35,6 % a 1.000, 79,0 % a 2.000 y 1.424 metros de distancia media. El orden de las comunas y el Acceso Relativo no cambiaron. Ver [QA_REPORT.md](QA_REPORT.md).
+**Actualización del 13 de octubre de 2026.** La auditoría contrastó la cobertura con un método geométrico independiente y corrigió los factores de conversión de grados a metros. Los totales de la ciudad pasaron a 9,6 % a 500 metros, 35,6 % a 1.000, 79,0 % a 2.000 y 1.424 metros de distancia media. El orden de las comunas y la Disponibilidad Relativa de la Oferta no cambiaron. Ver [QA_REPORT.md](QA_REPORT.md).
 - Los radios de 500, 1.000 y 2.000 metros son exploratorios.
 
 No hay errores bloqueantes.
@@ -420,7 +420,7 @@ Fecha de la validación: 5 de octubre de 2026. Diseño y decisiones en [diseno-d
 - **Campos repetidos en el mapa de estaciones.** La estación y el tipo estaban a la vez en la categoría, la leyenda y los tooltips, y Power BI Desktop mostró el error "Repeated indices found in GroupBy or Projections". La revisión contra los esquemas no lo detecta. Se agregó la comprobación de campos repetidos a la revisión de los 47 visuales.
 - **Campos mal repartidos al cambiar a ArcGIS.** Al convertir el visual, Desktop repartió los campos en casilleros que no correspondían: el tipo como ubicación, el nombre como color, la estructura como hora. Se reasignaron y se dejó una configuración de símbolos coherente: azul para las fijas, naranja para las móviles, y tres tonos de azul para los grupos de comunas.
 - **Mapa de comunas con ubicación por nombre.** ArcGIS buscaba "Comuna 1" como nombre de lugar en todo el mundo, sin garantía de acertar. Se cambió a un punto en el centro de cada comuna, con latitud y longitud propias (columnas nuevas de `Dim_Comuna`). Ya no es un mapa de polígonos coloreados, sino de círculos.
-- **Posición relativa mal calculada dentro de los visuales.** Con la comuna como categoría de un visual, las medidas de posición daban 1 para todas las comunas y el Acceso Relativo daba 100 para todas. Mi validación anterior iteraba fila por fila y no reprodujo ese contexto. La causa: `ALL` sobre una sola columna deja activos los filtros de las otras columnas de la tabla. Se reemplazó por `ALL` sobre la tabla completa y se validó con una consulta agrupada por comuna, que es lo que usan los visuales.
+- **Posición relativa mal calculada dentro de los visuales.** Con la comuna como categoría de un visual, las medidas de posición daban 1 para todas las comunas y la Disponibilidad Relativa de la Oferta daba 100 para todas. Mi validación anterior iteraba fila por fila y no reprodujo ese contexto. La causa: `ALL` sobre una sola columna deja activos los filtros de las otras columnas de la tabla. Se reemplazó por `ALL` sobre la tabla completa y se validó con una consulta agrupada por comuna, que es lo que usan los visuales.
 - **Tema propio eliminado por Power BI Desktop.** Al guardar, Desktop quitó el archivo del tema que se había escrito a mano y dejó una referencia colgante. Se eliminó la referencia y el formato de fondo, borde y título quedó definido en cada visual. Más tarde se importó el tema "CABA Salud Preventiva" desde Desktop, que sí lo conserva.
 - **Color de los símbolos de la matriz.** El gris elegido tenía poco contraste. Se oscureció.
 
@@ -462,7 +462,7 @@ El verificador de paletas da, para el par `#0A2A3C` y `#2F8F8A`: separación par
 
 - **El aspecto de las páginas.** No se pudo ver el reporte renderizado, así que no se verificaron solapamientos, cortes de texto ni proporciones.
 - **La configuración de ArcGIS.** Los símbolos y la leyenda de los dos mapas se escribieron a mano sobre el formato que guardó Desktop. Si alguno no se ve como se describe, se ajusta desde el panel de formato del visual.
-- **El color por Acceso Relativo** en la dispersión y el color de los símbolos de la matriz.
+- **El color por Disponibilidad Relativa de la Oferta** en la dispersión y el color de los símbolos de la matriz.
 
 Estas verificaciones visuales quedan para la fase 9.
 
@@ -483,7 +483,7 @@ Se ejecutaron 30 comprobaciones en Power BI Desktop. Los resultados son los espe
 | Doble conteo | La suma de estaciones por comuna, tipo, estructura y barrio da el total. Fijas más móviles da el total en cada comuna. Con un servicio filtrado, la suma por comuna da las estaciones que lo ofrecen | Correcto |
 | Relaciones | Las relaciones estación-servicio suman 191 por servicio y por estación | Correcto |
 | Población | Total de 3.121.707 y 551.010 de 65 años y más. No cambia con los filtros de estaciones ni de servicios | Correcto |
-| Indicadores | Estaciones cada 100.000 habitantes consistente con las estaciones. Coberturas entre 0 y 100 %. Acceso Relativo entre 0 y 100. Posiciones entre 1 y 15. Grupos de 5, 5 y 5 | Correcto |
+| Indicadores | Estaciones cada 100.000 habitantes consistente con las estaciones. Coberturas entre 0 y 100 %. Disponibilidad Relativa de la Oferta entre 0 y 100. Posiciones entre 1 y 15. Grupos de 5, 5 y 5 | Correcto |
 | Calidad de datos | Dos estaciones con posible truncamiento y una sin servicios informados | Correcto |
 
 La cardinalidad, la dirección de los filtros y la ausencia de relaciones bidireccionales están verificadas desde la fase 3.
@@ -563,7 +563,7 @@ Se ejecutaron en un navegador los filtros del dashboard y se compararon los resu
 | Matriz de servicio por comuna | 15 filas y 134 círculos llenos | 134 celdas con servicio |
 | Página 3: población, estaciones, estaciones cada 100.000 y habitantes por estación | 3.121.707, 25, 0,80 y 124.868 | Igual |
 | Página 3, tipo móvil | 8 estaciones, 0,26 y 390.213 | Igual |
-| Acceso Relativo de las 15 comunas | Mismos puntajes y posiciones | Igual (Comuna 6: 97,6; Comuna 1: 3,6) |
+| Disponibilidad Relativa de la Oferta de las 15 comunas | Mismos puntajes y posiciones | Igual (Comuna 6: 97,6; Comuna 1: 3,6) |
 
 ### Revisión visual
 

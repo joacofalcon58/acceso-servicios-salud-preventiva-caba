@@ -113,7 +113,7 @@ Las decisiones de diseño están en [docs/diseno-dashboard.md](docs/diseno-dashb
 
 ### Versión en HTML
 
-[`index.html`](index.html) ([ver en línea](https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/)) reúne la información de las tres páginas en un único archivo que se abre en cualquier navegador, sin Power BI. Incluye la portada, filtros por comuna, barrio, tipo, estructura y servicio, la matriz de servicios, un mapa de comunas coloreado por Acceso Relativo y un panel de preguntas rápidas. Se genera con `scripts/construir_dashboard_html.py` a partir de los mismos archivos de origen, y sus totales coinciden con las medidas del modelo.
+[`index.html`](index.html) ([ver en línea](https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/)) reúne la información de las tres páginas en un único archivo que se abre en cualquier navegador, sin Power BI. Incluye la portada, filtros por comuna, barrio, tipo, estructura y servicio, la matriz de servicios, un mapa de comunas coloreado por Disponibilidad Relativa de la Oferta y un panel de preguntas rápidas. Se genera con `scripts/construir_dashboard_html.py` a partir de los mismos archivos de origen, y sus totales coinciden con las medidas del modelo.
 
 Se puede ver en línea en [joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/](https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/), publicado con GitHub Pages desde la rama `main`.
 
@@ -187,7 +187,7 @@ Para regenerar los indicadores de cobertura espacial, la sensibilidad del indica
 ```bash
 pip install -r scripts/requirements.txt
 python scripts/analisis_acceso.py
-python scripts/sensibilidad_acceso_relativo.py
+python scripts/sensibilidad_disponibilidad_relativa.py
 python scripts/construir_dashboard_html.py
 ```
 

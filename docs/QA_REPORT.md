@@ -64,7 +64,7 @@ No hubo hallazgos bloqueantes.
 |---|---|---|---|
 | A1 | Alta | Ningún texto aclaraba que el proyecto es independiente. La barra superior del dashboard decía "Ciudad Autónoma de Buenos Aires" y la portada lleva el logotipo de la Ciudad | Mitigado: aclaración en el dashboard, el README, los hallazgos y el portfolio. El logotipo de la portada queda a decisión del autor |
 | A2 | Alta | Los hallazgos y el dashboard afirmaban que las cinco comunas de menor disponibilidad "son las mismas aunque cambien los pesos". La Comuna 9 se mantiene en ese grupo solo en el 54 % de las pruebas, y su único dato de servicios está posiblemente truncado | Corregido |
-| A3 | Media | Las medidas "red completa" quitaban los filtros de seis columnas de la estación y no los de identificador, latitud, longitud y cantidad de servicios. Con un filtro sobre esas columnas, el Acceso Relativo cambiaba. Ningún visual actual aplica esos filtros | Corregido y validado en el motor |
+| A3 | Media | Las medidas "red completa" quitaban los filtros de seis columnas de la estación y no los de identificador, latitud, longitud y cantidad de servicios. Con un filtro sobre esas columnas, la Disponibilidad Relativa de la Oferta cambiaba. Ningún visual actual aplica esos filtros | Corregido y validado en el motor |
 | A4 | Media | La conversión de grados a metros usaba 110.574 metros por grado de latitud. El valor del elipsoide WGS84 en la latitud de la ciudad es 110.933,5: una diferencia de 0,3 % | Corregido |
 | A5 | Media | La cobertura espacial no se había contrastado con un método independiente | Resuelto: coincide con la geometría exacta |
 | A6 | Media | No había pruebas automatizadas | Resuelto: 32 pruebas |
@@ -73,7 +73,7 @@ No hubo hallazgos bloqueantes.
 | A9 | Media | En pantallas angostas la barra de navegación ocupaba cuatro filas y, al ser fija, tapaba un cuarto de la pantalla | Corregido |
 | A10 | Media | La etiqueta del grupo intermedio tenía un contraste de 3,3 a 1. El mínimo es 4,5 | Corregido: 4,8 a 1 |
 | A11 | Media | El portfolio hablaba de "equidad territorial" y de un dashboard que "prioriza territorios" | Corregido |
-| A12 | Media | El nombre "Acceso Relativo" puede sugerir que mide acceso efectivo | Propuesta de renombre, sin aplicar |
+| A12 | Media | El nombre "Acceso Relativo" puede sugerir que mide acceso efectivo | Corregido: renombrado a "Disponibilidad Relativa de la Oferta" |
 | A13 | Media | El README no muestra capturas reales de las páginas de Power BI | Pendiente: requiere capturas del autor |
 | A14 | Media | El aspecto del informe de Power BI nunca fue verificado por el revisor, incluido el cambio de paleta | Pendiente: requiere revisión visual en Power BI Desktop |
 | A15 | Baja | La consola del navegador registraba un error 404 por la falta de ícono | Corregido |
@@ -143,7 +143,7 @@ Los diez coinciden. No hubo que modificar ningún cálculo.
 | Cobertura territorial por servicio | Comunas con el servicio ÷ comunas de la ciudad | Porcentaje | Servicio | 15 comunas. Fijo, aunque haya una comuna seleccionada | Responde a tipo y estructura | De 6,7 % a 93,3 % |
 | Comunas con disponibilidad | Comunas con al menos una estación que ofrece el servicio | Comunas | Servicio | No aplica | Responde a tipo y estructura | De 1 a 14 |
 | Cobertura espacial a 1.000 metros | Puntos de la grilla a 1.000 metros o menos de una estación ÷ puntos de la grilla | Porcentaje de superficie | Comuna. La ciudad pondera por superficie oficial | Superficie de la comuna | No responde a los filtros: usa toda la red | 35,6 % |
-| Acceso Relativo | 100 × promedio de las posiciones relativas de tres componentes | Puntaje de 0 a 100 | Comuna. Vacío con más de una comuna | 14, la cantidad de comunas menos una | No responde a los filtros: usa toda la red | No aplica |
+| Disponibilidad Relativa de la Oferta | 100 × promedio de las posiciones relativas de tres componentes | Puntaje de 0 a 100 | Comuna. Vacío con más de una comuna | 14, la cantidad de comunas menos una | No responde a los filtros: usa toda la red | No aplica |
 
 Las fórmulas completas están en [metodologia.md](metodologia.md).
 
@@ -151,7 +151,7 @@ Las fórmulas completas están en [metodologia.md](metodologia.md).
 
 Recalculados desde las fuentes y comparados con el modelo de Power BI y con el dashboard. Coinciden en las 15 comunas.
 
-| Comuna | Estaciones | Cada 100.000 habitantes | Cobertura a 1.000 m | Diversidad | Acceso Relativo | Puesto |
+| Comuna | Estaciones | Cada 100.000 habitantes | Cobertura a 1.000 m | Diversidad | Disponibilidad Relativa de la Oferta | Puesto |
 |---|---|---|---|---|---|---|
 | 1 | 1 | 0,45 | 10,9 % | 13,3 % | 3,6 | 15 |
 | 2 | 2 | 1,24 | 58,7 % | 66,7 % | 71,4 | 3 |
@@ -183,10 +183,10 @@ El modelo se abrió en Power BI Desktop, se actualizó con los datos del reposit
 | Estaciones y comunas por servicio, en los 15 servicios | Iguales al recálculo |
 | Promedio de servicios con el filtro de tipo | 10,000 en fijas y 3,875 en móviles |
 | Población con filtros de tipo o de servicio | No cambia: el denominador es fijo |
-| Acceso Relativo y posición de las 15 comunas | Iguales al recálculo, con todos los decimales |
-| Acceso Relativo con filtro de tipo, de servicio o de ambos | No cambia |
-| Acceso Relativo con filtro de latitud, cantidad de servicios o identificador de estación | **Cambiaba** antes de la corrección. No cambia después |
-| Acceso Relativo y posición con más de una comuna en el contexto | Vacíos, como está definido |
+| Disponibilidad Relativa de la Oferta y posición de las 15 comunas | Iguales al recálculo, con todos los decimales |
+| Disponibilidad Relativa de la Oferta con filtro de tipo, de servicio o de ambos | No cambia |
+| Disponibilidad Relativa de la Oferta con filtro de latitud, cantidad de servicios o identificador de estación | **Cambiaba** antes de la corrección. No cambia después |
+| Disponibilidad Relativa de la Oferta y posición con más de una comuna en el contexto | Vacíos, como está definido |
 | Divisiones | Todas usan `DIVIDE`: una comuna sin estaciones da vacío y no error |
 
 Rendimiento, medido con las métricas de ejecución del motor: la consulta de la tabla de indicadores por comuna tarda 22 milisegundos y la de la matriz de servicio por comuna (225 celdas), 4 milisegundos. Con 25 estaciones y 191 filas en la tabla puente, no hay nada que optimizar. No se usó el Analizador de rendimiento de Power BI Desktop, que requiere operar la interfaz.
@@ -197,7 +197,7 @@ Revisión de las 53 medidas:
 - La única corrección funcional es la del hallazgo A3. No se cambió ninguna medida por estilo.
 - Las tres relaciones filtran en un solo sentido. No hay relaciones bidireccionales ni referencias cíclicas.
 
-## 6. Auditoría del indicador Acceso Relativo
+## 6. Auditoría del indicador Disponibilidad Relativa de la Oferta
 
 La definición matemática, la normalización, los pesos, la dirección de los componentes y el tratamiento de empates están en [metodologia.md](metodologia.md). Esta sección resume lo que se comprobó.
 
@@ -212,7 +212,7 @@ La definición matemática, la normalización, los pesos, la dirección de los c
 
 ### Prueba de sensibilidad
 
-Se calcularon once variantes y 20.000 combinaciones de pesos al azar con `scripts/sensibilidad_acceso_relativo.py`. La tabla completa está en [metodologia.md](metodologia.md).
+Se calcularon once variantes y 20.000 combinaciones de pesos al azar con `scripts/sensibilidad_disponibilidad_relativa.py`. La tabla completa está en [metodologia.md](metodologia.md).
 
 | Resultado | Estabilidad |
 |---|---|
@@ -226,12 +226,11 @@ Se calcularon once variantes y 20.000 combinaciones de pesos al azar con `script
 
 La sensibilidad no reemplaza al indicador. Sirvió para corregir cómo se comunica: ahora los textos presentan como robustos solo los dos extremos y las comunas 4, 10 y 11.
 
-### Propuestas que requieren decisión del autor
+### Propuesta que requiere decisión del autor
 
-1. **Renombrar el indicador a "Disponibilidad Relativa de la Oferta".** Ventaja: no sugiere acceso efectivo. Costo: cambia nombres de medidas, visuales, dashboard y documentación, y exige guardar el informe desde Power BI Desktop.
-2. **Reevaluar la normalización por mínimo y máximo** si se suman estaciones o servicios. Ventaja: un servicio de diferencia deja de pesar 14 puntos. Costo: con 15 comunas, un valor extremo comprime al resto.
+1. **Reevaluar la normalización por mínimo y máximo** si se suman estaciones o servicios. Ventaja: un servicio de diferencia deja de pesar 14 puntos. Costo: con 15 comunas, un valor extremo comprime al resto.
 
-Ninguna se implementó.
+No se implementó. El renombre del indicador, que también se propuso en esta auditoría, se aplicó después por decisión del autor (A12).
 
 ## 7. Validación geográfica
 
@@ -257,7 +256,7 @@ Efecto de la corrección de los factores de conversión:
 | Cobertura a 2.000 metros | 79,1 % | 79,0 % |
 | Distancia media a la estación más cercana | 1.421 m | 1.424 m |
 | Orden de las comunas en cobertura a 1.000 metros | | Sin cambios |
-| Acceso Relativo de las 15 comunas | | Sin cambios |
+| Disponibilidad Relativa de la Oferta de las 15 comunas | | Sin cambios |
 
 Los cinco conceptos que no deben confundirse (presencia, cobertura de superficie, disponibilidad de prestaciones, población potencialmente cercana y acceso efectivo) están diferenciados en [metodologia.md](metodologia.md). El proyecto mide los tres primeros.
 
@@ -269,7 +268,7 @@ Dictamen sobre las afirmaciones publicadas antes de la auditoría.
 |---|---|---|---|---|---|
 | Las 15 comunas tienen al menos una estación | Comunas con presencia | 15 de 15 | No demuestra cobertura de la población | PASS | Se agregó que presencia no equivale a cobertura de la población |
 | Siete comunas dependen de una sola estación y tres no tienen ninguna fija | Estaciones por comuna y tipo | Comunas 1, 4, 5, 9, 10, 11 y 15; comunas 1, 10 y 13 | Ninguna adicional | PASS | Sin cambios |
-| Los dos grupos extremos tienen población casi igual y 10 contra 5 estaciones | Acceso Relativo | 992.086 y 999.462 habitantes | Los grupos se arman, en parte, con las estaciones por habitante | WARN | Pasó de evidencia del hallazgo 1 a limitación del hallazgo 7 |
+| Los dos grupos extremos tienen población casi igual y 10 contra 5 estaciones | Disponibilidad Relativa de la Oferta | 992.086 y 999.462 habitantes | Los grupos se arman, en parte, con las estaciones por habitante | WARN | Pasó de evidencia del hallazgo 1 a limitación del hallazgo 7 |
 | "Una persona de la Comuna 4 comparte su estación con más de tres veces más vecinos" | Habitantes por estación | 229.240 contra 67.681: cociente de 3,4 | Supone que la gente usa la estación de su comuna | WARN | "En la Comuna 4 hay 3,4 veces más habitantes por cada estación que en la Comuna 6" |
 | La oferta por habitante varía más de tres veces | Estaciones cada 100.000 habitantes | De 0,44 a 1,48 | Cuenta estaciones, no capacidad | PASS | Se precisó: "cantidad de estaciones por habitante" |
 | Los controles básicos llegan a 13 comunas y el Control de Glucemia, a 2 | Comunas con servicio | Verificado en toda la red, sin filtros | Campos truncados en las comunas 9 y 15 | PASS | Sin cambios |
@@ -279,9 +278,9 @@ Dictamen sobre las afirmaciones publicadas antes de la auditoría.
 | El 35,7 % de la superficie está a menos de 1.000 metros | Cobertura a 1.000 metros | 35,6 % tras la corrección | Mide superficie, no población | PASS, con valor corregido | 35,6 % |
 | "Hay comunas lejos de cualquier estación" | Distancia media | Comuna 9: 2.444 metros | Línea recta, por superficie | WARN | Se reemplazó por los valores mínimo y máximo de cobertura |
 | "Las comunas con menor disponibilidad relativa son las mismas aunque cambien los pesos" | Sensibilidad | Cierto para 1, 4, 10 y 11. La Comuna 9 se mantiene en el 54 % | Dato truncado en la Comuna 9 | FAIL | "El ordenamiento exploratorio es estable en los extremos y sensible en el centro" |
-| "Conviene analizar primero las comunas 1, 10, 4, 11 y 9" | Acceso Relativo | Robusto para cuatro de las cinco | Indicador exploratorio | WARN | "Comenzar por las comunas 1, 4, 10 y 11" y completar antes el dato de la Comuna 9 |
+| "Conviene analizar primero las comunas 1, 10, 4, 11 y 9" | Disponibilidad Relativa de la Oferta | Robusto para cuatro de las cinco | Indicador exploratorio | WARN | "Comenzar por las comunas 1, 4, 10 y 11" y completar antes el dato de la Comuna 9 |
 | Portfolio: "Equidad territorial de las Estaciones Saludables" | Ninguno | El proyecto no mide equidad | Sin datos de demanda ni de uso | FAIL | "Distribución territorial de la oferta" |
-| Portfolio: "un dashboard que prioriza territorios" | Acceso Relativo | Ordena de forma exploratoria | No sirve para asignar recursos | WARN | "ordena, de forma exploratoria, qué comunas conviene analizar primero" |
+| Portfolio: "un dashboard que prioriza territorios" | Disponibilidad Relativa de la Oferta | Ordena de forma exploratoria | No sirve para asignar recursos | WARN | "ordena, de forma exploratoria, qué comunas conviene analizar primero" |
 | Conclusión: "La pregunta central no tiene una respuesta afirmativa sencilla" | Todos | Hay diferencias medibles en la oferta | No se puede afirmar ni negar equidad | PASS | Se explicitó que no se concluye equidad ni inequidad |
 
 Resultado: 7 PASS, 7 WARN y 2 FAIL. Los dos FAIL y los siete WARN se corrigieron en el texto. Ningún resultado numérico se modificó para ajustarlo a una conclusión.
@@ -300,7 +299,7 @@ Ejecutadas en un navegador automatizado sobre la versión corregida.
 | Filtro combinado sin resultados (tipo móvil y Control de Glucemia) | Indicadores en cero y mensaje "Ninguna estación cumple los filtros" en los tres gráficos |
 | Botón para limpiar filtros | Restablece los valores iniciales |
 | Filtro combinado con resultados (Comuna 6 y tipo fija) | 2 estaciones, 1 de 15 comunas y 2 puntos en el mapa |
-| Filtro de tipo en la sección de brechas | Cambian estaciones e indicadores por habitante. El Acceso Relativo no cambia |
+| Filtro de tipo en la sección de brechas | Cambian estaciones e indicadores por habitante. La Disponibilidad Relativa de la Oferta no cambia |
 | Navegación con teclado | Los 25 puntos del mapa y las 15 comunas reciben foco, tienen etiqueta y muestran el detalle. Enter selecciona una comuna |
 | Estructura de encabezados | Un título principal, tres secciones y sus tarjetas, sin saltos de nivel |
 | Escritorio (1.440 px) | Sin desplazamiento horizontal. Las tablas entran completas |
@@ -354,10 +353,10 @@ No se pudo verificar: el aspecto de las páginas, las interacciones con clics en
 
 | Archivo | Cambio | Motivo | Efecto sobre los indicadores |
 |---|---|---|---|
-| `powerbi/.../tables/_Medidas.tmdl` | Las dos medidas "red completa" quitan también los filtros de identificador, latitud, longitud y cantidad de servicios | A3 | Ninguno en los visuales actuales. El Acceso Relativo ya no cambia con esos filtros |
-| `scripts/analisis_acceso.py` | Factores de grados a metros del elipsoide WGS84. Posiciones compartidas en los empates al imprimir | A4 y A18 | Cobertura de la ciudad a 1.000 metros de 35,7 % a 35,6 %. Acceso Relativo sin cambios |
+| `powerbi/.../tables/_Medidas.tmdl` | Las dos medidas "red completa" quitan también los filtros de identificador, latitud, longitud y cantidad de servicios | A3 | Ninguno en los visuales actuales. La Disponibilidad Relativa de la Oferta ya no cambia con esos filtros |
+| `scripts/analisis_acceso.py` | Factores de grados a metros del elipsoide WGS84. Posiciones compartidas en los empates al imprimir | A4 y A18 | Cobertura de la ciudad a 1.000 metros de 35,7 % a 35,6 %. Disponibilidad Relativa de la Oferta sin cambios |
 | `data/processed/acceso_comunas_exploratorio.csv` | Regenerado | A4 | Cambian las seis columnas de cobertura y distancia, en menos de 0,4 puntos porcentuales |
-| `scripts/sensibilidad_acceso_relativo.py` y `data/processed/sensibilidad_acceso_relativo.csv` | Nuevos | A2 y A7 | Ninguno: miden la robustez del indicador |
+| `scripts/sensibilidad_disponibilidad_relativa.py` y `data/processed/sensibilidad_disponibilidad_relativa.csv` | Nuevos | A2 y A7 | Ninguno: miden la robustez del indicador |
 | `tests/test_proyecto.py` | Nuevo: 32 pruebas | A5 y A6 | Ninguno |
 | `scripts/construir_dashboard_html.py` | La respuesta sobre qué comunas analizar primero informa cuáles se mantienen en el grupo | A2 | Ninguno |
 
@@ -394,7 +393,7 @@ En el repositorio `joacofalcon58.github.io`: subtítulo, resultado, un hallazgo 
 | Problema de negocio | 4 | 5 | Objetivo, población, alcance y usos definidos en el README | Nada |
 | Estructura analítica | 4 | 5 | Tres secciones con narrativa coherente. Hallazgos sin circularidad | Nada |
 | Indicadores y modelado | 4 | 5 | Fórmulas documentadas. 32 pruebas. Coincidencia entre fuentes, modelo y dashboard | Nada |
-| Rigor metodológico | 3 | 5 | Indicador auditado, robustez medida, cobertura validada con otro método y limitaciones explícitas | El renombre del indicador es una propuesta sin aplicar |
+| Rigor metodológico | 3 | 5 | Indicador auditado, robustez medida, cobertura validada con otro método y limitaciones explícitas | Nada |
 | Visualización y UX | 4 | 4 | Dashboard web sin fallas en las pruebas y con 100 en accesibilidad | El informe de Power BI no se verificó visualmente. Por eso no llega a 5 |
 | Calidad del código | 3 | 5 | Reproducible con cuatro comandos. Pruebas automatizadas. Sin defectos conocidos | Nada |
 | Documentación | 4 | 5 | Metodología, diccionario, hallazgos, fuentes e informe de auditoría | Nada |
@@ -409,7 +408,6 @@ No queda ningún hallazgo bloqueante ni de prioridad alta sin tratar. El hallazg
 | Aspecto e interacciones del informe de Power BI (A14) | No se puede ver el informe renderizado sin operar Power BI Desktop | Abrir el informe, actualizar los datos, revisar las cuatro páginas y guardar |
 | Capturas de las páginas de Power BI en el README (A13) | Dependen del punto anterior | Tres capturas en `images/` |
 | Logotipo de la Ciudad en la portada (A1) | Es una decisión de diseño del autor sobre una imagen propia | Decidir si se quita el logotipo de la portada |
-| Renombre del indicador (A12) | Cambia nombres en el modelo y exige guardar desde Power BI Desktop | Decisión del autor |
 | Lectores de pantalla y otros navegadores | Fuera del entorno de prueba | Prueba manual |
 
 ## Publicación

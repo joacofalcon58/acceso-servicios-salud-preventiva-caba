@@ -18,7 +18,7 @@ El dashboard tiene tres páginas de 1920 por 1080 píxeles. Cada una responde un
 | Texto | Azul noche (`#0A2A3C`) para valores y títulos, gris (`#4A4F55`) para etiquetas y gris verdoso (`#5F6B6D`) para notas |
 | Estaciones fijas | Azul noche `#0A2A3C`, el color de la portada del manual de estilo |
 | Estaciones móviles | Verde agua oscurecido `#2F8F8A`, derivado del `#79C7C3` del manual |
-| Acceso Relativo | Tres tonos para los grupos de comunas: azul noche `#0A2A3C`, azul `#4B8DDC` y celeste `#86DCE5`. El degradado de la dispersión va del celeste al azul noche |
+| Disponibilidad Relativa de la Oferta | Tres tonos para los grupos de comunas: azul noche `#0A2A3C`, azul `#4B8DDC` y celeste `#86DCE5`. El degradado de la dispersión va del celeste al azul noche |
 | Tipografía | Archivo, la del tema. Valores de tarjetas en 40 puntos, títulos en 14, texto de tablas entre 11 y 13 |
 | Retícula | Márgenes de 40 píxeles y separación de 20 entre visuales |
 
@@ -58,9 +58,9 @@ Responde qué comunas tienen menor disponibilidad relativa respecto de su poblac
 |---|---|
 | Tarjetas | Población, estaciones, estaciones cada 100.000 habitantes y habitantes por estación |
 | Filtro | Tipo de estación, para comparar fijas y móviles |
-| Visual principal | Mapa de ArcGIS con un círculo en el centro de cada comuna: color por grupo de Acceso Relativo y tamaño por población |
-| Secundarios | Dispersión de población contra estaciones cada 100.000 habitantes (color por Acceso Relativo y tamaño por servicios) y una tabla con todos los indicadores por comuna |
-| Nota | Texto breve que explica qué mide el Acceso Relativo y sus límites |
+| Visual principal | Mapa de ArcGIS con un círculo en el centro de cada comuna: color por grupo de Disponibilidad Relativa de la Oferta y tamaño por población |
+| Secundarios | Dispersión de población contra estaciones cada 100.000 habitantes (color por Disponibilidad Relativa de la Oferta y tamaño por servicios) y una tabla con todos los indicadores por comuna |
+| Nota | Texto breve que explica qué mide la Disponibilidad Relativa de la Oferta y sus límites |
 
 ## Cómo responde el dashboard a las preguntas del proyecto
 
@@ -74,13 +74,13 @@ Responde qué comunas tienen menor disponibilidad relativa respecto de su poblac
 | 6. ¿Las fijas ofrecen una cartera más amplia? | Página 2, tabla de fijas y móviles |
 | 7. ¿Qué comunas tienen menos estaciones respecto de su población? | Página 3, dispersión y tabla |
 | 8. ¿Dónde hay presencia pero baja disponibilidad de prestaciones? | Página 3, columnas de estaciones y diversidad de la tabla, y matriz de la página 2 |
-| 9. ¿Qué territorios analizar primero? | Página 3, mapa de Acceso Relativo y tabla ordenada |
+| 9. ¿Qué territorios analizar primero? | Página 3, mapa de Disponibilidad Relativa de la Oferta y tabla ordenada |
 
 ## Interacción
 
 - Los filtros y la selección en un visual afectan a los demás de la página.
 - El mapa de estaciones responde al filtro de servicio: solo muestra las estaciones que lo ofrecen.
-- El mapa de comunas y el Acceso Relativo usan siempre toda la red y no responden a los filtros de tipo ni de servicio.
+- El mapa de comunas y la Disponibilidad Relativa de la Oferta usan siempre toda la red y no responden a los filtros de tipo ni de servicio.
 - El barrio no está en el mapa de estaciones, pero sí como filtro de la página.
 
 ## Accesibilidad
@@ -88,7 +88,7 @@ Responde qué comunas tienen menor disponibilidad relativa respecto de su poblac
 - Todos los visuales tienen texto alternativo.
 - La matriz no depende del color: el círculo lleno o vacío lleva la información, y el color la refuerza.
 - El mapa de estaciones tiene leyenda. Los tamaños de texto son de 11 puntos o más.
-- El Acceso Relativo usa un solo tono de claro a oscuro, que no depende de distinguir matices.
+- La Disponibilidad Relativa de la Oferta usa un solo tono de claro a oscuro, que no depende de distinguir matices.
 
 ## Qué se verificó y qué no
 
@@ -103,7 +103,7 @@ No verificado:
 
 - **El aspecto de las páginas.** No se pudo ver el reporte renderizado. Falta revisar solapamientos, cortes de texto y proporciones.
 - **Los símbolos de los mapas de ArcGIS.** Se escribieron a mano sobre el formato que guardó Desktop. Si no se ven como se describe, se ajustan desde el panel de formato del visual.
-- El color por Acceso Relativo en la dispersión y el color de los símbolos de la matriz.
+- El color por Disponibilidad Relativa de la Oferta en la dispersión y el color de los símbolos de la matriz.
 
 ## Decisión: círculos en lugar de polígonos
 
@@ -123,7 +123,7 @@ Qué comparte con el informe de Power BI:
 
 Qué hace distinto:
 
-- El mapa de comunas se dibuja como polígonos coloreados por Acceso Relativo, con escala continua, porque el HTML no depende de un servicio de mapas.
+- El mapa de comunas se dibuja como polígonos coloreados por Disponibilidad Relativa de la Oferta, con escala continua, porque el HTML no depende de un servicio de mapas.
 - Agrega un panel de preguntas rápidas con las respuestas del proyecto y soporte para tema claro y oscuro.
 - No usa librerías externas: los gráficos son SVG y HTML propios. Solo carga la tipografía desde Google Fonts.
 
@@ -143,7 +143,7 @@ Las mediciones de Lighthouse de antes y después están en [QA_REPORT.md](QA_REP
 |---|---|---|
 | Estaciones fijas | `#0A2A3C` | `#86DCE5` |
 | Estaciones móviles | `#2F8F8A` | `#2F8F8A` |
-| Escala de Acceso Relativo | `#DCEFF4`, `#4B8DDC`, `#0A2A3C` | `#1B4D5C`, `#3599B8`, `#A4DDEE` |
+| Escala de Disponibilidad Relativa de la Oferta | `#DCEFF4`, `#4B8DDC`, `#0A2A3C` | `#1B4D5C`, `#3599B8`, `#A4DDEE` |
 | Texto y encabezados | `#0A2A3C` | `#EAF1F5` |
 | Acento | `#F2C300`, solo como detalle gráfico | `#F2C300` |
 

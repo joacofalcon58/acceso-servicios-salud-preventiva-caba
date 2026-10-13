@@ -1,4 +1,4 @@
-"""Robustez del indicador Acceso Relativo frente a decisiones metodológicas.
+"""Robustez del indicador Disponibilidad Relativa de la Oferta frente a decisiones metodológicas.
 
 Compara el ordenamiento de las 15 comunas del indicador original (posiciones con
 pesos iguales) con el que resulta de:
@@ -11,10 +11,10 @@ pesos iguales) con el que resulta de:
    ofrecen más servicios que los registrados.
 
 No reemplaza al indicador: mide cuánto dependen sus resultados de cada decisión.
-Escribe data/processed/sensibilidad_acceso_relativo.csv. Ver docs/metodologia.md.
+Escribe data/processed/sensibilidad_disponibilidad_relativa.csv. Ver docs/metodologia.md.
 
 Uso, desde la raíz del repositorio (después de analisis_acceso.py):
-    python scripts/sensibilidad_acceso_relativo.py
+    python scripts/sensibilidad_disponibilidad_relativa.py
 """
 import csv
 import sys
@@ -28,7 +28,7 @@ import analisis_acceso as aa  # noqa: E402
 
 RAIZ = AQUI.parent
 PROCESADO = RAIZ / "data" / "processed" / "acceso_comunas_exploratorio.csv"
-SALIDA = RAIZ / "data" / "processed" / "sensibilidad_acceso_relativo.csv"
+SALIDA = RAIZ / "data" / "processed" / "sensibilidad_disponibilidad_relativa.csv"
 COMPONENTES = ["estaciones_100k", "cobertura_1000m", "diversidad"]
 
 sys.stdout.reconfigure(encoding="utf-8")

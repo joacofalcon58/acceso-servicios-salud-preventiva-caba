@@ -158,9 +158,9 @@ La metodología y la justificación del indicador compuesto están en [metodolog
 | | Posicion Relativa Cobertura Poblacional | Posición de 0 a 1 entre las 15 comunas |
 | | Posicion Relativa Proximidad | Posición de 0 a 1 entre las 15 comunas |
 | | Posicion Relativa Diversidad | Posición de 0 a 1 entre las 15 comunas |
-| | Acceso Relativo | Promedio de las tres posiciones, de 0 a 100 |
-| | Posicion Acceso Relativo | 1 es la mayor disponibilidad relativa |
-| | Grupo de Acceso Relativo | Etiqueta por tercios de las 15 comunas |
+| | Disponibilidad Relativa de la Oferta | Promedio de las tres posiciones, de 0 a 100 |
+| | Posicion Disponibilidad Relativa | 1 es la mayor disponibilidad relativa |
+| | Grupo de Disponibilidad Relativa | Etiqueta por tercios de las 15 comunas |
 
 Reglas de diseño:
 

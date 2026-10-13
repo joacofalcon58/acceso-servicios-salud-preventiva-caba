@@ -2109,33 +2109,33 @@ cultureInfo es-AR
 			        }
 			      ]
 			    },
-			    "entity__medida.acceso_relativo": {
+			    "entity__medida.disponibilidad_relativa_de_la_oferta": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "Acceso Relativo"
+			          "ConceptualProperty": "Disponibilidad Relativa de la Oferta"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "acceso relativo": {
+			          "disponibilidad relativa de la oferta": {
 			            "State": "Generated"
 			          }
 			        }
 			      ]
 			    },
-			    "entity__medida.posicion_acceso_relativo": {
+			    "entity__medida.posicion_disponibilidad_relativa": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "Posicion Acceso Relativo"
+			          "ConceptualProperty": "Posicion Disponibilidad Relativa"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "posicion acceso relativo": {
+			          "posicion disponibilidad relativa": {
 			            "State": "Generated"
 			          }
 			        },
@@ -2151,17 +2151,17 @@ cultureInfo es-AR
 			        }
 			      ]
 			    },
-			    "entity__medida.grupo_de_acceso_relativo": {
+			    "entity__medida.grupo_de_disponibilidad_relativa": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "Grupo de Acceso Relativo"
+			          "ConceptualProperty": "Grupo de Disponibilidad Relativa"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "grupo de acceso relativo": {
+			          "grupo de disponibilidad relativa": {
 			            "State": "Generated"
 			          }
 			        },
@@ -5528,7 +5528,7 @@ cultureInfo es-AR
 			        }
 			      ]
 			    },
-			    "entity__medida_has_acceso_relativo": {
+			    "entity__medida_has_disponibilidad_relativa_de_la_oferta": {
 			      "Binding": {
 			        "ConceptualEntity": "_Medidas"
 			      },
@@ -5539,9 +5539,9 @@ cultureInfo es-AR
 			            "Entity": "entity__medida"
 			          }
 			        },
-			        "entity__medida.acceso_relativo": {
+			        "entity__medida.disponibilidad_relativa_de_la_oferta": {
 			          "Target": {
-			            "Entity": "entity__medida.acceso_relativo"
+			            "Entity": "entity__medida.disponibilidad_relativa_de_la_oferta"
 			          }
 			        }
 			      },
@@ -5552,16 +5552,16 @@ cultureInfo es-AR
 			              "Role": "entity__medida"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.acceso_relativo"
+			              "Role": "entity__medida.disponibilidad_relativa_de_la_oferta"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_medidas_have_acceso_relativo"
+			          "ID": "Phrasing_medidas_have_disponibilidad_relativa_de_la_oferta"
 			        }
 			      ]
 			    },
-			    "entity__medida_has_posicion_acceso_relativo": {
+			    "entity__medida_has_posicion_disponibilidad_relativa": {
 			      "Binding": {
 			        "ConceptualEntity": "_Medidas"
 			      },
@@ -5572,9 +5572,9 @@ cultureInfo es-AR
 			            "Entity": "entity__medida"
 			          }
 			        },
-			        "entity__medida.posicion_acceso_relativo": {
+			        "entity__medida.posicion_disponibilidad_relativa": {
 			          "Target": {
-			            "Entity": "entity__medida.posicion_acceso_relativo"
+			            "Entity": "entity__medida.posicion_disponibilidad_relativa"
 			          }
 			        }
 			      },
@@ -5585,16 +5585,16 @@ cultureInfo es-AR
 			              "Role": "entity__medida"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.posicion_acceso_relativo"
+			              "Role": "entity__medida.posicion_disponibilidad_relativa"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_medidas_have_posicion_acceso_relativo"
+			          "ID": "Phrasing_medidas_have_posicion_disponibilidad_relativa"
 			        }
 			      ]
 			    },
-			    "entity__medida_has_grupo_de_acceso_relativo": {
+			    "entity__medida_has_grupo_de_disponibilidad_relativa": {
 			      "Binding": {
 			        "ConceptualEntity": "_Medidas"
 			      },
@@ -5605,9 +5605,9 @@ cultureInfo es-AR
 			            "Entity": "entity__medida"
 			          }
 			        },
-			        "entity__medida.grupo_de_acceso_relativo": {
+			        "entity__medida.grupo_de_disponibilidad_relativa": {
 			          "Target": {
-			            "Entity": "entity__medida.grupo_de_acceso_relativo"
+			            "Entity": "entity__medida.grupo_de_disponibilidad_relativa"
 			          }
 			        }
 			      },
@@ -5618,12 +5618,12 @@ cultureInfo es-AR
 			              "Role": "entity__medida"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.grupo_de_acceso_relativo"
+			              "Role": "entity__medida.grupo_de_disponibilidad_relativa"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_medidas_have_grupo_de_acceso_relativo"
+			          "ID": "Phrasing_medidas_have_grupo_de_disponibilidad_relativa"
 			        }
 			      ]
 			    },

@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Acceso Relativo va de 0 a 100. Promedia la posición de cada comuna en estaciones cada 100.000 habitantes, cobertura a 1.000 metros y diversidad de servicios.",
+                    "value": "Disponibilidad Relativa de la Oferta va de 0 a 100. Promedia la posición de cada comuna en estaciones cada 100.000 habitantes, cobertura a 1.000 metros y diversidad de servicios.",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#4a4f55"
@@ -53,7 +53,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "El mapa y el Acceso Relativo usan toda la red. Los demás indicadores responden al filtro de tipo.",
+                    "value": "El mapa y el Disponibilidad Relativa de la Oferta usan toda la red. Los demás indicadores responden al filtro de tipo.",
                     "textStyle": {
                       "fontSize": "12pt",
                       "color": "#4a4f55"

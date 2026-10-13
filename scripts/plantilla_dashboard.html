@@ -372,14 +372,14 @@ footer.foot a{ color:var(--azul-3); }
   <div class="q-head"><span class="q-num">P3</span><h2 class="q-title">Brechas de acceso</h2></div>
   <p class="q-question">¿Qué comunas tienen menor disponibilidad relativa respecto de su población? Se combinan estaciones cada 100.000 habitantes, cobertura espacial y diversidad de servicios.</p>
 
-  <div class="callout info"><span class="ic">i</span><div><b>Cómo leer el Acceso Relativo.</b> Va de 0 a 100 y promedia la posición de cada comuna entre las 15 en estaciones cada 100.000 habitantes, cobertura a 1.000 metros y diversidad de servicios. Compara comunas entre sí y no mide el acceso efectivo de las personas. Es un indicador exploratorio: el color del mapa y el grupo usan siempre toda la red, sin los filtros.</div></div>
+  <div class="callout info"><span class="ic">i</span><div><b>Cómo leer la Disponibilidad Relativa de la Oferta.</b> Va de 0 a 100 y promedia la posición de cada comuna entre las 15 en estaciones cada 100.000 habitantes, cobertura a 1.000 metros y diversidad de servicios. Compara comunas entre sí y no mide el acceso efectivo de las personas. Es un indicador exploratorio: el color del mapa y el grupo usan siempre toda la red, sin los filtros.</div></div>
 
   <div class="kpi-row" id="p3-kpis"></div>
   <div class="filters" id="p3-filters"></div>
 
   <div class="grid-c">
     <div class="card">
-      <h3>Acceso Relativo por comuna</h3>
+      <h3>Disponibilidad Relativa de la Oferta por comuna</h3>
       <div class="cardsub">Más oscuro indica mayor disponibilidad relativa. Hacé clic en una comuna para destacarla en la tabla y en el gráfico.</div>
       <div class="mapbox" id="p3-map"></div>
       <div class="legend-row"><span>Menor disponibilidad relativa</span><span class="gradbar" role="img" aria-label="Escala de color de menor a mayor disponibilidad relativa"></span><span>Mayor disponibilidad relativa</span></div>
@@ -387,14 +387,14 @@ footer.foot a{ color:var(--azul-3); }
     <div class="stack">
       <div class="card scatter">
         <h3>Población y estaciones cada 100.000 habitantes</h3>
-        <div class="cardsub">Color: Acceso Relativo · Tamaño: relaciones estación-servicio</div>
+        <div class="cardsub">Color: Disponibilidad Relativa de la Oferta · Tamaño: relaciones estación-servicio</div>
         <div id="p3-scatter"></div>
       </div>
     </div>
   </div>
   <div class="card" style="margin-top:16px;">
     <h3>Indicadores por comuna</h3>
-    <div class="cardsub">Ordenadas por Acceso Relativo, de mayor a menor. Los indicadores de estaciones y servicios responden al filtro de tipo.</div>
+    <div class="cardsub">Ordenadas por Disponibilidad Relativa de la Oferta, de mayor a menor. Los indicadores de estaciones y servicios responden al filtro de tipo.</div>
     <div class="tbl-wrap" id="p3-table"></div>
   </div>
 </section>
@@ -405,7 +405,7 @@ footer.foot a{ color:var(--azul-3); }
     <div>
       <p><b>Fuentes.</b> Estaciones Saludables y polígonos de comunas: <a href="https://data.buenosaires.gob.ar/dataset/estaciones-saludables">BA Data</a>, Gobierno de la Ciudad (licencia CC-BY-2.5-AR, 2026). Población, superficie y población por edad: INDEC, Censo 2022, resultados definitivos. Las estaciones son de 2026 y la población, de 2022: los años no se ajustaron.</p>
       <p><b>Mismo cálculo que el informe de Power BI.</b> Esta página reúne la información de las tres páginas del informe y se genera con el script <code>scripts/construir_dashboard_html.py</code> a partir de los mismos archivos de origen. Los totales coinciden con las medidas del modelo. Una diferencia de presentación: el mapa de comunas se dibuja como polígonos y no como círculos en el centro de cada comuna.</p>
-      <p><b>Indicadores.</b> Las estaciones cada 100.000 habitantes cuentan las estaciones ubicadas en la comuna. La cobertura espacial mide el porcentaje de la superficie de la comuna a menos de 1.000 metros de una estación de cualquier comuna, en línea recta y ponderado por superficie. El Acceso Relativo promedia, con pesos iguales, la posición de la comuna entre las 15 en tres componentes; compara comunas entre sí y no mide el acceso efectivo de las personas. En las pruebas de sensibilidad (pesos, normalización y truncamiento de datos), la Comuna 6 queda siempre primera y la Comuna 1 siempre última; las comunas 4, 10 y 11 se mantienen entre las cinco últimas en casi todas las variantes, y el centro del ordenamiento cambia. Detalle en <code>docs/metodologia.md</code>.</p>
+      <p><b>Indicadores.</b> Las estaciones cada 100.000 habitantes cuentan las estaciones ubicadas en la comuna. La cobertura espacial mide el porcentaje de la superficie de la comuna a menos de 1.000 metros de una estación de cualquier comuna, en línea recta y ponderado por superficie. La Disponibilidad Relativa de la Oferta promedia, con pesos iguales, la posición de la comuna entre las 15 en tres componentes; compara comunas entre sí y no mide el acceso efectivo de las personas. En las pruebas de sensibilidad (pesos, normalización y truncamiento de datos), la Comuna 6 queda siempre primera y la Comuna 1 siempre última; las comunas 4, 10 y 11 se mantienen entre las cinco últimas en casi todas las variantes, y el centro del ordenamiento cambia. Detalle en <code>docs/metodologia.md</code>.</p>
     </div>
     <div>
       <h4 style="margin-top:0;">Limitaciones</h4>
@@ -716,11 +716,11 @@ function p3Metrics(){
 function p3Init(){
   filterBar($('#p3-filters'), [{key:'tipo', label:'Tipo de estación', options:[{value:'Fija',text:'Fija'},{value:'Móvil',text:'Móvil'}]}], S3, p3Render);
   p3Svg = drawBase(newSvg($('#p3-map')), {interactive:true});
-  p3Svg.setAttribute('aria-label','Mapa de las comunas coloreado por Acceso Relativo');
+  p3Svg.setAttribute('aria-label','Mapa de las comunas coloreado por Disponibilidad Relativa de la Oferta');
   p3Svg.querySelectorAll('.com').forEach(p => {
     const c = D.comunas.find(x=>x.id==p.dataset.c);
     p.style.fill = seqColor(c.acceso);
-    const tipHtml = () => `<div class="tt">${c.nombre} · ${esc(c.barrios)}</div><b>${esc(c.grupo)}</b><br><b>Acceso Relativo:</b> ${NF1.format(c.acceso)} (posición ${c.posicion} de ${TOTAL_COMUNAS})<br><b>Población:</b> ${NF0.format(c.poblacion)}<br><b>Estaciones cada 100.000:</b> ${NF2.format(c.est100k)}<br><b>Cobertura a 1.000 m:</b> ${PCT1(c.c1000)}<br><b>Diversidad de servicios:</b> ${PCT1(c.diversidad)}`;
+    const tipHtml = () => `<div class="tt">${c.nombre} · ${esc(c.barrios)}</div><b>${esc(c.grupo)}</b><br><b>Disponibilidad Relativa de la Oferta:</b> ${NF1.format(c.acceso)} (posición ${c.posicion} de ${TOTAL_COMUNAS})<br><b>Población:</b> ${NF0.format(c.poblacion)}<br><b>Estaciones cada 100.000:</b> ${NF2.format(c.est100k)}<br><b>Cobertura a 1.000 m:</b> ${PCT1(c.c1000)}<br><b>Diversidad de servicios:</b> ${PCT1(c.diversidad)}`;
     p.addEventListener('mousemove', ev => showTip(tipHtml(), ev.clientX, ev.clientY));
     p.addEventListener('mouseleave', hideTip);
     p.addEventListener('focus', () => tipAtEl(p, tipHtml())); p.addEventListener('blur', hideTip);
@@ -745,7 +745,7 @@ function p3Render(){
   const rows = M.slice().sort((a,b)=>a.c.posicion-b.c.posicion || a.c.id-b.c.id);
   const grp = g => g.startsWith('Mayor') ? 'g-mayor' : g.startsWith('Menor') ? 'g-menor' : 'g-medio';
   const dash = (v,f) => v===null ? '–' : f(v);
-  $('#p3-table').innerHTML = '<table class="dt" aria-label="Indicadores por comuna, ordenados por Acceso Relativo"><thead><tr><th>Comuna</th><th class="num">Población</th><th class="num">Estaciones</th><th class="num">Est. cada 100.000</th><th class="num">Hab. por estación</th><th class="num">Servicios distintos</th><th class="num">Serv. cada 100.000</th><th class="num">Diversidad</th><th class="num">Fijas</th><th class="num">Móviles</th><th class="num">Acceso Relativo</th><th>Grupo</th></tr></thead><tbody>' +
+  $('#p3-table').innerHTML = '<table class="dt" aria-label="Indicadores por comuna, ordenados por Disponibilidad Relativa de la Oferta"><thead><tr><th>Comuna</th><th class="num">Población</th><th class="num">Estaciones</th><th class="num">Est. cada 100.000</th><th class="num">Hab. por estación</th><th class="num">Servicios distintos</th><th class="num">Serv. cada 100.000</th><th class="num">Diversidad</th><th class="num">Fijas</th><th class="num">Móviles</th><th class="num">Disponibilidad Relativa de la Oferta</th><th>Grupo</th></tr></thead><tbody>' +
     rows.map(m=>`<tr data-c="${m.c.id}" class="${selC===m.c.id?'sel':''}"><td><b>${m.c.nombre}</b></td><td class="num">${NF0.format(m.c.poblacion)}</td><td class="num">${m.n}</td><td class="num">${dash(m.est100k,NF2.format)}</td><td class="num">${dash(m.hab,NF0.format)}</td><td class="num">${m.n?m.dist:'–'}</td><td class="num">${dash(m.serv100k,NF1.format)}</td><td class="num">${dash(m.div,PCT1)}</td><td class="num">${m.fijas}</td><td class="num">${m.moviles}</td><td class="num"><div class="acc-cell"><span>${NF1.format(m.c.acceso)}</span><span class="mini"><i style="width:${m.c.acceso}%"></i></span></div></td><td><span class="chip ${grp(m.c.grupo)}">${esc(m.c.grupo.replace('Mayor disponibilidad relativa','Mayor').replace('Menor disponibilidad relativa','Menor').replace('Disponibilidad relativa intermedia','Intermedia'))}</span></td></tr>`).join('') + '</tbody></table>';
   $('#p3-table').querySelectorAll('tbody tr').forEach(tr => tr.addEventListener('click', () => { const id=+tr.dataset.c; selC = selC===id ? null : id; p3Render(); }));
 }
@@ -776,7 +776,7 @@ function p3Scatter(M){
   host.innerHTML = s+'</svg>';
   host.querySelectorAll('.pt').forEach(n => {
     const m = pts.find(p=>p.c.id==n.dataset.c);
-    const h = `<div class="tt">${m.c.nombre}</div><b>Acceso Relativo:</b> ${NF1.format(m.c.acceso)}<br><b>Población:</b> ${NF0.format(m.c.poblacion)}<br><b>Estaciones cada 100.000:</b> ${NF2.format(m.est100k)}<br><b>Relaciones estación-servicio:</b> ${m.rel}`;
+    const h = `<div class="tt">${m.c.nombre}</div><b>Disponibilidad Relativa de la Oferta:</b> ${NF1.format(m.c.acceso)}<br><b>Población:</b> ${NF0.format(m.c.poblacion)}<br><b>Estaciones cada 100.000:</b> ${NF2.format(m.est100k)}<br><b>Relaciones estación-servicio:</b> ${m.rel}`;
     n.addEventListener('mousemove', ev=>showTip(h,ev.clientX,ev.clientY)); n.addEventListener('mouseleave',hideTip);
     n.addEventListener('focus',()=>tipAtEl(n,h)); n.addEventListener('blur',hideTip);
     n.addEventListener('click',()=>{ const id=+n.dataset.c; selC = selC===id?null:id; p3Render(); });

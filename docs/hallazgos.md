@@ -165,7 +165,7 @@ El cálculo usa una grilla de puntos cada 50 metros y se verificó con un métod
 
 ## 7. El ordenamiento exploratorio de comunas es estable en los extremos y sensible en el centro
 
-**Hallazgo.** El indicador exploratorio Acceso Relativo ubica a la Comuna 6 primera y a la Comuna 1 última en todas las variantes probadas.
+**Hallazgo.** El indicador exploratorio llamado Disponibilidad Relativa de la Oferta ubica a la Comuna 6 primera y a la Comuna 1 última en todas las variantes probadas.
 
 **Evidencia.**
 

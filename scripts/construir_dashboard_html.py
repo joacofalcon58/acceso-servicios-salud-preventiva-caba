@@ -5,7 +5,7 @@ en SVG a partir de los polígonos y escribe un único archivo index.html en la r
 
 Antes de ejecutarlo hay que generar los indicadores de cobertura espacial y la sensibilidad del indicador:
     python scripts/analisis_acceso.py
-    python scripts/sensibilidad_acceso_relativo.py
+    python scripts/sensibilidad_disponibilidad_relativa.py
 
 Uso, desde la raíz del repositorio:
     python scripts/construir_dashboard_html.py
@@ -29,7 +29,7 @@ import analisis_acceso as aa  # noqa: E402
 RAIZ = AQUI.parent
 RAW = RAIZ / "data" / "raw"
 PROCESADO = RAIZ / "data" / "processed" / "acceso_comunas_exploratorio.csv"
-SENSIBILIDAD = RAIZ / "data" / "processed" / "sensibilidad_acceso_relativo.csv"
+SENSIBILIDAD = RAIZ / "data" / "processed" / "sensibilidad_disponibilidad_relativa.csv"
 PLANTILLA = AQUI / "plantilla_dashboard.html"
 PORTADA = RAIZ / "images" / "portada.png"
 SALIDA = RAIZ / "index.html"
@@ -202,7 +202,7 @@ def main():
     SALIDA.write_text(html, encoding="utf-8")
 
     print("Archivo:", SALIDA.relative_to(RAIZ), "|", round(SALIDA.stat().st_size / 1024), "KB | portada", round(len(portada) / 1024), "KB | datos", round(len(json_datos) / 1024), "KB")
-    print("Acceso Relativo:", {c["id"]: (round(c["acceso"], 1), c["posicion"]) for c in comunas})
+    print("Disponibilidad Relativa de la Oferta:", {c["id"]: (round(c["acceso"], 1), c["posicion"]) for c in comunas})
 
 
 def armar_preguntas(comunas, estaciones, servicios, estabilidad):
@@ -260,7 +260,7 @@ def armar_preguntas(comunas, estaciones, servicios, estabilidad):
         },
         {
             "q": "¿Qué limitaciones tienen los datos?",
-            "a": "No hay datos de <b>demanda, capacidad, horarios ni personas atendidas</b>, así que presencia no equivale a uso. Dos estaciones tienen el campo de servicios posiblemente truncado y una no informa servicios. La población es de 2022 y las estaciones, de 2026. El Acceso Relativo es exploratorio: compara comunas entre sí. Ver las notas metodológicas al pie.",
+            "a": "No hay datos de <b>demanda, capacidad, horarios ni personas atendidas</b>, así que presencia no equivale a uso. Dos estaciones tienen el campo de servicios posiblemente truncado y una no informa servicios. La población es de 2022 y las estaciones, de 2026. La Disponibilidad Relativa de la Oferta es exploratoria: compara comunas entre sí. Ver las notas metodológicas al pie.",
         },
     ]
 

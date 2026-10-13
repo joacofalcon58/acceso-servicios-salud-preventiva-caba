@@ -59,7 +59,7 @@ Las estaciones y los polígonos vienen en CRS84 (longitud y latitud en grados, W
 - Un grado de latitud equivale a 110.933,5 metros y uno de longitud, a 91.713,7 metros. Son los radios de curvatura del elipsoide WGS84 (meridiano y primer vertical) en la latitud de referencia de la ciudad, 34,615° sur.
 - La distancia es la hipotenusa de las dos diferencias en metros. En los 20 kilómetros que mide la ciudad, tratar esos factores como constantes produce un error menor que 2 metros cada 1.000.
 
-Hasta el 13 de octubre de 2026 el script usaba 110.574 y 91.631,5 metros por grado, que son valores aproximados. La diferencia en sentido norte-sur era de 0,3 %. Al corregirlos, la cobertura de la ciudad a 1.000 metros pasó de 35,7 % a 35,6 % y la distancia media, de 1.421 a 1.424 metros. El orden de las comunas en cobertura no cambió, y el Acceso Relativo tampoco.
+Hasta el 13 de octubre de 2026 el script usaba 110.574 y 91.631,5 metros por grado, que son valores aproximados. La diferencia en sentido norte-sur era de 0,3 %. Al corregirlos, la cobertura de la ciudad a 1.000 metros pasó de 35,7 % a 35,6 % y la distancia media, de 1.421 a 1.424 metros. El orden de las comunas en cobertura no cambió, y la Disponibilidad Relativa de la Oferta tampoco.
 
 ### Verificación con un método independiente
 
@@ -82,7 +82,7 @@ Limitaciones:
 - La distancia en línea recta no equivale al tiempo de viaje real.
 - La cobertura usa toda la red: no responde a los filtros de tipo de estación ni de servicio.
 
-## Indicador compuesto: Acceso Relativo
+## Indicador compuesto: Disponibilidad Relativa de la Oferta
 
 El proyecto pide no crear un índice arbitrario. Por eso primero se evaluaron las variables disponibles y se justificó cada decisión.
 
@@ -127,7 +127,7 @@ r(x_c) = (comunas con valor menor que x_c + (comunas con el mismo valor que x_c 
 La comuna más baja recibe 0 y la más alta, 1. Los empates reciben el promedio de sus posiciones. El indicador es el promedio simple de las tres posiciones:
 
 ```text
-Acceso Relativo_c = 100 × (r(E_c) + r(K_c) + r(D_c)) / 3
+Disponibilidad Relativa de la Oferta_c = 100 × (r(E_c) + r(K_c) + r(D_c)) / 3
 ```
 
 - **Escala.** De 0 a 100. Solo valdría 100 una comuna que fuera la primera en los tres componentes.
@@ -179,7 +179,7 @@ Las etiquetas describen la posición. No afirman que una comuna esté bien o mal
 
 ### Robustez frente a otras decisiones
 
-El script [sensibilidad_acceso_relativo.py](../scripts/sensibilidad_acceso_relativo.py) compara el ordenamiento original con el de otras variantes justificables y escribe `data/processed/sensibilidad_acceso_relativo.csv`. Ninguna variante reemplaza al indicador: sirven para saber qué resultados dependen de una decisión.
+El script [sensibilidad_disponibilidad_relativa.py](../scripts/sensibilidad_disponibilidad_relativa.py) compara el ordenamiento original con el de otras variantes justificables y escribe `data/processed/sensibilidad_disponibilidad_relativa.csv`. Ninguna variante reemplaza al indicador: sirven para saber qué resultados dependen de una decisión.
 
 | Variante | Correlación de Spearman con el original | Tau de Kendall | Mayor cambio de puesto | Comunas que cambian de grupo |
 |---|---|---|---|---|
@@ -225,9 +225,9 @@ Qué resultados son robustos y cuáles no:
 
 ### Sobre el nombre del indicador
 
-"Acceso Relativo" describe bien que el indicador es comparativo, pero la palabra "acceso" puede sugerir que mide el acceso efectivo de las personas, y no lo hace. Las etiquetas de los grupos ya usan "disponibilidad relativa", que es más preciso.
+El indicador se llamó "Acceso Relativo" hasta el 13 de octubre de 2026. La palabra "acceso" puede sugerir que mide el acceso efectivo de las personas, y no lo hace: ordena comunas según tres rasgos de la oferta declarada. Se renombró a **Disponibilidad Relativa de la Oferta**, que dice lo que mide: una disponibilidad (estaciones, cercanía y servicios), relativa (comparada entre las 15 comunas) y de la oferta (no de la demanda ni del uso).
 
-Se propone renombrarlo a **Disponibilidad Relativa de la Oferta**. No se aplicó en esta revisión porque el nombre figura en las medidas del modelo, en los visuales de Power BI, en el dashboard web y en la documentación, y cambiarlo exige abrir y guardar el informe en Power BI Desktop. Mientras tanto, todos los textos aclaran que el indicador no mide acceso efectivo.
+El cambio alcanzó a las medidas del modelo (`Disponibilidad Relativa de la Oferta`, `Posicion Disponibilidad Relativa` y `Grupo de Disponibilidad Relativa`), a los visuales de Power BI que las usan, al dashboard web, a las pruebas y a la documentación. Los valores no cambiaron. Los documentos de auditoría anteriores a esa fecha pueden mencionar el nombre anterior cuando describen lo que se encontró en su momento.
 
 ### Alternativas metodológicas evaluadas
 

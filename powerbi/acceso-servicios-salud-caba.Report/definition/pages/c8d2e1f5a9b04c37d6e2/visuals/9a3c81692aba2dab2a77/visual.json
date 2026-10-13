@@ -109,7 +109,7 @@
                               "Entity": "_Medidas"
                             }
                           },
-                          "Property": "Acceso Relativo"
+                          "Property": "Disponibilidad Relativa de la Oferta"
                         }
                       },
                       "FillRule": {
@@ -253,7 +253,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Población y estaciones cada 100.000 habitantes. Color: Acceso Relativo. Tamaño: servicios'"
+                  "Value": "'Población y estaciones cada 100.000 habitantes. Color: Disponibilidad Relativa de la Oferta. Tamaño: servicios'"
                 }
               }
             }
@@ -273,7 +273,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Población y estaciones cada 100.000 habitantes. Color: Acceso Relativo. Tamaño: servicios'"
+                  "Value": "'Población y estaciones cada 100.000 habitantes. Color: Disponibilidad Relativa de la Oferta. Tamaño: servicios'"
                 }
               }
             },
