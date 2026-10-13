@@ -13,7 +13,7 @@ Auditoría del proyecto ya publicado: datos, indicadores, medidas DAX, indicador
 - Se corrigieron un defecto latente en dos medidas DAX, una imprecisión de 0,3 % en la conversión de grados a metros, y cuatro problemas del dashboard web.
 - Se agregaron 32 pruebas automatizadas, un análisis de robustez del indicador compuesto y un diccionario de datos.
 - Quedan tres puntos sin verificar o sin resolver, todos fuera del alcance de una revisión de archivos. Están en [Pendientes](#pendientes-y-puntos-sin-verificar).
-- Los cambios están en el repositorio local. No se publicaron: esperan aprobación.
+- Los cambios se publicaron el 13 de octubre de 2026, después de la aprobación del autor.
 
 ## 1. Alcance e inventario
 
@@ -72,7 +72,7 @@ No hubo hallazgos bloqueantes.
 | A8 | Media | El hallazgo 1 usaba como evidencia que el grupo de menor disponibilidad tiene la mitad de las estaciones. Las estaciones por habitante son un componente del indicador que arma los grupos | Corregido: se reformuló y se movió a las limitaciones del hallazgo 7 |
 | A9 | Media | En pantallas angostas la barra de navegación ocupaba cuatro filas y, al ser fija, tapaba un cuarto de la pantalla | Corregido |
 | A10 | Media | La etiqueta del grupo intermedio tenía un contraste de 3,3 a 1. El mínimo es 4,5 | Corregido: 4,8 a 1 |
-| A11 | Media | El portfolio hablaba de "equidad territorial" y de un dashboard que "prioriza territorios" | Corregido en la copia local del portfolio, sin publicar |
+| A11 | Media | El portfolio hablaba de "equidad territorial" y de un dashboard que "prioriza territorios" | Corregido |
 | A12 | Media | El nombre "Acceso Relativo" puede sugerir que mide acceso efectivo | Propuesta de renombre, sin aplicar |
 | A13 | Media | El README no muestra capturas reales de las páginas de Power BI | Pendiente: requiere capturas del autor |
 | A14 | Media | El aspecto del informe de Power BI nunca fue verificado por el revisor, incluido el cambio de paleta | Pendiente: requiere revisión visual en Power BI Desktop |
@@ -320,7 +320,16 @@ Lighthouse 12.8.2 con Chrome sin interfaz, una ejecución por caso. Las dos vers
 | Antes | Móvil | 80 | 96 | 96 | 100 | 3,6 s | 3,6 s | Contraste y error de consola |
 | Después | Móvil | 95 | 100 | 100 | 100 | 2,0 s | 2,7 s | Ninguna |
 
-La versión publicada antes de los cambios, medida sobre GitHub Pages, dio 93, 96, 96 y 100 en escritorio y 81, 96, 96 y 100 en móvil. La versión corregida todavía no se midió sobre GitHub Pages porque no está publicada.
+Mediciones sobre GitHub Pages, que incluyen la red real:
+
+| Versión publicada | Dispositivo | Rendimiento | Accesibilidad | Buenas prácticas | SEO | Primer dibujado |
+|---|---|---|---|---|---|---|
+| Antes | Escritorio | 93 | 96 | 96 | 100 | 1,3 s |
+| Después (dos ejecuciones) | Escritorio | 91 y 92 | 100 | 100 | 100 | 1,4 s |
+| Antes | Móvil | 81 | 96 | 96 | 100 | 3,5 s |
+| Después (dos ejecuciones) | Móvil | 83 y 83 | 100 | 100 | 100 | 3,5 s |
+
+En producción mejoraron la accesibilidad y las buenas prácticas, que llegaron a 100. El rendimiento quedó igual, dentro de la variación entre ejecuciones: la mejora medida en el servidor local no se trasladó, porque el tiempo de carga lo domina la descarga del archivo único de 247 KB. Para mejorarlo habría que sacar la portada del HTML y servirla como imagen aparte, lo que rompe el diseño de archivo único. No se hizo.
 
 El dashboard es un único archivo HTML de 247 KB, sin bibliotecas. El mayor componente es la portada incrustada (169 KB). No depende de servicios de mapas externos: los mapas se dibujan en SVG con los polígonos del repositorio. La única dependencia externa es la tipografía, que tiene alternativa del sistema.
 
@@ -376,7 +385,7 @@ No se pudo verificar: el aspecto de las páginas, las interacciones con clics en
 
 ### Portfolio
 
-En una copia local del repositorio `joacofalcon58.github.io`, sin publicar: subtítulo, resultado, un hallazgo y el enlace al informe de auditoría del caso (A11).
+En el repositorio `joacofalcon58.github.io`: subtítulo, resultado, un hallazgo y el enlace al informe de auditoría del caso (A11).
 
 ## 12. Evaluación final
 
@@ -389,7 +398,7 @@ En una copia local del repositorio `joacofalcon58.github.io`, sin publicar: subt
 | Visualización y UX | 4 | 4 | Dashboard web sin fallas en las pruebas y con 100 en accesibilidad | El informe de Power BI no se verificó visualmente. Por eso no llega a 5 |
 | Calidad del código | 3 | 5 | Reproducible con cuatro comandos. Pruebas automatizadas. Sin defectos conocidos | Nada |
 | Documentación | 4 | 5 | Metodología, diccionario, hallazgos, fuentes e informe de auditoría | Nada |
-| Publicación y portfolio | 3 | 4 | Repositorio, dashboard y portfolio coherentes y con enlaces válidos | Los cambios no están publicados. Faltan capturas de Power BI. Queda la decisión sobre el logotipo |
+| Publicación y portfolio | 3 | 4 | Repositorio, dashboard y portfolio publicados, coherentes y con enlaces válidos | Faltan capturas de Power BI. Queda la decisión sobre el logotipo |
 
 No queda ningún hallazgo bloqueante ni de prioridad alta sin tratar. El hallazgo A1 pasó de prioridad alta a media: la aclaración está en todos los textos, pero el logotipo sigue en la portada.
 
@@ -401,14 +410,12 @@ No queda ningún hallazgo bloqueante ni de prioridad alta sin tratar. El hallazg
 | Capturas de las páginas de Power BI en el README (A13) | Dependen del punto anterior | Tres capturas en `images/` |
 | Logotipo de la Ciudad en la portada (A1) | Es una decisión de diseño del autor sobre una imagen propia | Decidir si se quita el logotipo de la portada |
 | Renombre del indicador (A12) | Cambia nombres en el modelo y exige guardar desde Power BI Desktop | Decisión del autor |
-| Lighthouse de la versión corregida sobre GitHub Pages | Los cambios no están publicados | Publicar y volver a medir |
 | Lectores de pantalla y otros navegadores | Fuera del entorno de prueba | Prueba manual |
 
 ## Publicación
 
-- **Estado local.** Los cambios de este informe están confirmados en la rama `main` local, por delante de `origin/main`. No se subieron.
-- **Portfolio.** Los cambios están en una copia local del repositorio del portfolio, sin subir.
-- **Para publicar de forma segura:**
+- **Estado.** El 13 de octubre de 2026, con autorización del autor, se subieron los cambios de este repositorio y después los del portfolio. El `index.html` publicado es idéntico al del repositorio.
+- **Pasos seguidos, válidos para próximas publicaciones:**
   1. Ejecutar `python -m unittest discover -s tests -v` y confirmar que pasan las 32 pruebas.
   2. Subir la rama `main` de este repositorio. GitHub Pages publica `index.html` sin pasos adicionales.
   3. Verificar que el dashboard publicado muestre 35,6 % en la documentación y la aclaración de proyecto independiente.
