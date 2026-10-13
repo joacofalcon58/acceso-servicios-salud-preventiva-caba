@@ -21,6 +21,8 @@ Fecha de consulta de todas las fuentes: 5 de octubre de 2026.
 
 El 5 de octubre de 2026 el CSV publicado contenía las mismas 25 estaciones que los archivos locales.
 
+El 13 de octubre de 2026 se volvió a verificar: el archivo publicado en `https://cdn.buenosaires.gob.ar/datosabiertos/datasets/vicejefatura-de-gobierno/estaciones-saludables/estaciones_saludables.csv` es idéntico, byte por byte, a `data/raw/estaciones_saludables.csv` (8.446 bytes, 25 filas). El catálogo del portal informa el 2 de octubre de 2026 como fecha de la última modificación del conjunto de datos.
+
 ## Polígonos de comunas
 
 | Atributo | Detalle |
@@ -84,6 +86,8 @@ Descarga de todos los archivos del INDEC: `https://censo.gob.ar/wp-content/uploa
 | Contenido | Indicadores por comuna: población, estaciones, indicadores normalizados, cobertura por radio, distancia media y centro de la comuna |
 | Año de referencia | Población de 2022 y estaciones de 2026 |
 | Uso | El modelo lee las columnas de cobertura espacial. Si cambia alguna fuente, hay que volver a ejecutar el script |
+
+El script [sensibilidad_acceso_relativo.py](../scripts/sensibilidad_acceso_relativo.py) genera además `data/processed/sensibilidad_acceso_relativo.csv`, con el ordenamiento de las comunas en cada variante del indicador compuesto. El dashboard web lo usa para informar qué comunas se mantienen en el grupo de menor disponibilidad relativa.
 
 ## Decisiones sobre las fuentes
 

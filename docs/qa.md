@@ -391,6 +391,8 @@ Totales de la ciudad: 0,80 estaciones cada 100.000 habitantes (0,54 fijas y 0,26
 ### Lo que no se validó
 
 - La cobertura espacial depende de un cálculo propio con una aproximación de distancias en línea recta. Se verificó que las medidas del modelo lean bien el archivo, pero no se contrastó contra otra herramienta geográfica.
+
+**Actualización del 13 de octubre de 2026.** La auditoría contrastó la cobertura con un método geométrico independiente y corrigió los factores de conversión de grados a metros. Los totales de la ciudad pasaron a 9,6 % a 500 metros, 35,6 % a 1.000, 79,0 % a 2.000 y 1.424 metros de distancia media. El orden de las comunas y el Acceso Relativo no cambiaron. Ver [QA_REPORT.md](QA_REPORT.md).
 - Los radios de 500, 1.000 y 2.000 metros son exploratorios.
 
 No hay errores bloqueantes.

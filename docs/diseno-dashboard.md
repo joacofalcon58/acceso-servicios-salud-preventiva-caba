@@ -127,6 +127,16 @@ Qué hace distinto:
 - Agrega un panel de preguntas rápidas con las respuestas del proyecto y soporte para tema claro y oscuro.
 - No usa librerías externas: los gráficos son SVG y HTML propios. Solo carga la tipografía desde Google Fonts.
 
+### Accesibilidad y rendimiento del HTML
+
+- Enlace para saltar al contenido, foco visible, puntos y comunas de los mapas accesibles con teclado y con etiqueta, y nombre accesible en las tres tablas.
+- La etiqueta del grupo intermedio usa el azul `#2172D4` del tema con texto blanco (contraste de 4,8 a 1). El tono anterior daba 3,3 a 1 y no alcanzaba el mínimo de 4,5.
+- En pantallas de menos de 760 píxeles, la barra de navegación ocupa una sola fila con desplazamiento horizontal. Antes ocupaba cuatro filas y, al quedar fija, tapaba un cuarto de la pantalla.
+- La tipografía se carga sin bloquear el primer dibujado de la página, y el ícono va incrustado para no pedir un archivo que no existe.
+- El encabezado y el pie aclaran que es un proyecto analítico independiente y no un producto oficial.
+
+Las mediciones de Lighthouse de antes y después están en [QA_REPORT.md](QA_REPORT.md).
+
 ### Color en el HTML
 
 | Uso | Claro | Oscuro |
