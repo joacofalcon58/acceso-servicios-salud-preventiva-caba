@@ -330,15 +330,19 @@ table _Medidas
 		displayFolder: 05 - Acceso
 		lineageTag: 16d33b18-63c7-43c5-8c32-8c0a9ef56264
 
-	/// Estaciones cada 100.000 habitantes con toda la red: quita los filtros de tipo, estructura, barrio, nombre y servicio, y conserva el de comuna. Es el valor que usa el indicador compuesto.
+	/// Estaciones cada 100.000 habitantes con toda la red: quita los filtros de todas las columnas de la estación (incluidas coordenadas y cantidad de servicios) y el de servicio, y conserva el de comuna. No usa REMOVEFILTERS(Dim_Estacion) porque también quitaría el filtro de comuna. Es el valor que usa el indicador compuesto.
 	measure 'Estaciones cada 100.000 habitantes (red completa)' =
 			CALCULATE(
 			    [Estaciones cada 100.000 habitantes],
+			    REMOVEFILTERS(Dim_Estacion[id_estacion]),
+			    REMOVEFILTERS(Dim_Estacion[nombre]),
 			    REMOVEFILTERS(Dim_Estacion[tipo]),
 			    REMOVEFILTERS(Dim_Estacion[estructura]),
-			    REMOVEFILTERS(Dim_Estacion[barrio]),
-			    REMOVEFILTERS(Dim_Estacion[nombre]),
 			    REMOVEFILTERS(Dim_Estacion[direccion]),
+			    REMOVEFILTERS(Dim_Estacion[barrio]),
+			    REMOVEFILTERS(Dim_Estacion[latitud]),
+			    REMOVEFILTERS(Dim_Estacion[longitud]),
+			    REMOVEFILTERS(Dim_Estacion[cantidad_servicios]),
 			    REMOVEFILTERS(Dim_Estacion[flag_calidad]),
 			    REMOVEFILTERS(Dim_Servicio)
 			)
@@ -346,15 +350,19 @@ table _Medidas
 		displayFolder: 05 - Acceso
 		lineageTag: 5b7dc5c0-d7c9-4a4a-99fa-e0e8a8e94de8
 
-	/// Diversidad de servicios con toda la red: quita los filtros de tipo, estructura, barrio, nombre y servicio, y conserva el de comuna. Es el valor que usa el indicador compuesto.
+	/// Diversidad de servicios con toda la red: quita los filtros de todas las columnas de la estación (incluidas coordenadas y cantidad de servicios) y el de servicio, y conserva el de comuna. No usa REMOVEFILTERS(Dim_Estacion) porque también quitaría el filtro de comuna. Es el valor que usa el indicador compuesto.
 	measure 'Diversidad Servicios (red completa)' =
 			CALCULATE(
 			    [Diversidad Servicios],
+			    REMOVEFILTERS(Dim_Estacion[id_estacion]),
+			    REMOVEFILTERS(Dim_Estacion[nombre]),
 			    REMOVEFILTERS(Dim_Estacion[tipo]),
 			    REMOVEFILTERS(Dim_Estacion[estructura]),
-			    REMOVEFILTERS(Dim_Estacion[barrio]),
-			    REMOVEFILTERS(Dim_Estacion[nombre]),
 			    REMOVEFILTERS(Dim_Estacion[direccion]),
+			    REMOVEFILTERS(Dim_Estacion[barrio]),
+			    REMOVEFILTERS(Dim_Estacion[latitud]),
+			    REMOVEFILTERS(Dim_Estacion[longitud]),
+			    REMOVEFILTERS(Dim_Estacion[cantidad_servicios]),
 			    REMOVEFILTERS(Dim_Estacion[flag_calidad]),
 			    REMOVEFILTERS(Dim_Servicio)
 			)

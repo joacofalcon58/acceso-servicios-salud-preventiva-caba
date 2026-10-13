@@ -3,8 +3,9 @@
 Lee los archivos de data/raw y data/processed, calcula los indicadores por comuna, arma el mapa
 en SVG a partir de los polígonos y escribe un único archivo index.html en la raíz del repositorio.
 
-Antes de ejecutarlo hay que generar los indicadores de cobertura espacial:
+Antes de ejecutarlo hay que generar los indicadores de cobertura espacial y la sensibilidad del indicador:
     python scripts/analisis_acceso.py
+    python scripts/sensibilidad_acceso_relativo.py
 
 Uso, desde la raíz del repositorio:
     python scripts/construir_dashboard_html.py
@@ -28,6 +29,7 @@ import analisis_acceso as aa  # noqa: E402
 RAIZ = AQUI.parent
 RAW = RAIZ / "data" / "raw"
 PROCESADO = RAIZ / "data" / "processed" / "acceso_comunas_exploratorio.csv"
+SENSIBILIDAD = RAIZ / "data" / "processed" / "sensibilidad_acceso_relativo.csv"
 PLANTILLA = AQUI / "plantilla_dashboard.html"
 PORTADA = RAIZ / "images" / "portada.png"
 SALIDA = RAIZ / "index.html"
@@ -173,7 +175,12 @@ def main():
             }
         )
 
-    qa = armar_preguntas(comunas, lista_estaciones, servicios)
+    # porcentaje de combinaciones de pesos al azar en que cada comuna queda entre las cinco últimas
+    with open(SENSIBILIDAD, encoding="utf-8-sig") as f:
+        fila = next(r for r in csv.DictReader(f) if r["escenario"].startswith("Pesos al azar") and "últimas" in r["escenario"])
+    estabilidad = {c: float(fila[f"posicion_comuna_{c}"]) for c in orden_ids}
+
+    qa = armar_preguntas(comunas, lista_estaciones, servicios, estabilidad)
     datos = {
         "servicios": servicios,
         "estaciones": lista_estaciones,
@@ -198,7 +205,7 @@ def main():
     print("Acceso Relativo:", {c["id"]: (round(c["acceso"], 1), c["posicion"]) for c in comunas})
 
 
-def armar_preguntas(comunas, estaciones, servicios):
+def armar_preguntas(comunas, estaciones, servicios, estabilidad):
     """Respuestas breves de las preguntas rápidas, con cifras calculadas desde los datos."""
     nf = lambda v: f"{v:,.0f}".replace(",", ".")
     nf2 = lambda v: f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
@@ -214,6 +221,8 @@ def armar_preguntas(comunas, estaciones, servicios):
     grupo_est = lambda g: sum(cuenta(c) for c in g)
     grupo_pob = lambda g: sum(c["poblacion"] for c in g)
     lista = lambda g: ", ".join(str(c["id"]) for c in sorted(g, key=lambda c: c["id"]))
+    estables = [c for c in menor if estabilidad[c["id"]] >= 85]
+    inestables = [c for c in menor if estabilidad[c["id"]] < 85]
     est_max = max(comunas, key=lambda c: c["est100k"])
     est_min = min(comunas, key=lambda c: c["est100k"])
 
@@ -247,7 +256,7 @@ def armar_preguntas(comunas, estaciones, servicios):
         },
         {
             "q": "¿Qué comunas conviene analizar primero?",
-            "a": f"Las cinco con menor disponibilidad relativa (<b>comunas {lista(menor)}</b>) suman {nf(grupo_pob(menor))} habitantes y {grupo_est(menor)} estaciones. Las cinco con mayor disponibilidad (comunas {lista(mayor)}) suman {nf(grupo_pob(mayor))} habitantes y {grupo_est(mayor)} estaciones. Los extremos se mantienen aunque cambien los pesos del indicador; el centro del ranking, no.",
+            "a": f"Las cinco con menor disponibilidad relativa (<b>comunas {lista(menor)}</b>) suman {nf(grupo_pob(menor))} habitantes y {grupo_est(menor)} estaciones. Las cinco con mayor disponibilidad (comunas {lista(mayor)}) suman {nf(grupo_pob(mayor))} habitantes y {grupo_est(mayor)} estaciones. Al cambiar los pesos del indicador, las comunas {lista(estables)} siguen en el grupo de menor disponibilidad en más del 85 % de las pruebas; {'las comunas ' + lista(inestables) + ' solo en parte de ellas' if len(inestables) > 1 else 'la Comuna ' + lista(inestables) + ' solo en cerca de la mitad' if inestables else 'ninguna sale del grupo'}. La diferencia de estaciones entre los dos grupos es en parte esperable: las estaciones por habitante son uno de los tres componentes del indicador. Es una comparación exploratoria, no una medida de acceso efectivo.",
         },
         {
             "q": "¿Qué limitaciones tienen los datos?",

@@ -35,10 +35,16 @@ SEMILLA = 20261005
 SORTEOS_PESOS = 20000
 LIMITE_BYTES_SERVICIO = 254
 
-# Aproximación local de grados a metros para la latitud de la ciudad.
-LAT_REF = -34.6
-M_POR_GRADO_LAT = 110_574.0
-M_POR_GRADO_LON = 111_320.0 * np.cos(np.radians(LAT_REF))
+# Conversión local de grados a metros sobre el elipsoide WGS84, en la latitud de la ciudad.
+# Usa el radio de curvatura del meridiano (norte-sur) y el del primer vertical (este-oeste).
+# En los 20 km que mide la ciudad, el error de tratar estos factores como constantes es menor
+# que 2 metros cada 1.000. La verificación con geometría exacta está en tests/test_proyecto.py.
+LAT_REF = -34.615
+WGS84_A = 6_378_137.0
+WGS84_E2 = 0.00669437999014
+_SENO2 = np.sin(np.radians(LAT_REF)) ** 2
+M_POR_GRADO_LAT = np.radians(1) * WGS84_A * (1 - WGS84_E2) / (1 - WGS84_E2 * _SENO2) ** 1.5
+M_POR_GRADO_LON = np.radians(1) * WGS84_A / np.sqrt(1 - WGS84_E2 * _SENO2) * np.cos(np.radians(LAT_REF))
 
 
 def leer_estaciones():
@@ -155,7 +161,8 @@ def sensibilidad(titulo, componentes, filas, pesos_azar=True):
     matriz = np.array([[f[c] for c in componentes] for f in filas])
     rangos = np.column_stack([rangos_porcentuales(matriz[:, j]) for j in range(len(componentes))])
     puntaje = rangos.mean(axis=1) * 100
-    posicion = (-puntaje).argsort().argsort() + 1
+    redondeado = np.round(puntaje, 6)
+    posicion = np.array([1 + int((redondeado > p).sum()) for p in redondeado])  # los empates comparten posición
     print(f"\n{titulo}: {', '.join(componentes)}")
     if not pesos_azar:
         print("com | puntaje con pesos iguales | posición")
