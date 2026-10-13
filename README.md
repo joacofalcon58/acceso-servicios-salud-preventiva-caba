@@ -160,3 +160,9 @@ El mapa del informe usa ArcGIS Maps for Power BI, que necesita conexión a inter
 El código y la documentación de este repositorio se publican bajo la licencia MIT.
 
 Los datos de las Estaciones Saludables y de los polígonos de comunas pertenecen al Gobierno de la Ciudad Autónoma de Buenos Aires y están bajo la licencia CC-BY-2.5-AR. Los datos del Censo 2022 pertenecen al INDEC. Se debe citar la fuente al reutilizarlos.
+
+---
+
+AI-assisted development was used for selected documentation, QA and development
+workflows. All analytical logic, results and final implementation were reviewed
+and validated manually.
