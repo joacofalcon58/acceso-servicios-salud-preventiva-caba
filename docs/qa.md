@@ -535,7 +535,7 @@ Puntos a decidir antes de publicar:
 
 - **Ruta local en el modelo (resuelto).** El parámetro `RutaProyecto` quedó con un valor neutro (`C:\RUTA\AL\REPOSITORIO`), porque Power BI no admite rutas relativas para archivos locales. Hay que cambiarlo por la carpeta del repositorio antes de actualizar los datos.
 - **Documentos de referencia (resuelto).** El PDF del manual de estilo del Gobierno de la Ciudad (2 MB) no se publica: queda excluido con `.gitignore`. Solo se versiona el documento de proyecto.
-- **Capturas.** El README enlaza cuatro imágenes que todavía no existen en `images/`.
+- **Capturas (resuelto parcialmente).** Se quitaron del README las tres imágenes rotas de las páginas de Power BI; solo queda la portada. Cuando existan las capturas, se agregan a `images/`, y el dashboard se puede ver en línea mientras tanto.
 - **Nombre en la licencia.** Se usó "Joaquín Falcón".
 
 ## Anexo: dashboard en HTML

@@ -8,6 +8,8 @@ El objetivo no es únicamente identificar dónde existen establecimientos, sino 
 
 ![Portada del dashboard](images/portada.png)
 
+**[→ View Live Dashboard](https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/)** · **[→ Explore Source Code](powerbi/)**
+
 ## Objetivo
 
 Responder una pregunta: ¿la población de CABA tiene un acceso territorialmente equitativo a los servicios preventivos de las Estaciones Saludables?
@@ -89,19 +91,13 @@ El dashboard tiene tres páginas.
 | Disponibilidad de Servicios | Matriz de servicio por comuna, cobertura territorial por servicio y comparación de fijas y móviles |
 | Brechas de Acceso | Mapa de comunas por disponibilidad relativa, dispersión de población y estaciones, y tabla de indicadores |
 
-![Acceso Territorial](images/acceso-territorial.png)
-
-![Disponibilidad de Servicios](images/servicios.png)
-
-![Brechas de Acceso](images/brechas.png)
-
 Las decisiones de diseño están en [docs/diseno-dashboard.md](docs/diseno-dashboard.md).
 
 ### Versión en HTML
 
-[`index.html`](index.html) reúne la información de las tres páginas en un único archivo que se abre en cualquier navegador, sin Power BI. Incluye la portada, filtros por comuna, barrio, tipo, estructura y servicio, la matriz de servicios, un mapa de comunas coloreado por Acceso Relativo y un panel de preguntas rápidas. Se genera con `scripts/construir_dashboard_html.py` a partir de los mismos archivos de origen, y sus totales coinciden con las medidas del modelo.
+[`index.html`](index.html) ([ver en línea](https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/)) reúne la información de las tres páginas en un único archivo que se abre en cualquier navegador, sin Power BI. Incluye la portada, filtros por comuna, barrio, tipo, estructura y servicio, la matriz de servicios, un mapa de comunas coloreado por Acceso Relativo y un panel de preguntas rápidas. Se genera con `scripts/construir_dashboard_html.py` a partir de los mismos archivos de origen, y sus totales coinciden con las medidas del modelo.
 
-Para publicarlo, se puede activar GitHub Pages sobre la rama `main`, carpeta raíz.
+Se puede ver en línea en [joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/](https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/), publicado con GitHub Pages desde la rama `main`.
 
 ## Principales hallazgos
 
