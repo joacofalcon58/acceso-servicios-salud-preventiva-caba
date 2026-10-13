@@ -7,7 +7,18 @@
 <meta name="description" content="Dashboard sobre la accesibilidad territorial a las Estaciones Saludables de la Ciudad de Buenos Aires: dónde están, qué servicios ofrecen y qué comunas tienen menor disponibilidad relativa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap"></noscript>
+<meta name="author" content="Joaquín F. Falcón">
+<meta name="theme-color" content="#0A2A3C">
+<link rel="canonical" href="https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A2A3C'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2386DCE5'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23F2C300'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:url" content="https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/">
+<meta property="og:title" content="Acceso a servicios de salud preventiva en CABA">
+<meta property="og:image" content="https://joacofalcon58.github.io/acceso-servicios-salud-preventiva-caba/images/portada.png">
+<meta property="og:description" content="Proyecto analítico independiente con datos públicos: dónde están las Estaciones Saludables de la Ciudad de Buenos Aires, qué servicios ofrecen y qué comunas tienen menor disponibilidad relativa.">
 <style>
 :root{
   color-scheme: light;
@@ -75,9 +86,12 @@
 
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ transition:none !important; } }
 body{ margin:0; background:var(--page-bg); color:var(--text); font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif; line-height:1.45; }
 h1,h2,h3,h4{ font-family:'Archivo',system-ui,sans-serif; }
 .wrap{ max-width:1360px; margin:0 auto; padding:0 22px; }
+.skip{ position:absolute; left:-9999px; top:8px; z-index:400; background:var(--navy); color:#fff; padding:8px 14px; border-radius:6px; font-weight:700; }
+.skip:focus{ left:8px; }
 .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 :focus-visible{ outline:3px solid var(--amarillo); outline-offset:2px; }
 
@@ -206,7 +220,7 @@ table.dt tbody tr.sel td:first-child{ box-shadow:inset 4px 0 0 var(--amarillo); 
 .tbl-wrap{ overflow:auto; }
 .chip{ display:inline-block; padding:2px 9px; border-radius:20px; font-size:11px; font-weight:700; white-space:nowrap; }
 .chip.g-mayor{ background:var(--seq-2); color:#fff; }
-.chip.g-medio{ background:var(--seq-1); color:#fff; }
+.chip.g-medio{ background:var(--azul-2); color:#fff; }
 .chip.g-menor{ background:var(--seq-0); color:var(--text); border:1px solid var(--border); }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .chip.g-mayor{ color:#0A2A3C; } :root:not([data-theme="light"]) .chip.g-medio{ color:#fff; } }
 #p2-tipo table.dt th{ white-space:normal; vertical-align:bottom; line-height:1.25; padding:8px 4px; font-size:10.5px; letter-spacing:.02em; } #p2-tipo table.dt td{ padding:8px 4px; }
@@ -260,6 +274,11 @@ footer.foot a{ color:var(--azul-3); }
   footer.foot .cols{ grid-template-columns:1fr; }
   .header .scope{ text-align:left; }
 }
+@media (max-width:760px){
+  /* navegación en una sola fila con desplazamiento horizontal: no ocupa un cuarto de la pantalla */
+  .navrow .wrap{ flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; }
+  .navrow a{ white-space:nowrap; padding:12px 14px; }
+}
 @media (max-width:520px){
   .kpi-value{ font-size:26px; }
   .bar-row{ grid-template-columns:90px 1fr auto; }
@@ -272,19 +291,20 @@ footer.foot a{ color:var(--azul-3); }
 </style>
 </head>
 <body>
+<a class="skip" href="#territorial">Saltar al contenido</a>
 
 <div class="hero">
   <img class="hero-img" src="__PORTADA__" alt="Acceso a servicios de salud preventiva en CABA: Estaciones Saludables, cobertura territorial y brechas de acceso. Ilustración del mapa de la Ciudad con puntos de color sobre fondo azul oscuro.">
 </div>
 
 <div class="topbar"><div class="wrap">
-  CIUDAD AUTÓNOMA DE BUENOS AIRES &nbsp;·&nbsp; <b>Joaquín F. Falcón</b> · Acceso a servicios de salud preventiva
+  PROYECTO ANALÍTICO INDEPENDIENTE CON DATOS PÚBLICOS &nbsp;·&nbsp; <b>Joaquín F. Falcón</b> · Data Analyst | Business Intelligence | Healthcare Analytics
 </div></div>
 
 <div class="header"><div class="wrap">
   <div>
     <h1>Acceso a servicios de salud preventiva en CABA</h1>
-    <div class="sub">Dashboard ejecutivo · Estaciones Saludables · Datos 2026 y Censo 2022</div>
+    <div class="sub">Estaciones Saludables de la Ciudad de Buenos Aires · Datos de 2026 y Censo 2022 · No es un producto oficial del Gobierno de la Ciudad</div>
   </div>
   <div class="scope" id="scope"></div>
 </div></div>
@@ -385,7 +405,7 @@ footer.foot a{ color:var(--azul-3); }
     <div>
       <p><b>Fuentes.</b> Estaciones Saludables y polígonos de comunas: <a href="https://data.buenosaires.gob.ar/dataset/estaciones-saludables">BA Data</a>, Gobierno de la Ciudad (licencia CC-BY-2.5-AR, 2026). Población, superficie y población por edad: INDEC, Censo 2022, resultados definitivos. Las estaciones son de 2026 y la población, de 2022: los años no se ajustaron.</p>
       <p><b>Mismo cálculo que el informe de Power BI.</b> Esta página reúne la información de las tres páginas del informe y se genera con el script <code>scripts/construir_dashboard_html.py</code> a partir de los mismos archivos de origen. Los totales coinciden con las medidas del modelo. Una diferencia de presentación: el mapa de comunas se dibuja como polígonos y no como círculos en el centro de cada comuna.</p>
-      <p><b>Indicadores.</b> Las estaciones cada 100.000 habitantes cuentan las estaciones ubicadas en la comuna. La cobertura espacial mide el porcentaje de la superficie de la comuna a menos de 1.000 metros de una estación de cualquier comuna, en línea recta y ponderado por superficie. El Acceso Relativo promedia, con pesos iguales, la posición de la comuna entre las 15 en tres componentes; en las 20.000 combinaciones de pesos probadas, la Comuna 6 queda primera y la Comuna 1 última en el 90 % central. Detalle en <code>docs/metodologia.md</code>.</p>
+      <p><b>Indicadores.</b> Las estaciones cada 100.000 habitantes cuentan las estaciones ubicadas en la comuna. La cobertura espacial mide el porcentaje de la superficie de la comuna a menos de 1.000 metros de una estación de cualquier comuna, en línea recta y ponderado por superficie. El Acceso Relativo promedia, con pesos iguales, la posición de la comuna entre las 15 en tres componentes; compara comunas entre sí y no mide el acceso efectivo de las personas. En las pruebas de sensibilidad (pesos, normalización y truncamiento de datos), la Comuna 6 queda siempre primera y la Comuna 1 siempre última; las comunas 4, 10 y 11 se mantienen entre las cinco últimas en casi todas las variantes, y el centro del ordenamiento cambia. Detalle en <code>docs/metodologia.md</code>.</p>
     </div>
     <div>
       <h4 style="margin-top:0;">Limitaciones</h4>
@@ -408,7 +428,8 @@ footer.foot a{ color:var(--azul-3); }
       </ul>
     </div>
   </div>
-  <p style="margin-top:20px; opacity:.8;">Acceso a servicios de salud preventiva en CABA · Joaquín F. Falcón · generado el __FECHA__ · código y documentación bajo licencia MIT; datos bajo la licencia de cada fuente.</p>
+  <p style="margin-top:20px;"><b>Proyecto analítico independiente.</b> Elaborado por Joaquín F. Falcón con datos públicos de BA Data y del INDEC. No es un producto oficial ni cuenta con el aval del Gobierno de la Ciudad de Buenos Aires; los nombres y la identidad visual de la Ciudad se usan solo como referencia de la fuente.</p>
+  <p style="margin-top:8px; opacity:.85;">Acceso a servicios de salud preventiva en CABA · Joaquín F. Falcón · generado el __FECHA__ · código y documentación bajo licencia MIT; datos bajo la licencia de cada fuente.</p>
 </footer>
 </main>
 
@@ -657,7 +678,7 @@ function p2Render(){
   const filas = activos.slice().sort((a,b)=> b.n-a.n || byEs(a.nombre,b.nombre));
   if (!filas.length){ $('#p2-matrix').innerHTML = '<div class="empty">Ninguna estación cumple los filtros.</div>'; }
   else {
-    let h = '<table class="mx"><thead><tr><th class="rl" scope="col">Servicio</th>' + cols.map(c=>`<th scope="col" title="${c.nombre}">${c.corta}</th>`).join('') + '<th scope="col" title="Estaciones que lo ofrecen">Est.</th></tr></thead><tbody>';
+    let h = '<table class="mx" aria-label="Disponibilidad de cada servicio por comuna"><thead><tr><th class="rl" scope="col">Servicio</th>' + cols.map(c=>`<th scope="col" title="${c.nombre}">${c.corta}</th>`).join('') + '<th scope="col" title="Estaciones que lo ofrecen">Est.</th></tr></thead><tbody>';
     filas.forEach(s => {
       h += `<tr><th class="rl" scope="row">${esc(s.nombre)}</th>` + cols.map(c => s.comunas.has(c.id)
         ? `<td><span class="y" role="img" aria-label="${c.nombre}: sí">●</span></td>`
@@ -676,7 +697,7 @@ function p2Render(){
     const sv = new Set(); l.forEach(e=>e.servicios.forEach(s=>sv.add(s)));
     return {t, n:l.length, prom:d.length?d.reduce((a,e)=>a+e.servicios.length,0)/d.length:null, dist:sv.size, div:sv.size/TOTAL_SERV, com:new Set(l.map(e=>e.comuna)).size};
   }).filter(Boolean);
-  $('#p2-tipo').innerHTML = rows.length ? '<table class="dt"><thead><tr><th>Tipo</th><th class="num">Estaciones</th><th class="num">Servicios por estación</th><th class="num">Servicios distintos</th><th class="num">Diversidad</th><th class="num">Comunas</th></tr></thead><tbody>' +
+  $('#p2-tipo').innerHTML = rows.length ? '<table class="dt" aria-label="Comparación de estaciones fijas y móviles"><thead><tr><th>Tipo</th><th class="num">Estaciones</th><th class="num">Servicios por estación</th><th class="num">Servicios distintos</th><th class="num">Diversidad</th><th class="num">Comunas</th></tr></thead><tbody>' +
     rows.map(r=>`<tr><td><b style="color:${r.t==='Fija'?'var(--fija)':'var(--movil)'}">●</b> ${r.t}</td><td class="num">${r.n}</td><td class="num">${r.prom===null?'–':NF1.format(r.prom)}</td><td class="num">${r.dist}</td><td class="num">${PCT1(r.div)}</td><td class="num">${r.com}</td></tr>`).join('') + '</tbody></table>' : '<div class="empty">Ninguna estación cumple los filtros.</div>';
 }
 
@@ -724,7 +745,7 @@ function p3Render(){
   const rows = M.slice().sort((a,b)=>a.c.posicion-b.c.posicion || a.c.id-b.c.id);
   const grp = g => g.startsWith('Mayor') ? 'g-mayor' : g.startsWith('Menor') ? 'g-menor' : 'g-medio';
   const dash = (v,f) => v===null ? '–' : f(v);
-  $('#p3-table').innerHTML = '<table class="dt"><thead><tr><th>Comuna</th><th class="num">Población</th><th class="num">Estaciones</th><th class="num">Est. cada 100.000</th><th class="num">Hab. por estación</th><th class="num">Servicios distintos</th><th class="num">Serv. cada 100.000</th><th class="num">Diversidad</th><th class="num">Fijas</th><th class="num">Móviles</th><th class="num">Acceso Relativo</th><th>Grupo</th></tr></thead><tbody>' +
+  $('#p3-table').innerHTML = '<table class="dt" aria-label="Indicadores por comuna, ordenados por Acceso Relativo"><thead><tr><th>Comuna</th><th class="num">Población</th><th class="num">Estaciones</th><th class="num">Est. cada 100.000</th><th class="num">Hab. por estación</th><th class="num">Servicios distintos</th><th class="num">Serv. cada 100.000</th><th class="num">Diversidad</th><th class="num">Fijas</th><th class="num">Móviles</th><th class="num">Acceso Relativo</th><th>Grupo</th></tr></thead><tbody>' +
     rows.map(m=>`<tr data-c="${m.c.id}" class="${selC===m.c.id?'sel':''}"><td><b>${m.c.nombre}</b></td><td class="num">${NF0.format(m.c.poblacion)}</td><td class="num">${m.n}</td><td class="num">${dash(m.est100k,NF2.format)}</td><td class="num">${dash(m.hab,NF0.format)}</td><td class="num">${m.n?m.dist:'–'}</td><td class="num">${dash(m.serv100k,NF1.format)}</td><td class="num">${dash(m.div,PCT1)}</td><td class="num">${m.fijas}</td><td class="num">${m.moviles}</td><td class="num"><div class="acc-cell"><span>${NF1.format(m.c.acceso)}</span><span class="mini"><i style="width:${m.c.acceso}%"></i></span></div></td><td><span class="chip ${grp(m.c.grupo)}">${esc(m.c.grupo.replace('Mayor disponibilidad relativa','Mayor').replace('Menor disponibilidad relativa','Menor').replace('Disponibilidad relativa intermedia','Intermedia'))}</span></td></tr>`).join('') + '</tbody></table>';
   $('#p3-table').querySelectorAll('tbody tr').forEach(tr => tr.addEventListener('click', () => { const id=+tr.dataset.c; selC = selC===id ? null : id; p3Render(); }));
 }
